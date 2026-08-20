@@ -8,6 +8,11 @@ export default function Footer() {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
+  const bookWhatsAppUrl =
+    "https://wa.me/919876543210?text=Hello%20Hotel%20Silver%20Star%2C%20I%20would%20like%20to%20book%20a%20room.";
+  const contactWhatsAppUrl =
+    "https://wa.me/919876543210?text=Hello%20Hotel%20Silver%20Star%2C%20I%20have%20a%20query%20regarding%20my%20stay.";
+
   return (
     <footer className="relative w-full bg-[#141414] text-white pt-24 sm:pt-28 pb-10 overflow-hidden">
       <div className="max-w-[1140px] mx-auto px-4 sm:px-6">
@@ -35,7 +40,7 @@ export default function Footer() {
                 Comfortable stays, warm hospitality and unforgettable experiences.
               </p>
 
-              {/* Social Icons with 44px min touch target */}
+              {/* Social Icons */}
               <div className="flex items-center gap-3">
                 {/* Facebook */}
                 <a
@@ -67,7 +72,9 @@ export default function Footer() {
                 </a>
                 {/* WhatsApp */}
                 <a
-                  href="#"
+                  href={contactWhatsAppUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   aria-label="WhatsApp"
                   className="w-10 h-10 rounded-full bg-white/5 border border-white/10 hover:border-[#b30018] hover:text-[#b30018] hover:-translate-y-1 hover:shadow-lg hover:shadow-red-800/30 flex items-center justify-center text-gray-300 transition-all duration-300 min-w-[40px] min-h-[40px]"
                 >
@@ -95,10 +102,10 @@ export default function Footer() {
                   <a href="#gallery" className="hover:text-white transition-colors duration-200 footer-link-hover py-1 inline-block">Gallery</a>
                 </li>
                 <li>
-                  <a href="#offers" className="hover:text-white transition-colors duration-200 footer-link-hover py-1 inline-block">Offers</a>
+                  <a href="#rooms" className="hover:text-white transition-colors duration-200 footer-link-hover py-1 inline-block">Offers</a>
                 </li>
                 <li>
-                  <a href="#contact" className="hover:text-white transition-colors duration-200 footer-link-hover py-1 inline-block">Contact</a>
+                  <a href={contactWhatsAppUrl} target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors duration-200 footer-link-hover py-1 inline-block">Contact</a>
                 </li>
               </ul>
             </div>
@@ -135,7 +142,9 @@ export default function Footer() {
                 <span>info@hotelsilverstar.com</span>
               </div>
               <a
-                href="#rooms"
+                href={bookWhatsAppUrl}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="inline-flex items-center justify-center bg-[#b30018] hover:bg-[#990012] text-white px-7 py-2.5 rounded-lg font-bold text-xs tracking-[0.14em] uppercase transition-all duration-300 shadow-md hover:shadow-red-800/40 hover:-translate-y-0.5 active:translate-y-0 min-h-[44px]"
               >
                 BOOK NOW

@@ -8,8 +8,12 @@ const navLinks = [
   { label: "ROOMS", href: "#rooms" },
   { label: "AMENITIES", href: "#amenities" },
   { label: "GALLERY", href: "#gallery" },
-  { label: "OFFERS", href: "#offers" },
-  { label: "CONTACT", href: "#contact" },
+  { label: "OFFERS", href: "#rooms" },
+  {
+    label: "CONTACT",
+    href: "https://wa.me/919876543210?text=Hello%20Hotel%20Silver%20Star%2C%20I%20have%20a%20query%20regarding%20my%20stay.",
+    external: true,
+  },
 ];
 
 export default function Header() {
@@ -37,6 +41,9 @@ export default function Header() {
       document.body.style.overflow = "";
     };
   }, [mobileOpen]);
+
+  const bookUrl =
+    "https://wa.me/919876543210?text=Hello%20Hotel%20Silver%20Star%2C%20I%20would%20like%20to%20book%20a%20room.";
 
   return (
     <header
@@ -72,6 +79,8 @@ export default function Header() {
             <a
               key={link.label}
               href={link.href}
+              target={link.external ? "_blank" : undefined}
+              rel={link.external ? "noopener noreferrer" : undefined}
               className={`text-[14px] xl:text-[16px] font-semibold text-white/95 hover:text-white transition-all duration-300 nav-link-hover ${
                 mounted ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-2"
               }`}
@@ -84,7 +93,7 @@ export default function Header() {
           ))}
         </nav>
 
-        {/* Desktop Book Now Button with Dark Depth Red */}
+        {/* Desktop Book Now Button -> WhatsApp */}
         <div
           className={`hidden lg:block transition-all duration-500 ${
             mounted ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-2"
@@ -92,7 +101,9 @@ export default function Header() {
           style={{ transitionDelay: "650ms" }}
         >
           <a
-            href="#rooms"
+            href={bookUrl}
+            target="_blank"
+            rel="noopener noreferrer"
             className="group bg-[#b30018] hover:bg-[#990012] text-white px-6 xl:px-8 py-3 xl:py-3.5 rounded-lg font-bold text-xs xl:text-[13px] uppercase flex items-center gap-2.5 transition-all duration-300 shadow-[0_4px_14px_rgba(179,0,24,0.35)] hover:shadow-red-800/40 hover:-translate-y-0.5 active:translate-y-0"
           >
             <span>BOOK NOW</span>
@@ -103,7 +114,9 @@ export default function Header() {
         {/* Mobile Actions: Compact CTA + Hamburger */}
         <div className="flex items-center gap-2.5 lg:hidden">
           <a
-            href="#rooms"
+            href={bookUrl}
+            target="_blank"
+            rel="noopener noreferrer"
             className="bg-[#b30018] text-white px-3.5 py-2 rounded-md font-bold text-[11px] uppercase tracking-wider flex items-center gap-1.5 active:scale-95 transition-transform shadow-md"
           >
             <span>BOOK</span>
@@ -127,6 +140,8 @@ export default function Header() {
               <a
                 key={link.label}
                 href={link.href}
+                target={link.external ? "_blank" : undefined}
+                rel={link.external ? "noopener noreferrer" : undefined}
                 onClick={() => setMobileOpen(false)}
                 className="text-[17px] font-semibold text-white/90 hover:text-[#b30018] transition-colors py-3 border-b border-white/5 flex items-center justify-between min-h-[44px]"
                 style={{ animationDelay: `${idx * 40}ms` }}
@@ -139,7 +154,9 @@ export default function Header() {
 
           <div className="pt-8 pb-6">
             <a
-              href="#rooms"
+              href={bookUrl}
+              target="_blank"
+              rel="noopener noreferrer"
               onClick={() => setMobileOpen(false)}
               className="w-full flex items-center justify-center gap-2.5 bg-[#b30018] active:bg-[#990012] text-white px-6 py-4 rounded-xl font-bold text-[14px] uppercase tracking-wider shadow-lg shadow-red-900/40 min-h-[48px]"
             >

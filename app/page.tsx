@@ -2,8 +2,9 @@
 
 import { useEffect, useState } from "react";
 import Image from "next/image";
-import { Play, Calendar, Users, ChevronDown, BedDouble, Zap, Wifi, MapPin, Check } from "lucide-react";
+import { Play, BedDouble, Zap, Wifi, MapPin, Check } from "lucide-react";
 import Header from "./components/Header";
+import BookingBar from "./components/BookingBar";
 import Rooms from "./components/Rooms";
 import Gallery from "./components/Gallery";
 import Testimonials from "./components/Testimonials";
@@ -135,72 +136,8 @@ export default function Home() {
 
       {/* Booking Form & Amenities Section (Light Background) */}
       <section className="relative w-full bg-[#faf8f5] pb-20 sm:pb-24">
-        {/* Booking Form Widget (Overlapping hero) */}
-        <div
-          className={`max-w-[1440px] mx-auto px-4 sm:px-6 md:px-8 lg:px-10 relative -mt-10 sm:-mt-12 z-20 transition-all duration-800 ease-out ${
-            heroMounted ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
-          }`}
-          style={{ transitionDelay: "700ms" }}
-        >
-          <div className="bg-white rounded-2xl shadow-[0_15px_40px_rgba(0,0,0,0.08)] border border-gray-100/80 p-5 sm:p-7 flex flex-col lg:flex-row items-stretch lg:items-center justify-between gap-4 lg:gap-0 transition-shadow duration-300 hover:shadow-[0_20px_50px_rgba(0,0,0,0.12)]">
-            
-            {/* Grid for Inputs on Mobile / Tablet */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:flex lg:flex-1 lg:items-center gap-4 lg:gap-0">
-              {/* Check In */}
-              <div className="lg:flex-1 lg:pr-6 xl:pr-8 lg:border-r border-gray-200/70 flex flex-col justify-center group hover:bg-neutral-50/80 p-3 sm:p-2.5 rounded-xl transition-colors duration-200 cursor-pointer min-h-[44px]">
-                <span className="text-[11px] font-bold text-gray-400 uppercase tracking-wider block mb-1 group-hover:text-[#b30018] transition-colors">
-                  CHECK IN
-                </span>
-                <div className="flex items-center justify-between">
-                  <span className="text-[14px] sm:text-[15px] font-bold text-gray-900">24 May 2025</span>
-                  <Calendar className="w-4.5 h-4.5 text-gray-400 group-hover:text-[#b30018] transition-colors" />
-                </div>
-              </div>
-
-              {/* Check Out */}
-              <div className="lg:flex-1 lg:px-6 xl:px-8 lg:border-r border-gray-200/70 flex flex-col justify-center group hover:bg-neutral-50/80 p-3 sm:p-2.5 rounded-xl transition-colors duration-200 cursor-pointer min-h-[44px]">
-                <span className="text-[11px] font-bold text-gray-400 uppercase tracking-wider block mb-1 group-hover:text-[#b30018] transition-colors">
-                  CHECK OUT
-                </span>
-                <div className="flex items-center justify-between">
-                  <span className="text-[14px] sm:text-[15px] font-bold text-gray-900">25 May 2025</span>
-                  <Calendar className="w-4.5 h-4.5 text-gray-400 group-hover:text-[#b30018] transition-colors" />
-                </div>
-              </div>
-
-              {/* Guests */}
-              <div className="lg:flex-1 lg:px-6 xl:px-8 lg:border-r border-gray-200/70 flex flex-col justify-center group hover:bg-neutral-50/80 p-3 sm:p-2.5 rounded-xl transition-colors duration-200 cursor-pointer min-h-[44px]">
-                <span className="text-[11px] font-bold text-gray-400 uppercase tracking-wider block mb-1 group-hover:text-[#b30018] transition-colors">
-                  GUESTS
-                </span>
-                <div className="flex items-center justify-between">
-                  <span className="text-[14px] sm:text-[15px] font-bold text-gray-900">2 Guests</span>
-                  <Users className="w-4.5 h-4.5 text-gray-400 group-hover:text-[#b30018] transition-colors" />
-                </div>
-              </div>
-
-              {/* Room Type */}
-              <div className="lg:flex-1 lg:px-6 xl:px-8 flex flex-col justify-center group hover:bg-neutral-50/80 p-3 sm:p-2.5 rounded-xl transition-colors duration-200 cursor-pointer min-h-[44px]">
-                <span className="text-[11px] font-bold text-gray-400 uppercase tracking-wider block mb-1 group-hover:text-[#b30018] transition-colors">
-                  ROOM TYPE
-                </span>
-                <div className="flex items-center justify-between">
-                  <span className="text-[14px] sm:text-[15px] font-bold text-gray-900">Any</span>
-                  <ChevronDown className="w-4.5 h-4.5 text-gray-400 group-hover:text-[#b30018] transition-colors" />
-                </div>
-              </div>
-            </div>
-
-            {/* Submit Button with Rich Crimson Red Depth */}
-            <div className="lg:pl-6 xl:pl-8 flex items-center pt-2 lg:pt-0">
-              <button
-                className="bg-[#b30018] hover:bg-[#990012] text-white px-8 xl:px-10 py-3.5 sm:py-4 rounded-xl font-bold text-xs sm:text-[13px] tracking-wider uppercase transition-all duration-300 shadow-[0_4px_16px_rgba(179,0,24,0.35)] hover:shadow-red-800/50 hover:-translate-y-0.5 active:translate-y-0 whitespace-nowrap w-full lg:w-auto min-h-[48px] cursor-pointer"
-              >
-                CHECK AVAILABILITY
-              </button>
-            </div>
-          </div>
-        </div>
+        {/* Interactive Booking Form Widget -> WhatsApp */}
+        <BookingBar heroMounted={heroMounted} />
 
         {/* Amenities 4-Column Grid with Staggered Viewport Reveal */}
         <div className="max-w-[1440px] mx-auto px-4 sm:px-6 md:px-8 lg:px-10 pt-16 sm:pt-20">
@@ -329,10 +266,12 @@ export default function Home() {
                 </div>
               </Reveal>
 
-              {/* CTA Button */}
+              {/* CTA Button -> WhatsApp */}
               <Reveal type="up" delay={520}>
                 <a
-                  href="#rooms"
+                  href="https://wa.me/919876543210?text=Hello%20Hotel%20Silver%20Star%2C%20I%20would%20like%20to%20know%20more%20about%20your%20hotel."
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="inline-flex items-center justify-center bg-[#b30018] hover:bg-[#990012] text-white px-8 py-3.5 rounded-lg font-bold text-xs tracking-[0.14em] uppercase transition-all duration-300 shadow-[0_4px_14px_rgba(179,0,24,0.35)] hover:shadow-red-800/40 hover:-translate-y-0.5 active:translate-y-0 min-h-[44px]"
                 >
                   ABOUT US
