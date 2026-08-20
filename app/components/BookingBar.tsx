@@ -86,6 +86,7 @@ export default function BookingBar({ heroMounted }: { heroMounted: boolean }) {
               type="date"
               value={checkIn}
               min={formatDateValue(today)}
+              style={{ colorScheme: "light" }}
               onChange={(e) => {
                 const newCheckIn = e.target.value;
                 setCheckIn(newCheckIn);
@@ -96,7 +97,7 @@ export default function BookingBar({ heroMounted }: { heroMounted: boolean }) {
                   setCheckOut(formatDateValue(nextDay));
                 }
               }}
-              className="absolute inset-0 opacity-0 cursor-pointer w-full h-full"
+              className="absolute inset-0 opacity-0 cursor-pointer w-full h-full bg-white text-gray-900"
             />
           </div>
 
@@ -128,8 +129,9 @@ export default function BookingBar({ heroMounted }: { heroMounted: boolean }) {
               type="date"
               value={checkOut}
               min={checkIn || formatDateValue(tomorrow)}
+              style={{ colorScheme: "light" }}
               onChange={(e) => setCheckOut(e.target.value)}
-              className="absolute inset-0 opacity-0 cursor-pointer w-full h-full"
+              className="absolute inset-0 opacity-0 cursor-pointer w-full h-full bg-white text-gray-900"
             />
           </div>
 
@@ -152,13 +154,14 @@ export default function BookingBar({ heroMounted }: { heroMounted: boolean }) {
               ref={guestsRef}
               value={guests}
               onChange={(e) => setGuests(e.target.value)}
-              className="absolute inset-0 opacity-0 cursor-pointer w-full h-full text-base"
+              style={{ colorScheme: "light" }}
+              className="absolute inset-0 opacity-0 cursor-pointer w-full h-full text-base bg-white text-gray-900"
             >
-              <option value="1 Guest">1 Guest</option>
-              <option value="2 Guests">2 Guests</option>
-              <option value="3 Guests">3 Guests</option>
-              <option value="4 Guests">4 Guests</option>
-              <option value="5+ Guests">5+ Guests</option>
+              <option value="1 Guest" className="bg-white text-gray-900">1 Guest</option>
+              <option value="2 Guests" className="bg-white text-gray-900">2 Guests</option>
+              <option value="3 Guests" className="bg-white text-gray-900">3 Guests</option>
+              <option value="4 Guests" className="bg-white text-gray-900">4 Guests</option>
+              <option value="5+ Guests" className="bg-white text-gray-900">5+ Guests</option>
             </select>
           </div>
 
@@ -181,11 +184,12 @@ export default function BookingBar({ heroMounted }: { heroMounted: boolean }) {
               ref={roomTypeRef}
               value={roomType}
               onChange={(e) => setRoomType(e.target.value)}
-              className="absolute inset-0 opacity-0 cursor-pointer w-full h-full text-base"
+              style={{ colorScheme: "light" }}
+              className="absolute inset-0 opacity-0 cursor-pointer w-full h-full text-base bg-white text-gray-900"
             >
-              <option value="Any">Any</option>
-              <option value="AC Rooms">AC Rooms</option>
-              <option value="Non AC Rooms">Non AC Rooms</option>
+              <option value="Any" className="bg-white text-gray-900">Any</option>
+              <option value="AC Rooms" className="bg-white text-gray-900">AC Rooms</option>
+              <option value="Non AC Rooms" className="bg-white text-gray-900">Non AC Rooms</option>
             </select>
           </div>
 
