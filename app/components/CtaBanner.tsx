@@ -31,7 +31,6 @@ export default function CtaBanner() {
           <div className="w-full sm:w-auto">
             <a
               href="#contact"
-              data-cursor="Contact"
               className="inline-flex items-center justify-center bg-white hover:bg-gray-50 text-gray-900 px-8 sm:px-9 py-3.5 rounded-xl font-bold text-xs sm:text-[13px] tracking-wider uppercase transition-all duration-300 shadow-md hover:shadow-xl hover:-translate-y-0.5 active:translate-y-0 whitespace-nowrap w-full sm:w-auto min-h-[48px]"
             >
               CONTACT US

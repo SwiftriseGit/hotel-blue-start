@@ -126,8 +126,7 @@ export default function Gallery() {
 
             <Reveal type="left" delay={250}>
               <button
-                data-cursor="View"
-                className="border border-white/40 hover:border-white text-white px-6 py-2.5 rounded-lg font-bold text-xs tracking-[0.14em] uppercase transition-all duration-300 hover:bg-white/10 hover:-translate-y-0.5 active:translate-y-0 min-h-[40px]"
+                className="border border-white/40 hover:border-white text-white px-6 py-2.5 rounded-lg font-bold text-xs tracking-[0.14em] uppercase transition-all duration-300 hover:bg-white/10 hover:-translate-y-0.5 active:translate-y-0 min-h-[40px] cursor-pointer"
               >
                 EXPLORE GALLERY
               </button>

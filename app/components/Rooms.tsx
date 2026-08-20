@@ -56,7 +56,6 @@ export default function Rooms() {
           {rooms.map((room, idx) => (
             <Reveal key={room.id} type="up" delay={200 + idx * 150} className="h-full">
               <div
-                data-cursor="Book"
                 className="bg-white rounded-2xl sm:rounded-3xl overflow-hidden shadow-[0_15px_40px_rgba(0,0,0,0.06)] border border-gray-100/90 flex flex-col transition-all duration-500 hover:shadow-[0_25px_55px_rgba(0,0,0,0.12)] hover:-translate-y-1.5 group cursor-pointer h-full"
               >
                 {/* Room Image with Smooth Zoom */}
@@ -101,8 +100,7 @@ export default function Rooms() {
         <Reveal type="up" delay={450}>
           <div className="flex justify-center mt-10 sm:mt-14">
             <button
-              data-cursor="View"
-              className="bg-[#b30018] hover:bg-[#990012] text-white px-8 sm:px-10 py-3.5 sm:py-4 rounded-lg font-bold text-xs tracking-[0.14em] uppercase transition-all duration-300 shadow-[0_4px_14px_rgba(179,0,24,0.35)] hover:shadow-red-800/40 hover:-translate-y-0.5 active:translate-y-0 min-h-[44px]"
+              className="bg-[#b30018] hover:bg-[#990012] text-white px-8 sm:px-10 py-3.5 sm:py-4 rounded-lg font-bold text-xs tracking-[0.14em] uppercase transition-all duration-300 shadow-[0_4px_14px_rgba(179,0,24,0.35)] hover:shadow-red-800/40 hover:-translate-y-0.5 active:translate-y-0 min-h-[44px] cursor-pointer"
             >
               VIEW ALL ROOMS
             </button>

@@ -11,7 +11,6 @@ import CtaBanner from "./components/CtaBanner";
 import Footer from "./components/Footer";
 import Reveal from "./components/Reveal";
 import ScrollProgress from "./components/ScrollProgress";
-import CustomCursor from "./components/CustomCursor";
 import PageLoader from "./components/PageLoader";
 
 export default function Home() {
@@ -34,9 +33,6 @@ export default function Home() {
 
       {/* Top 2.5px Scroll Progress Indicator */}
       <ScrollProgress />
-
-      {/* Desktop Custom Cursor */}
-      <CustomCursor />
 
       {/* Fixed Sticky Header */}
       <Header />
@@ -118,14 +114,12 @@ export default function Home() {
             >
               <a
                 href="#rooms"
-                data-cursor="Book"
                 className="group bg-[#b30018] hover:bg-[#990012] text-white px-6 sm:px-8 py-3.5 sm:py-4 rounded-lg font-bold text-xs sm:text-[13px] tracking-wider uppercase transition-all duration-300 shadow-[0_4px_16px_rgba(179,0,24,0.35)] hover:shadow-red-800/50 hover:-translate-y-0.5 active:translate-y-0 min-h-[44px] flex items-center justify-center"
               >
                 <span>DISCOVER ROOMS</span>
               </a>
               <button
-                data-cursor="Play"
-                className="flex items-center gap-3 text-white hover:text-[#c4001a] transition-colors duration-200 uppercase tracking-wider font-semibold text-xs min-h-[44px] group"
+                className="flex items-center gap-3 text-white hover:text-[#c4001a] transition-colors duration-200 uppercase tracking-wider font-semibold text-xs min-h-[44px] group cursor-pointer"
               >
                 <div className="w-10 h-10 rounded-full border border-white/60 group-hover:border-[#c4001a] flex items-center justify-center transition-all duration-300 group-hover:scale-110 group-hover:rotate-12">
                   <Play className="w-3.5 h-3.5 fill-current ml-0.5" />
@@ -200,8 +194,7 @@ export default function Home() {
             {/* Submit Button with Rich Crimson Red Depth */}
             <div className="lg:pl-6 xl:pl-8 flex items-center pt-2 lg:pt-0">
               <button
-                data-cursor="Book"
-                className="bg-[#b30018] hover:bg-[#990012] text-white px-8 xl:px-10 py-3.5 sm:py-4 rounded-xl font-bold text-xs sm:text-[13px] tracking-wider uppercase transition-all duration-300 shadow-[0_4px_16px_rgba(179,0,24,0.35)] hover:shadow-red-800/50 hover:-translate-y-0.5 active:translate-y-0 whitespace-nowrap w-full lg:w-auto min-h-[48px]"
+                className="bg-[#b30018] hover:bg-[#990012] text-white px-8 xl:px-10 py-3.5 sm:py-4 rounded-xl font-bold text-xs sm:text-[13px] tracking-wider uppercase transition-all duration-300 shadow-[0_4px_16px_rgba(179,0,24,0.35)] hover:shadow-red-800/50 hover:-translate-y-0.5 active:translate-y-0 whitespace-nowrap w-full lg:w-auto min-h-[48px] cursor-pointer"
               >
                 CHECK AVAILABILITY
               </button>
@@ -340,7 +333,6 @@ export default function Home() {
               <Reveal type="up" delay={520}>
                 <a
                   href="#rooms"
-                  data-cursor="Explore"
                   className="inline-flex items-center justify-center bg-[#b30018] hover:bg-[#990012] text-white px-8 py-3.5 rounded-lg font-bold text-xs tracking-[0.14em] uppercase transition-all duration-300 shadow-[0_4px_14px_rgba(179,0,24,0.35)] hover:shadow-red-800/40 hover:-translate-y-0.5 active:translate-y-0 min-h-[44px]"
                 >
                   ABOUT US
@@ -374,7 +366,6 @@ export default function Home() {
               {/* Image Card with Smooth Reveal & Hover Zoom */}
               <Reveal type="up" delay={200} className="relative z-10 w-full">
                 <div
-                  data-cursor="View"
                   className="group relative rounded-2xl md:rounded-3xl overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.12)] aspect-[4/3] sm:aspect-[16/11] lg:aspect-[4/3] w-full min-h-[300px] sm:min-h-[380px] bg-neutral-100 cursor-pointer"
                 >
                   <Image

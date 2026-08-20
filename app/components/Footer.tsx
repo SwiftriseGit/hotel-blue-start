@@ -136,7 +136,6 @@ export default function Footer() {
               </div>
               <a
                 href="#rooms"
-                data-cursor="Book"
                 className="inline-flex items-center justify-center bg-[#b30018] hover:bg-[#990012] text-white px-7 py-2.5 rounded-lg font-bold text-xs tracking-[0.14em] uppercase transition-all duration-300 shadow-md hover:shadow-red-800/40 hover:-translate-y-0.5 active:translate-y-0 min-h-[44px]"
               >
                 BOOK NOW
