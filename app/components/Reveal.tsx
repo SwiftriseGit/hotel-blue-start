@@ -17,7 +17,7 @@ export default function Reveal({
   delay = 0,
   duration = 0.85,
   className = "",
-  threshold = 0.15,
+  threshold = 0.05,
 }: RevealProps) {
   const ref = useRef<HTMLDivElement>(null);
   const [isVisible, setIsVisible] = useState(false);
@@ -39,7 +39,7 @@ export default function Reveal({
           observer.unobserve(el);
         }
       },
-      { threshold }
+      { threshold, rootMargin: "50px 0px" }
     );
 
     observer.observe(el);
@@ -49,35 +49,30 @@ export default function Reveal({
   const getInitialStyle = () => {
     switch (type) {
       case "up":
-        return "translate3d(0, 35px, 0)";
+        return "translate3d(0, 30px, 0)";
       case "down":
-        return "translate3d(0, -35px, 0)";
+        return "translate3d(0, -30px, 0)";
       case "left":
-        return "translate3d(-35px, 0, 0)";
+        return "translate3d(-30px, 0, 0)";
       case "right":
-        return "translate3d(35px, 0, 0)";
+        return "translate3d(30px, 0, 0)";
       case "scale":
-        return "scale(0.92)";
+        return "scale(0.95)";
       case "mask":
-        return "none";
       case "fade":
       default:
         return "none";
     }
   };
 
-  const isMask = type === "mask";
-
   return (
     <div
       ref={ref}
-      className={`${className} ${
-        isMask ? (isVisible ? "mask-reveal-clip revealed" : "mask-reveal-clip") : ""
-      }`}
+      className={className}
       style={{
-        opacity: isMask ? 1 : isVisible ? 1 : 0,
-        transform: isMask ? "none" : isVisible ? "translate3d(0, 0, 0) scale(1)" : getInitialStyle(),
-        transitionProperty: isMask ? "clip-path" : "opacity, transform",
+        opacity: isVisible ? 1 : 0,
+        transform: isVisible ? "translate3d(0, 0, 0) scale(1)" : getInitialStyle(),
+        transitionProperty: "opacity, transform",
         transitionDuration: `${duration}s`,
         transitionDelay: `${delay}ms`,
         transitionTimingFunction: "cubic-bezier(0.22, 1, 0.36, 1)",

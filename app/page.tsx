@@ -384,11 +384,11 @@ export default function Home() {
                 </svg>
               </div>
 
-              {/* Image Card with Mask Reveal & Smooth Zoom */}
-              <Reveal type="mask" duration={1.1} className="relative z-10 w-full">
+              {/* Image Card with Smooth Reveal & Hover Zoom */}
+              <Reveal type="up" delay={200} className="relative z-10 w-full">
                 <div
                   data-cursor="View"
-                  className="group relative rounded-2xl md:rounded-3xl overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.12)] aspect-[4/3] sm:aspect-[16/11] lg:aspect-[4/3] w-full bg-neutral-100 cursor-pointer"
+                  className="group relative rounded-2xl md:rounded-3xl overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.12)] aspect-[4/3] sm:aspect-[16/11] lg:aspect-[4/3] w-full min-h-[300px] sm:min-h-[380px] bg-neutral-100 cursor-pointer"
                 >
                   <Image
                     src="/about.png"
@@ -396,8 +396,9 @@ export default function Home() {
                     fill
                     className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
                     sizes="(max-width: 1024px) 100vw, 50vw"
+                    priority
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
                 </div>
               </Reveal>
             </div>
