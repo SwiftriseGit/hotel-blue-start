@@ -67,9 +67,8 @@ export default function Home() {
             <h1 className="font-serif text-[clamp(2.75rem,7.5vw,6.5rem)] font-normal text-white leading-[1.05] tracking-tight mb-5 sm:mb-6 drop-shadow-md">
               <span className="block overflow-hidden">
                 <span
-                  className={`block transition-all duration-700 ease-out ${
-                    heroMounted ? "translate-y-0 opacity-100" : "translate-y-full opacity-0"
-                  }`}
+                  className={`block transition-all duration-700 ease-out ${heroMounted ? "translate-y-0 opacity-100" : "translate-y-full opacity-0"
+                    }`}
                   style={{ transitionDelay: "100ms" }}
                 >
                   Your
@@ -77,9 +76,8 @@ export default function Home() {
               </span>
               <span className="block overflow-hidden">
                 <span
-                  className={`block transition-all duration-700 ease-out ${
-                    heroMounted ? "translate-y-0 opacity-100" : "translate-y-full opacity-0"
-                  }`}
+                  className={`block transition-all duration-700 ease-out ${heroMounted ? "translate-y-0 opacity-100" : "translate-y-full opacity-0"
+                    }`}
                   style={{ transitionDelay: "220ms" }}
                 >
                   Comfort,
@@ -87,9 +85,8 @@ export default function Home() {
               </span>
               <span className="block overflow-hidden">
                 <span
-                  className={`block transition-all duration-700 ease-out ${
-                    heroMounted ? "translate-y-0 opacity-100" : "translate-y-full opacity-0"
-                  }`}
+                  className={`block transition-all duration-700 ease-out ${heroMounted ? "translate-y-0 opacity-100" : "translate-y-full opacity-0"
+                    }`}
                   style={{ transitionDelay: "340ms" }}
                 >
                   Our{" "}
@@ -100,9 +97,8 @@ export default function Home() {
 
             {/* Supporting Paragraph */}
             <p
-              className={`text-gray-200 text-sm sm:text-base md:text-lg lg:text-xl font-light leading-relaxed mb-6 sm:mb-8 max-w-md transition-all duration-700 ease-out ${
-                heroMounted ? "translate-y-0 opacity-100" : "translate-y-6 opacity-0"
-              }`}
+              className={`text-gray-200 text-sm sm:text-base md:text-lg lg:text-xl font-light leading-relaxed mb-6 sm:mb-8 max-w-md transition-all duration-700 ease-out ${heroMounted ? "translate-y-0 opacity-100" : "translate-y-6 opacity-0"
+                }`}
               style={{ transitionDelay: "500ms" }}
             >
               A cozy stay with warm hospitality at the heart of the city.
@@ -110,14 +106,13 @@ export default function Home() {
 
             {/* CTA Buttons */}
             <div
-              className={`flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-5 transition-all duration-700 ease-out ${
-                heroMounted ? "translate-y-0 opacity-100" : "translate-y-6 opacity-0"
-              }`}
+              className={`flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-5 transition-all duration-700 ease-out ${heroMounted ? "translate-y-0 opacity-100" : "translate-y-6 opacity-0"
+                }`}
               style={{ transitionDelay: "650ms" }}
             >
               <a
                 href="#rooms"
-                className="w-full sm:w-auto group bg-[#b30018] hover:bg-[#990012] text-white px-6 sm:px-8 py-3.5 sm:py-4 rounded-lg font-bold text-xs sm:text-[13px] tracking-wider uppercase transition-all duration-300 shadow-[0_4px_16px_rgba(179,0,24,0.35)] hover:shadow-red-800/50 hover:-translate-y-0.5 active:translate-y-0 min-h-[44px] flex items-center justify-center"
+                className="inline-flex items-center justify-center group bg-[#b30018] hover:bg-[#990012] text-white px-6 sm:px-8 py-3 sm:py-3.5 rounded-lg font-bold text-xs sm:text-[13px] tracking-wider uppercase transition-all duration-300 shadow-[0_4px_16px_rgba(179,0,24,0.35)] hover:shadow-red-800/50 hover:-translate-y-0.5 active:translate-y-0 min-h-[44px]"
               >
                 <span>DISCOVER ROOMS</span>
               </a>
@@ -203,7 +198,7 @@ export default function Home() {
       <section id="about" className="relative w-full bg-white py-20 sm:py-24 lg:py-32 overflow-hidden">
         <div className="max-w-[1440px] mx-auto px-4 sm:px-6 md:px-8 lg:px-10">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center">
-            
+
             {/* Left Content with Staggered Scroll Reveal */}
             <div className="lg:col-span-6 xl:col-span-5 flex flex-col items-start">
               {/* Welcome Badge */}
