@@ -48,16 +48,31 @@ export default function Home() {
             transition: "transform 1.2s cubic-bezier(0.22, 1, 0.36, 1)",
           }}
         >
-          <Image
-            src="/image.png"
-            alt="Hotel Silver Star Entrance"
-            fill
-            className="object-cover object-[center_15%] sm:object-[center_28%]"
-            priority
-            sizes="100vw"
-          />
-          {/* Subtle dark gradient overlay to enhance mobile contrast & framed depth */}
-          <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/35 to-black/40 sm:bg-gradient-to-t sm:from-black/60 sm:via-transparent sm:to-black/20 pointer-events-none" />
+          {/* Dedicated Mobile Portrait Background */}
+          <div className="block sm:hidden absolute inset-0">
+            <Image
+              src="/mobile.png"
+              alt="Hotel Silver Star Entrance"
+              fill
+              className="object-cover object-top"
+              priority
+              sizes="100vw"
+            />
+            {/* <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/35 to-black/40 pointer-events-none" /> */}
+          </div>
+
+          {/* Desktop & Tablet Background (shifts left under 1200px) */}
+          <div className="hidden sm:block absolute inset-0">
+            <Image
+              src="/image.png"
+              alt="Hotel Silver Star Entrance"
+              fill
+              className="object-cover object-[center_28%] max-[1200px]:object-[22%_28%] max-[900px]:object-[15%_28%] transition-all duration-300"
+              priority
+              sizes="100vw"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/20 pointer-events-none" />
+          </div>
         </div>
 
         {/* Hero Content */}
