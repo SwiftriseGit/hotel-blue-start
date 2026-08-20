@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect, useCallback } from "react";
 import Image from "next/image";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import Reveal from "./Reveal";
@@ -42,20 +42,64 @@ const galleryItems: GalleryItem[] = [
     title: "Cozy Room",
     src: "https://images.unsplash.com/photo-1566665797739-1674de7a421a?auto=format&fit=crop&w=800&q=80",
   },
+  {
+    id: 7,
+    title: "Deluxe Suite",
+    src: "https://images.unsplash.com/photo-1591088398332-8a7791972843?auto=format&fit=crop&w=800&q=80",
+  },
+  {
+    id: 8,
+    title: "Modern Bathroom",
+    src: "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=800&q=80",
+  },
 ];
 
 export default function Gallery() {
-  const [startIndex, setStartIndex] = useState(0);
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [visibleCount, setVisibleCount] = useState(4);
+  const [isPaused, setIsPaused] = useState(false);
 
-  const maxIndex = galleryItems.length - 4 >= 0 ? galleryItems.length - 4 : 0;
+  // Responsive items count
+  useEffect(() => {
+    const updateVisible = () => {
+      if (window.innerWidth < 640) {
+        setVisibleCount(2);
+      } else if (window.innerWidth < 1024) {
+        setVisibleCount(3);
+      } else {
+        setVisibleCount(4);
+      }
+    };
+    updateVisible();
+    window.addEventListener("resize", updateVisible);
+    return () => window.removeEventListener("resize", updateVisible);
+  }, []);
 
-  const handlePrev = () => {
-    setStartIndex((prev) => (prev > 0 ? prev - 1 : maxIndex));
-  };
+  const maxIndex = Math.max(0, galleryItems.length - visibleCount);
 
-  const handleNext = () => {
-    setStartIndex((prev) => (prev < maxIndex ? prev + 1 : 0));
-  };
+  // Clamp index on resize
+  useEffect(() => {
+    if (currentIndex > maxIndex) {
+      setCurrentIndex(maxIndex);
+    }
+  }, [visibleCount, maxIndex, currentIndex]);
+
+  const handleNext = useCallback(() => {
+    setCurrentIndex((prev) => (prev >= maxIndex ? 0 : prev + 1));
+  }, [maxIndex]);
+
+  const handlePrev = useCallback(() => {
+    setCurrentIndex((prev) => (prev <= 0 ? maxIndex : prev - 1));
+  }, [maxIndex]);
+
+  // Optional smooth auto-slide every 5s
+  useEffect(() => {
+    if (isPaused) return;
+    const timer = setInterval(() => {
+      handleNext();
+    }, 5000);
+    return () => clearInterval(timer);
+  }, [handleNext, isPaused]);
 
   return (
     <section id="gallery" className="relative w-full bg-[#181818] text-white py-20 sm:py-24 lg:py-28 overflow-hidden">
@@ -90,27 +134,36 @@ export default function Gallery() {
             </Reveal>
           </div>
 
-          {/* Right Carousel Slider */}
-          <div className="lg:col-span-8 relative w-full">
-            <div className="flex items-center gap-4">
-              {/* Prev Button for Desktop / Tablet */}
-              <button
-                onClick={handlePrev}
-                aria-label="Previous gallery image"
-                className="hidden sm:flex absolute -left-5 top-1/2 -translate-y-1/2 z-20 w-11 h-11 bg-white hover:bg-gray-100 text-gray-900 rounded-full items-center justify-center shadow-xl hover:scale-110 active:scale-95 transition-all duration-200 min-w-[44px] min-h-[44px]"
-              >
-                <ChevronLeft className="w-5 h-5" />
-              </button>
+          {/* Right Sliding Carousel Track */}
+          <div
+            className="lg:col-span-8 relative w-full"
+            onMouseEnter={() => setIsPaused(true)}
+            onMouseLeave={() => setIsPaused(false)}
+          >
+            {/* Prev Button for Desktop / Tablet */}
+            <button
+              onClick={handlePrev}
+              aria-label="Previous gallery image"
+              className="hidden sm:flex absolute -left-5 top-1/2 -translate-y-1/2 z-30 w-11 h-11 bg-white hover:bg-gray-100 text-gray-900 rounded-full items-center justify-center shadow-2xl hover:scale-110 active:scale-95 transition-all duration-200"
+            >
+              <ChevronLeft className="w-5 h-5" />
+            </button>
 
-              {/* Images Row */}
+            {/* Overflow Viewport */}
+            <div className="w-full overflow-hidden py-2">
               <div
-                data-cursor="Drag"
-                className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-4 md:gap-5 w-full group/gallery"
+                className="flex transition-transform duration-700 ease-[cubic-bezier(0.22,1,0.36,1)]"
+                style={{
+                  transform: `translateX(-${currentIndex * (100 / visibleCount)}%)`,
+                }}
               >
-                {galleryItems.slice(startIndex, startIndex + 4).map((item, idx) => (
-                  <Reveal key={item.id} type="up" delay={150 + idx * 80} className="w-full">
+                {galleryItems.map((item) => (
+                  <div
+                    key={item.id}
+                    className="w-1/2 sm:w-1/3 lg:w-1/4 shrink-0 px-2 sm:px-2.5"
+                  >
                     <div
-                      className="group/card relative rounded-xl md:rounded-2xl overflow-hidden aspect-[4/5] bg-neutral-800 shadow-lg border border-white/10 transition-all duration-500 hover:scale-105 group-hover/gallery:opacity-60 hover:!opacity-100 cursor-pointer"
+                      className="group/card relative rounded-xl md:rounded-2xl overflow-hidden aspect-[4/5] bg-neutral-800 shadow-lg border border-white/10 transition-all duration-500 hover:scale-[1.03] cursor-pointer"
                     >
                       <Image
                         src={item.src}
@@ -126,21 +179,21 @@ export default function Gallery() {
                         </span>
                       </div>
                     </div>
-                  </Reveal>
+                  </div>
                 ))}
               </div>
-
-              {/* Next Button for Desktop / Tablet */}
-              <button
-                onClick={handleNext}
-                aria-label="Next gallery image"
-                className="hidden sm:flex absolute -right-5 top-1/2 -translate-y-1/2 z-20 w-11 h-11 bg-white hover:bg-gray-100 text-gray-900 rounded-full items-center justify-center shadow-xl hover:scale-110 active:scale-95 transition-all duration-200 min-w-[44px] min-h-[44px]"
-              >
-                <ChevronRight className="w-5 h-5" />
-              </button>
             </div>
 
-            {/* Mobile Touch Controls */}
+            {/* Next Button for Desktop / Tablet */}
+            <button
+              onClick={handleNext}
+              aria-label="Next gallery image"
+              className="hidden sm:flex absolute -right-5 top-1/2 -translate-y-1/2 z-30 w-11 h-11 bg-white hover:bg-gray-100 text-gray-900 rounded-full items-center justify-center shadow-2xl hover:scale-110 active:scale-95 transition-all duration-200"
+            >
+              <ChevronRight className="w-5 h-5" />
+            </button>
+
+            {/* Mobile Touch Controls & Indicator */}
             <div className="flex sm:hidden items-center justify-center gap-5 mt-6">
               <button
                 onClick={handlePrev}

@@ -1,7 +1,7 @@
 "use client";
 
-import { useState, useEffect } from "react";
-import { Star } from "lucide-react";
+import { useState, useEffect, useCallback } from "react";
+import { Star, ChevronLeft, ChevronRight } from "lucide-react";
 import Reveal from "./Reveal";
 
 interface Testimonial {
@@ -54,26 +54,68 @@ const testimonials: Testimonial[] = [
     rating: 5,
     avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=160&h=160&q=80",
   },
+  {
+    id: 6,
+    name: "Ananya Roy",
+    role: "Vacation Traveler",
+    quote: "Exceptional service! The reception and housekeeping were always polite and attentive.",
+    rating: 5,
+    avatar: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=160&h=160&q=80",
+  },
 ];
 
 export default function Testimonials() {
-  const [startIndex, setStartIndex] = useState(0);
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [visibleCount, setVisibleCount] = useState(3);
+  const [isPaused, setIsPaused] = useState(false);
 
-  // Auto-rotate reviews smoothly every 4.5 seconds
+  // Responsive items count
   useEffect(() => {
-    const timer = setInterval(() => {
-      setStartIndex((prev) => (prev + 1) % (testimonials.length - 2));
-    }, 4500);
-    return () => clearInterval(timer);
+    const updateVisible = () => {
+      if (window.innerWidth < 768) {
+        setVisibleCount(1);
+      } else if (window.innerWidth < 1024) {
+        setVisibleCount(2);
+      } else {
+        setVisibleCount(3);
+      }
+    };
+    updateVisible();
+    window.addEventListener("resize", updateVisible);
+    return () => window.removeEventListener("resize", updateVisible);
   }, []);
 
-  const totalDots = testimonials.length - 2;
+  const maxIndex = Math.max(0, testimonials.length - visibleCount);
+
+  // Clamp index if resized
+  useEffect(() => {
+    if (currentIndex > maxIndex) {
+      setCurrentIndex(maxIndex);
+    }
+  }, [visibleCount, maxIndex, currentIndex]);
+
+  const handleNext = useCallback(() => {
+    setCurrentIndex((prev) => (prev >= maxIndex ? 0 : prev + 1));
+  }, [maxIndex]);
+
+  const handlePrev = useCallback(() => {
+    setCurrentIndex((prev) => (prev <= 0 ? maxIndex : prev - 1));
+  }, [maxIndex]);
+
+  // Smooth Auto-Slide every 4.5 seconds (pauses on hover)
+  useEffect(() => {
+    if (isPaused) return;
+    const interval = setInterval(() => {
+      handleNext();
+    }, 4500);
+    return () => clearInterval(interval);
+  }, [handleNext, isPaused]);
 
   return (
     <section id="reviews" className="relative w-full bg-[#faf8f5] pt-20 sm:pt-24 pb-24 sm:pb-32 overflow-hidden">
       <div className="max-w-[1440px] mx-auto px-4 sm:px-6 md:px-8 lg:px-10">
         
-        {/* Section Header with Staggered Reveal */}
+        {/* Section Header */}
         <div className="flex flex-col items-center text-center mb-12 sm:mb-16">
           <Reveal type="up" delay={50}>
             <div className="flex items-center gap-3 mb-3">
@@ -90,75 +132,124 @@ export default function Testimonials() {
           </Reveal>
         </div>
 
-        {/* Testimonials Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
-          {testimonials.slice(startIndex, startIndex + 3).map((item, idx) => (
-            <Reveal
-              key={item.id}
-              type="up"
-              delay={150 + idx * 100}
-              className={`h-full ${idx > 0 ? "hidden md:block" : "block"} ${idx > 1 ? "md:hidden lg:block" : ""}`}
+        {/* Carousel Outer Container with Left/Right Arrow Navigation */}
+        <div
+          className="relative w-full"
+          onMouseEnter={() => setIsPaused(true)}
+          onMouseLeave={() => setIsPaused(false)}
+        >
+          {/* Previous Arrow Button */}
+          <button
+            onClick={handlePrev}
+            aria-label="Previous testimonial"
+            className="hidden sm:flex absolute -left-3 lg:-left-5 top-1/2 -translate-y-1/2 z-30 w-11 h-11 bg-white hover:bg-neutral-50 text-gray-800 rounded-full items-center justify-center shadow-lg border border-gray-100 hover:scale-110 active:scale-95 transition-all duration-200"
+          >
+            <ChevronLeft className="w-5 h-5 text-gray-700" />
+          </button>
+
+          {/* Sliding Track Viewport */}
+          <div className="w-full overflow-hidden py-3">
+            <div
+              className="flex transition-transform duration-700 ease-[cubic-bezier(0.22,1,0.36,1)]"
+              style={{
+                transform: `translateX(-${currentIndex * (100 / visibleCount)}%)`,
+              }}
             >
-              <div
-                className="bg-white rounded-2xl p-6 sm:p-7 md:p-8 shadow-[0_10px_35px_rgba(0,0,0,0.04)] border border-gray-100/80 flex flex-col justify-between transition-all duration-500 hover:shadow-[0_20px_50px_rgba(0,0,0,0.09)] hover:-translate-y-1.5 h-full group"
-              >
-                <div>
-                  {/* 5 Stars with crimson color */}
-                  <div className="flex items-center gap-1 mb-4 sm:mb-5">
-                    {Array.from({ length: item.rating }).map((_, i) => (
-                      <Star
-                        key={i}
-                        className="w-4 h-4 fill-[#b30018] text-[#b30018] transition-transform duration-300 group-hover:scale-110"
-                        style={{ transitionDelay: `${i * 40}ms` }}
+              {testimonials.map((item) => (
+                <div
+                  key={item.id}
+                  className="w-full md:w-1/2 lg:w-1/3 shrink-0 px-2.5 sm:px-3.5"
+                >
+                  <div className="bg-white rounded-2xl p-6 sm:p-7 md:p-8 shadow-[0_10px_35px_rgba(0,0,0,0.04)] border border-gray-100/80 flex flex-col justify-between h-full group hover:shadow-[0_20px_50px_rgba(0,0,0,0.09)] hover:-translate-y-1.5 transition-all duration-500">
+                    <div>
+                      {/* 5 Stars with crimson color */}
+                      <div className="flex items-center gap-1 mb-4 sm:mb-5">
+                        {Array.from({ length: item.rating }).map((_, i) => (
+                          <Star
+                            key={i}
+                            className="w-4 h-4 fill-[#b30018] text-[#b30018] transition-transform duration-300 group-hover:scale-110"
+                            style={{ transitionDelay: `${i * 40}ms` }}
+                          />
+                        ))}
+                      </div>
+
+                      {/* Quote */}
+                      <p className="text-gray-700 text-[14px] sm:text-[15px] leading-relaxed mb-6 sm:mb-8 font-normal">
+                        &ldquo;{item.quote}&rdquo;
+                      </p>
+                    </div>
+
+                    {/* User Avatar & Info */}
+                    <div className="flex items-center gap-3.5 pt-4 border-t border-gray-100">
+                      <img
+                        src={item.avatar}
+                        alt={item.name}
+                        className="w-11 h-11 rounded-full object-cover border border-gray-100 transition-transform duration-300 group-hover:scale-105"
                       />
-                    ))}
-                  </div>
-
-                  {/* Quote */}
-                  <p className="text-gray-700 text-[14px] sm:text-[15px] leading-relaxed mb-6 sm:mb-8 font-normal">
-                    &ldquo;{item.quote}&rdquo;
-                  </p>
-                </div>
-
-                {/* User Avatar & Info */}
-                <div className="flex items-center gap-3.5 pt-4 border-t border-gray-100">
-                  <img
-                    src={item.avatar}
-                    alt={item.name}
-                    className="w-10 h-10 sm:w-11 sm:h-11 rounded-full object-cover border border-gray-100 transition-transform duration-300 group-hover:scale-105"
-                  />
-                  <div className="flex flex-col">
-                    <span className="text-[14px] sm:text-[15px] font-bold text-gray-900 leading-tight">
-                      {item.name}
-                    </span>
-                    <span className="text-[11px] sm:text-[12px] text-gray-500 font-normal mt-0.5">
-                      {item.role}
-                    </span>
+                      <div className="flex flex-col">
+                        <span className="text-[14px] sm:text-[15px] font-bold text-gray-900 leading-tight">
+                          {item.name}
+                        </span>
+                        <span className="text-[11px] sm:text-[12px] text-gray-500 font-normal mt-0.5">
+                          {item.role}
+                        </span>
+                      </div>
+                    </div>
                   </div>
                 </div>
-              </div>
-            </Reveal>
-          ))}
+              ))}
+            </div>
+          </div>
+
+          {/* Next Arrow Button */}
+          <button
+            onClick={handleNext}
+            aria-label="Next testimonial"
+            className="hidden sm:flex absolute -right-3 lg:-right-5 top-1/2 -translate-y-1/2 z-30 w-11 h-11 bg-white hover:bg-neutral-50 text-gray-800 rounded-full items-center justify-center shadow-lg border border-gray-100 hover:scale-110 active:scale-95 transition-all duration-200"
+          >
+            <ChevronRight className="w-5 h-5 text-gray-700" />
+          </button>
         </div>
 
-        {/* Carousel Indicator Dots */}
-        <div className="flex items-center justify-center gap-2 mt-8 sm:mt-12">
-          {Array.from({ length: totalDots }).map((_, index) => (
+        {/* Carousel Indicator Dots and Mobile Controls */}
+        <div className="flex flex-col items-center gap-4 mt-8 sm:mt-10">
+          {/* Mobile Arrows */}
+          <div className="flex sm:hidden items-center gap-4">
             <button
-              key={index}
-              onClick={() => setStartIndex(index)}
-              aria-label={`Go to slide ${index + 1}`}
-              className="h-2.5 rounded-full transition-all duration-500 ease-out cursor-pointer min-w-[24px] min-h-[24px] flex items-center justify-center"
+              onClick={handlePrev}
+              aria-label="Previous testimonial"
+              className="w-10 h-10 bg-white text-gray-800 rounded-full flex items-center justify-center shadow-md border border-gray-200 active:scale-95 transition-transform"
             >
-              <span
-                className={`block h-2.5 rounded-full transition-all duration-500 ${
-                  startIndex === index
-                    ? "w-8 bg-[#b30018] shadow-sm shadow-red-900/30"
-                    : "w-2.5 bg-gray-300 hover:bg-gray-400"
-                }`}
-              />
+              <ChevronLeft className="w-5 h-5" />
             </button>
-          ))}
+            <button
+              onClick={handleNext}
+              aria-label="Next testimonial"
+              className="w-10 h-10 bg-white text-gray-800 rounded-full flex items-center justify-center shadow-md border border-gray-200 active:scale-95 transition-transform"
+            >
+              <ChevronRight className="w-5 h-5" />
+            </button>
+          </div>
+
+          {/* Dots */}
+          <div className="flex items-center justify-center gap-2">
+            {Array.from({ length: maxIndex + 1 }).map((_, index) => (
+              <button
+                key={index}
+                onClick={() => setCurrentIndex(index)}
+                aria-label={`Go to slide ${index + 1}`}
+                className="h-3 rounded-full transition-all duration-500 ease-out cursor-pointer p-1 flex items-center justify-center"
+              >
+                <span
+                  className={`block h-2 rounded-full transition-all duration-500 ${
+                    currentIndex === index
+                      ? "w-7 bg-[#b30018] shadow-sm shadow-red-900/30"
+                      : "w-2 bg-gray-300 hover:bg-gray-400"
+                  }`}
+                />
+              </button>
+            ))}
+          </div>
         </div>
 
       </div>
