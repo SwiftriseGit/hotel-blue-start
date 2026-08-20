@@ -1,6 +1,6 @@
 "use client";
 
-import { Star, Phone, Mail, ArrowUp, MapPin, MessageCircle } from "lucide-react";
+import { Star, Phone, Mail, MapPin, MessageCircle } from "lucide-react";
 import Reveal from "./Reveal";
 
 export default function Footer() {
@@ -154,17 +154,19 @@ export default function Footer() {
           </div>
         </Reveal>
 
-        {/* Bottom Copyright Bar */}
+        {/* Bottom Copyright Bar with Animated Expanding Back to Top Button */}
         <div className="border-t border-white/10 pt-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
           <p className="text-gray-400 text-[13px] sm:text-[14px]">
             &copy; 2025 Hotel Silver Star. All Rights Reserved.
           </p>
           <button
             onClick={scrollToTop}
-            aria-label="Scroll to top"
-            className="w-10 h-10 bg-white/10 hover:bg-[#d6001c] text-white rounded-lg flex items-center justify-center transition-all duration-300 hover:scale-110 active:scale-95 cursor-pointer min-w-[40px] min-h-[40px]"
+            aria-label="Back to Top"
+            className="back-to-top-btn"
           >
-            <ArrowUp className="w-4 h-4" />
+            <svg className="svgIcon" viewBox="0 0 384 512">
+              <path d="M214.6 41.4c-12.5-12.5-32.8-12.5-45.3 0l-160 160c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L160 141.2V448c0 17.7 14.3 32 32 32s32-14.3 32-32V141.2L329.4 246.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3l-160-160z" />
+            </svg>
           </button>
         </div>
 
