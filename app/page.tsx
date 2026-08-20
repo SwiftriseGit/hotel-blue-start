@@ -54,7 +54,7 @@ export default function Home() {
               src="/mobile.png"
               alt="Hotel Silver Star Entrance"
               fill
-              className="object-cover object-top"
+              className="object-cover object-[center_50%]"
               priority
               sizes="100vw"
             />
