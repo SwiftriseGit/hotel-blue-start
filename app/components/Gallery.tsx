@@ -92,7 +92,7 @@ export default function Gallery() {
     setCurrentIndex((prev) => (prev <= 0 ? maxIndex : prev - 1));
   }, [maxIndex]);
 
-  // Optional smooth auto-slide every 5s
+  // Smooth auto-slide every 5s
   useEffect(() => {
     if (isPaused) return;
     const timer = setInterval(() => {
@@ -102,14 +102,14 @@ export default function Gallery() {
   }, [handleNext, isPaused]);
 
   return (
-    <section id="gallery" className="relative w-full bg-[#181818] text-white py-20 sm:py-24 lg:py-28 overflow-hidden">
+    <section id="gallery" className="relative w-full bg-[#181818] text-white py-10 sm:py-12 lg:py-14 overflow-hidden">
       <div className="max-w-[1440px] mx-auto px-4 sm:px-6 md:px-8 lg:px-10">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-center">
           
           {/* Left Text Block */}
           <div className="lg:col-span-4 flex flex-col items-start">
             <Reveal type="left" delay={50}>
-              <div className="flex items-center gap-2.5 mb-3">
+              <div className="flex items-center gap-2.5 mb-2">
                 <span className="w-1 h-3.5 bg-[#b30018] rounded-full inline-block" />
                 <span className="text-[12px] font-bold tracking-[0.2em] text-gray-400 uppercase">
                   GALLERY
@@ -118,7 +118,7 @@ export default function Gallery() {
             </Reveal>
 
             <Reveal type="left" delay={150}>
-              <h2 className="font-serif text-[clamp(2rem,4.5vw,2.75rem)] font-normal text-white leading-tight mb-6 sm:mb-8">
+              <h2 className="font-serif text-[clamp(1.9rem,4vw,2.5rem)] font-normal text-white leading-tight mb-4 sm:mb-5">
                 A Glimpse of <br />
                 Our Hospitality
               </h2>
@@ -127,7 +127,7 @@ export default function Gallery() {
             <Reveal type="left" delay={250}>
               <button
                 data-cursor="View"
-                className="border border-white/40 hover:border-white text-white px-7 py-3 rounded-lg font-bold text-xs tracking-[0.14em] uppercase transition-all duration-300 hover:bg-white/10 hover:-translate-y-0.5 active:translate-y-0 min-h-[44px]"
+                className="border border-white/40 hover:border-white text-white px-6 py-2.5 rounded-lg font-bold text-xs tracking-[0.14em] uppercase transition-all duration-300 hover:bg-white/10 hover:-translate-y-0.5 active:translate-y-0 min-h-[40px]"
               >
                 EXPLORE GALLERY
               </button>
@@ -144,13 +144,13 @@ export default function Gallery() {
             <button
               onClick={handlePrev}
               aria-label="Previous gallery image"
-              className="hidden sm:flex absolute -left-5 top-1/2 -translate-y-1/2 z-30 w-11 h-11 bg-white hover:bg-gray-100 text-gray-900 rounded-full items-center justify-center shadow-2xl hover:scale-110 active:scale-95 transition-all duration-200"
+              className="hidden sm:flex absolute -left-4 lg:-left-5 top-1/2 -translate-y-1/2 z-30 w-10 h-10 bg-white hover:bg-gray-100 text-gray-900 rounded-full items-center justify-center shadow-2xl hover:scale-110 active:scale-95 transition-all duration-200"
             >
               <ChevronLeft className="w-5 h-5" />
             </button>
 
             {/* Overflow Viewport */}
-            <div className="w-full overflow-hidden py-2">
+            <div className="w-full overflow-hidden py-1.5">
               <div
                 className="flex transition-transform duration-700 ease-[cubic-bezier(0.22,1,0.36,1)]"
                 style={{
@@ -188,24 +188,24 @@ export default function Gallery() {
             <button
               onClick={handleNext}
               aria-label="Next gallery image"
-              className="hidden sm:flex absolute -right-5 top-1/2 -translate-y-1/2 z-30 w-11 h-11 bg-white hover:bg-gray-100 text-gray-900 rounded-full items-center justify-center shadow-2xl hover:scale-110 active:scale-95 transition-all duration-200"
+              className="hidden sm:flex absolute -right-4 lg:-right-5 top-1/2 -translate-y-1/2 z-30 w-10 h-10 bg-white hover:bg-gray-100 text-gray-900 rounded-full items-center justify-center shadow-2xl hover:scale-110 active:scale-95 transition-all duration-200"
             >
               <ChevronRight className="w-5 h-5" />
             </button>
 
             {/* Mobile Touch Controls & Indicator */}
-            <div className="flex sm:hidden items-center justify-center gap-5 mt-6">
+            <div className="flex sm:hidden items-center justify-center gap-5 mt-4">
               <button
                 onClick={handlePrev}
                 aria-label="Previous gallery image"
-                className="w-11 h-11 bg-white text-gray-900 rounded-full flex items-center justify-center shadow-md active:scale-95 transition-transform min-w-[44px] min-h-[44px]"
+                className="w-10 h-10 bg-white text-gray-900 rounded-full flex items-center justify-center shadow-md active:scale-95 transition-transform min-w-[40px] min-h-[40px]"
               >
                 <ChevronLeft className="w-5 h-5" />
               </button>
               <button
                 onClick={handleNext}
                 aria-label="Next gallery image"
-                className="w-11 h-11 bg-white text-gray-900 rounded-full flex items-center justify-center shadow-md active:scale-95 transition-transform min-w-[44px] min-h-[44px]"
+                className="w-10 h-10 bg-white text-gray-900 rounded-full flex items-center justify-center shadow-md active:scale-95 transition-transform min-w-[40px] min-h-[40px]"
               >
                 <ChevronRight className="w-5 h-5" />
               </button>
