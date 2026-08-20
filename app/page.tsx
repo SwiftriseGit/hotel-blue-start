@@ -136,19 +136,6 @@ export default function Home() {
               </button>
             </div>
           </div>
-
-          {/* Floating High-Speed Wi-Fi Badge on Right */}
-          <div
-            className={`hidden md:flex absolute right-6 lg:right-12 bottom-28 lg:bottom-36 items-center gap-3 bg-black/40 backdrop-blur-md border border-white/15 px-4 sm:px-5 py-2.5 sm:py-3 rounded-full text-white shadow-xl transition-all duration-1000 ease-out ${
-              heroMounted ? "translate-x-0 opacity-100" : "translate-x-12 opacity-0"
-            }`}
-            style={{ transitionDelay: "800ms" }}
-          >
-            <div className="w-2.5 h-2.5 rounded-full bg-[#c4001a] animate-ping" />
-            <span className="text-xs font-semibold tracking-wider uppercase text-white/90">
-              Free Wi-Fi • 24x7 Power Backup
-            </span>
-          </div>
         </div>
       </section>
 
