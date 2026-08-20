@@ -15,8 +15,10 @@ const navLinks = [
 export default function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
+    setMounted(true);
     const handleScroll = () => {
       setScrolled(window.scrollY > 40);
     };
@@ -24,78 +26,127 @@ export default function Header() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  // Lock body scroll when mobile menu is open
+  useEffect(() => {
+    if (mobileOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [mobileOpen]);
+
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ease-out ${
         scrolled
-          ? "bg-black/40 backdrop-blur-md py-4"
-          : "bg-transparent py-6"
+          ? "bg-black/75 backdrop-blur-md py-3 sm:py-3.5 shadow-lg"
+          : "bg-transparent py-4 sm:py-6"
       }`}
     >
-      <div className="w-full max-w-[1440px] mx-auto px-6 sm:px-8 md:px-10 flex items-center justify-between">
-        {/* Logo */}
-        <a href="#" className="flex items-center gap-3.5 group">
-          <Star className="w-10 h-10 fill-[#e60023] text-[#e60023] shrink-0" />
+      <div className="w-full max-w-[1440px] mx-auto px-4 sm:px-6 md:px-8 lg:px-10 flex items-center justify-between">
+        
+        {/* Logo with responsive fluid sizing */}
+        <a
+          href="#"
+          className={`flex items-center gap-2.5 sm:gap-3.5 group transition-all duration-500 origin-left ${
+            mounted ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-2"
+          } ${scrolled ? "scale-[0.92]" : "scale-100"}`}
+        >
+          <Star className="w-7 h-7 sm:w-9 sm:h-9 fill-[#e60023] text-[#e60023] shrink-0 transition-transform duration-300 group-hover:rotate-12" />
           <div className="flex flex-col leading-tight">
-            <span className="text-[14px] font-bold text-white tracking-wider">
+            <span className="text-[11px] sm:text-[13px] font-bold text-white tracking-wider">
               HOTEL
             </span>
-            <span className="text-[19px] font-bold text-white tracking-wide">
+            <span className="text-[15px] sm:text-[18px] font-bold text-white tracking-wide">
               SILVER STAR
             </span>
           </div>
         </a>
 
-        {/* Desktop Nav Links (Bigger fonts and clear visibility) */}
-        <nav className="hidden lg:flex items-center gap-8 xl:gap-11">
-          {navLinks.map((link) => (
+        {/* Desktop Nav Links */}
+        <nav className="hidden lg:flex items-center gap-6 xl:gap-10">
+          {navLinks.map((link, idx) => (
             <a
               key={link.label}
               href={link.href}
-              className="text-[15px] xl:text-[16px] font-semibold text-white/95 hover:text-white transition-colors duration-200"
+              className={`text-[14px] xl:text-[16px] font-semibold text-white/95 hover:text-white transition-all duration-300 nav-link-hover ${
+                mounted ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-2"
+              }`}
+              style={{
+                transitionDelay: `${150 + idx * 80}ms`,
+              }}
             >
               {link.label}
             </a>
           ))}
         </nav>
 
-        {/* Book Now Button */}
-        <div className="hidden lg:block">
-          <button className="bg-[#e60023] hover:bg-[#c9001f] text-white px-8 py-3.5 rounded-lg font-bold text-[14px] uppercase flex items-center gap-2.5 transition-all duration-200 shadow-md hover:shadow-red-600/30">
-            BOOK NOW
-            <ArrowRight className="w-4 h-4" />
-          </button>
+        {/* Desktop Book Now Button */}
+        <div
+          className={`hidden lg:block transition-all duration-500 ${
+            mounted ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-2"
+          }`}
+          style={{ transitionDelay: "650ms" }}
+        >
+          <a
+            href="#rooms"
+            className="group bg-[#e60023] hover:bg-[#c9001f] text-white px-6 xl:px-8 py-3 xl:py-3.5 rounded-lg font-bold text-xs xl:text-[13px] uppercase flex items-center gap-2.5 transition-all duration-300 shadow-md hover:shadow-red-600/40 hover:-translate-y-0.5 active:translate-y-0"
+          >
+            <span>BOOK NOW</span>
+            <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1.5" />
+          </a>
         </div>
 
-        {/* Mobile Menu Button */}
-        <button
-          onClick={() => setMobileOpen(!mobileOpen)}
-          className="lg:hidden text-white p-2 focus:outline-none"
-          aria-label="Toggle Menu"
-        >
-          {mobileOpen ? <X className="w-7 h-7" /> : <Menu className="w-7 h-7" />}
-        </button>
+        {/* Mobile Actions: Compact CTA + Hamburger */}
+        <div className="flex items-center gap-2.5 lg:hidden">
+          <a
+            href="#rooms"
+            className="bg-[#e60023] text-white px-3.5 py-2 rounded-md font-bold text-[11px] uppercase tracking-wider flex items-center gap-1.5 active:scale-95 transition-transform"
+          >
+            <span>BOOK</span>
+            <ArrowRight className="w-3 h-3" />
+          </a>
+          <button
+            onClick={() => setMobileOpen(!mobileOpen)}
+            className="text-white p-2 min-w-[44px] min-h-[44px] flex items-center justify-center rounded-lg hover:bg-white/10 active:scale-95 transition-all focus:outline-none"
+            aria-label="Toggle Menu"
+          >
+            {mobileOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+          </button>
+        </div>
       </div>
 
-      {/* Mobile Menu Dropdown */}
+      {/* Mobile Drawer Overlay & Menu */}
       {mobileOpen && (
-        <div className="lg:hidden bg-black/90 backdrop-blur-md px-8 py-6 border-t border-white/10 mt-3 animate-in fade-in slide-in-from-top-2 duration-200">
-          <nav className="flex flex-col gap-4">
-            {navLinks.map((link) => (
+        <div className="fixed inset-0 top-[60px] sm:top-[70px] z-40 lg:hidden bg-black/95 backdrop-blur-xl border-t border-white/10 px-6 py-8 flex flex-col justify-between overflow-y-auto animate-in fade-in slide-in-from-top-4 duration-300">
+          <nav className="flex flex-col gap-2">
+            {navLinks.map((link, idx) => (
               <a
                 key={link.label}
                 href={link.href}
                 onClick={() => setMobileOpen(false)}
-                className="text-[16px] font-semibold text-white/90 hover:text-[#e60023] transition-colors py-2"
+                className="text-[17px] font-semibold text-white/90 hover:text-[#e60023] transition-colors py-3 border-b border-white/5 flex items-center justify-between min-h-[44px]"
+                style={{ animationDelay: `${idx * 40}ms` }}
               >
-                {link.label}
+                <span>{link.label}</span>
+                <ArrowRight className="w-4 h-4 text-white/40" />
               </a>
             ))}
           </nav>
-          <button className="mt-5 w-full flex items-center justify-center gap-2 bg-[#e60023] text-white px-6 py-3.5 rounded-lg font-bold text-[14px] uppercase">
-            BOOK NOW
-            <ArrowRight className="w-4 h-4" />
-          </button>
+
+          <div className="pt-8 pb-6">
+            <a
+              href="#rooms"
+              onClick={() => setMobileOpen(false)}
+              className="w-full flex items-center justify-center gap-2.5 bg-[#e60023] active:bg-[#c9001f] text-white px-6 py-4 rounded-xl font-bold text-[14px] uppercase tracking-wider shadow-lg shadow-red-600/30 min-h-[48px]"
+            >
+              <span>BOOK NOW</span>
+              <ArrowRight className="w-4.5 h-4.5" />
+            </a>
+          </div>
         </div>
       )}
     </header>
