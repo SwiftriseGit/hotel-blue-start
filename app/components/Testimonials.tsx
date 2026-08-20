@@ -102,7 +102,7 @@ export default function Testimonials() {
     setCurrentIndex((prev) => (prev <= 0 ? maxIndex : prev - 1));
   }, [maxIndex]);
 
-  // Smooth Auto-Slide every 4.5 seconds (pauses on hover)
+  // Auto-Slide every 4.5 seconds
   useEffect(() => {
     if (isPaused) return;
     const interval = setInterval(() => {
@@ -112,13 +112,13 @@ export default function Testimonials() {
   }, [handleNext, isPaused]);
 
   return (
-    <section id="reviews" className="relative w-full bg-[#faf8f5] pt-20 sm:pt-24 pb-24 sm:pb-32 overflow-hidden">
+    <section id="reviews" className="relative w-full bg-[#faf8f5] pt-10 sm:pt-12 pb-14 sm:pb-16 overflow-hidden">
       <div className="max-w-[1440px] mx-auto px-4 sm:px-6 md:px-8 lg:px-10">
         
         {/* Section Header */}
-        <div className="flex flex-col items-center text-center mb-12 sm:mb-16">
+        <div className="flex flex-col items-center text-center mb-6 sm:mb-8">
           <Reveal type="up" delay={50}>
-            <div className="flex items-center gap-3 mb-3">
+            <div className="flex items-center gap-2.5 mb-2">
               <span className="w-5 h-[2px] bg-[#b30018]" />
               <span className="text-[12px] font-bold tracking-[0.2em] text-gray-700 uppercase">
                 GUESTS LOVE US
@@ -126,7 +126,7 @@ export default function Testimonials() {
             </div>
           </Reveal>
           <Reveal type="up" delay={150}>
-            <h2 className="font-serif text-[clamp(2.2rem,5vw,3.5rem)] font-normal text-gray-900 leading-tight">
+            <h2 className="font-serif text-[clamp(2rem,4.5vw,3rem)] font-normal text-gray-900 leading-tight">
               What Our Guests Say
             </h2>
           </Reveal>
@@ -142,13 +142,13 @@ export default function Testimonials() {
           <button
             onClick={handlePrev}
             aria-label="Previous testimonial"
-            className="hidden sm:flex absolute -left-3 lg:-left-5 top-1/2 -translate-y-1/2 z-30 w-11 h-11 bg-white hover:bg-neutral-50 text-gray-800 rounded-full items-center justify-center shadow-lg border border-gray-100 hover:scale-110 active:scale-95 transition-all duration-200"
+            className="hidden sm:flex absolute -left-3 lg:-left-5 top-1/2 -translate-y-1/2 z-30 w-10 h-10 bg-white hover:bg-neutral-50 text-gray-800 rounded-full items-center justify-center shadow-lg border border-gray-100 hover:scale-110 active:scale-95 transition-all duration-200"
           >
             <ChevronLeft className="w-5 h-5 text-gray-700" />
           </button>
 
           {/* Sliding Track Viewport */}
-          <div className="w-full overflow-hidden py-3">
+          <div className="w-full overflow-hidden py-1.5">
             <div
               className="flex transition-transform duration-700 ease-[cubic-bezier(0.22,1,0.36,1)]"
               style={{
@@ -158,39 +158,39 @@ export default function Testimonials() {
               {testimonials.map((item) => (
                 <div
                   key={item.id}
-                  className="w-full md:w-1/2 lg:w-1/3 shrink-0 px-2.5 sm:px-3.5"
+                  className="w-full md:w-1/2 lg:w-1/3 shrink-0 px-2.5 sm:px-3"
                 >
-                  <div className="bg-white rounded-2xl p-6 sm:p-7 md:p-8 shadow-[0_10px_35px_rgba(0,0,0,0.04)] border border-gray-100/80 flex flex-col justify-between h-full group hover:shadow-[0_20px_50px_rgba(0,0,0,0.09)] hover:-translate-y-1.5 transition-all duration-500">
+                  <div className="bg-white rounded-2xl p-5 sm:p-6 shadow-[0_8px_25px_rgba(0,0,0,0.04)] border border-gray-100/80 flex flex-col justify-between h-full group hover:shadow-[0_15px_35px_rgba(0,0,0,0.08)] hover:-translate-y-1 transition-all duration-500">
                     <div>
-                      {/* 5 Stars with crimson color */}
-                      <div className="flex items-center gap-1 mb-4 sm:mb-5">
+                      {/* 5 Stars */}
+                      <div className="flex items-center gap-1 mb-3">
                         {Array.from({ length: item.rating }).map((_, i) => (
                           <Star
                             key={i}
-                            className="w-4 h-4 fill-[#b30018] text-[#b30018] transition-transform duration-300 group-hover:scale-110"
+                            className="w-3.5 h-3.5 fill-[#b30018] text-[#b30018] transition-transform duration-300 group-hover:scale-110"
                             style={{ transitionDelay: `${i * 40}ms` }}
                           />
                         ))}
                       </div>
 
                       {/* Quote */}
-                      <p className="text-gray-700 text-[14px] sm:text-[15px] leading-relaxed mb-6 sm:mb-8 font-normal">
+                      <p className="text-gray-700 text-[13px] sm:text-[14px] leading-relaxed mb-4 font-normal">
                         &ldquo;{item.quote}&rdquo;
                       </p>
                     </div>
 
                     {/* User Avatar & Info */}
-                    <div className="flex items-center gap-3.5 pt-4 border-t border-gray-100">
+                    <div className="flex items-center gap-3 pt-3 border-t border-gray-100">
                       <img
                         src={item.avatar}
                         alt={item.name}
-                        className="w-11 h-11 rounded-full object-cover border border-gray-100 transition-transform duration-300 group-hover:scale-105"
+                        className="w-9 h-9 sm:w-10 sm:h-10 rounded-full object-cover border border-gray-100 transition-transform duration-300 group-hover:scale-105"
                       />
                       <div className="flex flex-col">
-                        <span className="text-[14px] sm:text-[15px] font-bold text-gray-900 leading-tight">
+                        <span className="text-[14px] font-bold text-gray-900 leading-tight">
                           {item.name}
                         </span>
-                        <span className="text-[11px] sm:text-[12px] text-gray-500 font-normal mt-0.5">
+                        <span className="text-[11px] text-gray-500 font-normal mt-0.5">
                           {item.role}
                         </span>
                       </div>
@@ -205,29 +205,29 @@ export default function Testimonials() {
           <button
             onClick={handleNext}
             aria-label="Next testimonial"
-            className="hidden sm:flex absolute -right-3 lg:-right-5 top-1/2 -translate-y-1/2 z-30 w-11 h-11 bg-white hover:bg-neutral-50 text-gray-800 rounded-full items-center justify-center shadow-lg border border-gray-100 hover:scale-110 active:scale-95 transition-all duration-200"
+            className="hidden sm:flex absolute -right-3 lg:-right-5 top-1/2 -translate-y-1/2 z-30 w-10 h-10 bg-white hover:bg-neutral-50 text-gray-800 rounded-full items-center justify-center shadow-lg border border-gray-100 hover:scale-110 active:scale-95 transition-all duration-200"
           >
             <ChevronRight className="w-5 h-5 text-gray-700" />
           </button>
         </div>
 
-        {/* Carousel Indicator Dots and Mobile Controls */}
-        <div className="flex flex-col items-center gap-4 mt-8 sm:mt-10">
+        {/* Carousel Indicator Dots */}
+        <div className="flex flex-col items-center gap-3 mt-5 sm:mt-6">
           {/* Mobile Arrows */}
           <div className="flex sm:hidden items-center gap-4">
             <button
               onClick={handlePrev}
               aria-label="Previous testimonial"
-              className="w-10 h-10 bg-white text-gray-800 rounded-full flex items-center justify-center shadow-md border border-gray-200 active:scale-95 transition-transform"
+              className="w-9 h-9 bg-white text-gray-800 rounded-full flex items-center justify-center shadow-md border border-gray-200 active:scale-95 transition-transform"
             >
-              <ChevronLeft className="w-5 h-5" />
+              <ChevronLeft className="w-4 h-4" />
             </button>
             <button
               onClick={handleNext}
               aria-label="Next testimonial"
-              className="w-10 h-10 bg-white text-gray-800 rounded-full flex items-center justify-center shadow-md border border-gray-200 active:scale-95 transition-transform"
+              className="w-9 h-9 bg-white text-gray-800 rounded-full flex items-center justify-center shadow-md border border-gray-200 active:scale-95 transition-transform"
             >
-              <ChevronRight className="w-5 h-5" />
+              <ChevronRight className="w-4 h-4" />
             </button>
           </div>
 
@@ -238,13 +238,13 @@ export default function Testimonials() {
                 key={index}
                 onClick={() => setCurrentIndex(index)}
                 aria-label={`Go to slide ${index + 1}`}
-                className="h-3 rounded-full transition-all duration-500 ease-out cursor-pointer p-1 flex items-center justify-center"
+                className="h-2.5 rounded-full transition-all duration-500 ease-out cursor-pointer p-0.5 flex items-center justify-center"
               >
                 <span
-                  className={`block h-2 rounded-full transition-all duration-500 ${
+                  className={`block h-1.5 rounded-full transition-all duration-500 ${
                     currentIndex === index
-                      ? "w-7 bg-[#b30018] shadow-sm shadow-red-900/30"
-                      : "w-2 bg-gray-300 hover:bg-gray-400"
+                      ? "w-6 bg-[#b30018] shadow-sm shadow-red-900/30"
+                      : "w-1.5 bg-gray-300 hover:bg-gray-400"
                   }`}
                 />
               </button>
