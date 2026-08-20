@@ -39,7 +39,7 @@ export default function Home() {
       <Header />
 
       {/* Hero Section with Parallax & Masked Text Reveals */}
-      <section className="relative w-full min-h-[820px] sm:min-h-[900px] lg:h-[1060px] xl:h-[1050px] flex flex-col justify-between bg-black overflow-hidden">
+      <section className="relative w-full min-h-[580px] sm:min-h-[750px] lg:h-[1060px] xl:h-[1050px] flex flex-col justify-between bg-black overflow-hidden">
         {/* Background Image with subtle Parallax */}
         <div
           className="absolute inset-0 z-0 transition-transform duration-75 ease-out"
@@ -52,14 +52,16 @@ export default function Home() {
             src="/image.png"
             alt="Hotel Silver Star Entrance"
             fill
-            className="object-cover object-[center_28%]"
+            className="object-cover object-[center_15%] sm:object-[center_28%]"
             priority
             sizes="100vw"
           />
+          {/* Subtle dark gradient overlay to enhance mobile contrast & framed depth */}
+          <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/35 to-black/40 sm:bg-gradient-to-t sm:from-black/60 sm:via-transparent sm:to-black/20 pointer-events-none" />
         </div>
 
         {/* Hero Content */}
-        <div className="relative z-10 w-full max-w-[1440px] mx-auto px-4 sm:px-6 md:px-8 lg:px-10 flex flex-col justify-center flex-1 pt-28 sm:pt-32 pb-20 sm:pb-24 lg:pb-32">
+        <div className="relative z-10 w-full max-w-[1440px] mx-auto px-4 sm:px-6 md:px-8 lg:px-10 flex flex-col justify-center flex-1 pt-24 sm:pt-32 pb-16 sm:pb-24 lg:pb-32">
           <div className="max-w-2xl">
             {/* Masked Staggered Headline */}
             <h1 className="font-serif text-[clamp(2.75rem,7.5vw,6.5rem)] font-normal text-white leading-[1.05] tracking-tight mb-5 sm:mb-6 drop-shadow-md">
