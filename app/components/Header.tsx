@@ -42,7 +42,7 @@ export default function Header() {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ease-out ${
         scrolled
-          ? "bg-black/75 backdrop-blur-md py-3 sm:py-3.5 shadow-lg"
+          ? "bg-black/80 backdrop-blur-md py-3 sm:py-3.5 shadow-lg"
           : "bg-transparent py-4 sm:py-6"
       }`}
     >
@@ -55,7 +55,7 @@ export default function Header() {
             mounted ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-2"
           } ${scrolled ? "scale-[0.92]" : "scale-100"}`}
         >
-          <Star className="w-7 h-7 sm:w-9 sm:h-9 fill-[#e60023] text-[#e60023] shrink-0 transition-transform duration-300 group-hover:rotate-12" />
+          <Star className="w-7 h-7 sm:w-8 sm:h-8 fill-[#b30018] text-[#b30018] shrink-0 transition-transform duration-300 group-hover:rotate-12" />
           <div className="flex flex-col leading-tight">
             <span className="text-[11px] sm:text-[13px] font-bold text-white tracking-wider">
               HOTEL
@@ -84,7 +84,7 @@ export default function Header() {
           ))}
         </nav>
 
-        {/* Desktop Book Now Button */}
+        {/* Desktop Book Now Button with Dark Depth Red */}
         <div
           className={`hidden lg:block transition-all duration-500 ${
             mounted ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-2"
@@ -93,7 +93,7 @@ export default function Header() {
         >
           <a
             href="#rooms"
-            className="group bg-[#e60023] hover:bg-[#c9001f] text-white px-6 xl:px-8 py-3 xl:py-3.5 rounded-lg font-bold text-xs xl:text-[13px] uppercase flex items-center gap-2.5 transition-all duration-300 shadow-md hover:shadow-red-600/40 hover:-translate-y-0.5 active:translate-y-0"
+            className="group bg-[#b30018] hover:bg-[#990012] text-white px-6 xl:px-8 py-3 xl:py-3.5 rounded-lg font-bold text-xs xl:text-[13px] uppercase flex items-center gap-2.5 transition-all duration-300 shadow-[0_4px_14px_rgba(179,0,24,0.35)] hover:shadow-red-800/40 hover:-translate-y-0.5 active:translate-y-0"
           >
             <span>BOOK NOW</span>
             <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1.5" />
@@ -104,7 +104,7 @@ export default function Header() {
         <div className="flex items-center gap-2.5 lg:hidden">
           <a
             href="#rooms"
-            className="bg-[#e60023] text-white px-3.5 py-2 rounded-md font-bold text-[11px] uppercase tracking-wider flex items-center gap-1.5 active:scale-95 transition-transform"
+            className="bg-[#b30018] text-white px-3.5 py-2 rounded-md font-bold text-[11px] uppercase tracking-wider flex items-center gap-1.5 active:scale-95 transition-transform shadow-md"
           >
             <span>BOOK</span>
             <ArrowRight className="w-3 h-3" />
@@ -128,7 +128,7 @@ export default function Header() {
                 key={link.label}
                 href={link.href}
                 onClick={() => setMobileOpen(false)}
-                className="text-[17px] font-semibold text-white/90 hover:text-[#e60023] transition-colors py-3 border-b border-white/5 flex items-center justify-between min-h-[44px]"
+                className="text-[17px] font-semibold text-white/90 hover:text-[#b30018] transition-colors py-3 border-b border-white/5 flex items-center justify-between min-h-[44px]"
                 style={{ animationDelay: `${idx * 40}ms` }}
               >
                 <span>{link.label}</span>
@@ -141,7 +141,7 @@ export default function Header() {
             <a
               href="#rooms"
               onClick={() => setMobileOpen(false)}
-              className="w-full flex items-center justify-center gap-2.5 bg-[#e60023] active:bg-[#c9001f] text-white px-6 py-4 rounded-xl font-bold text-[14px] uppercase tracking-wider shadow-lg shadow-red-600/30 min-h-[48px]"
+              className="w-full flex items-center justify-center gap-2.5 bg-[#b30018] active:bg-[#990012] text-white px-6 py-4 rounded-xl font-bold text-[14px] uppercase tracking-wider shadow-lg shadow-red-900/40 min-h-[48px]"
             >
               <span>BOOK NOW</span>
               <ArrowRight className="w-4.5 h-4.5" />

@@ -28,7 +28,7 @@ export default function Home() {
   }, []);
 
   return (
-    <div className="min-h-screen flex flex-col font-sans bg-[#faf8f5] selection:bg-[#e60023] selection:text-white overflow-x-hidden">
+    <div className="min-h-screen flex flex-col font-sans bg-[#faf8f5] selection:bg-[#b30018] selection:text-white overflow-x-hidden">
       {/* Branded Splash Loader (short ~0.7s) */}
       <PageLoader />
 
@@ -94,7 +94,7 @@ export default function Home() {
                   style={{ transitionDelay: "340ms" }}
                 >
                   Our{" "}
-                  <span className="text-[#e60023] inline-block font-medium">Promise.</span>
+                  <span className="text-[#c4001a] inline-block font-medium">Promise.</span>
                 </span>
               </span>
             </h1>
@@ -119,15 +119,15 @@ export default function Home() {
               <a
                 href="#rooms"
                 data-cursor="Book"
-                className="group bg-[#e60023] hover:bg-[#c9001f] text-white px-6 sm:px-8 py-3.5 sm:py-4 rounded-lg font-bold text-xs sm:text-[13px] tracking-wider uppercase transition-all duration-300 shadow-lg hover:shadow-red-600/40 hover:-translate-y-0.5 active:translate-y-0 min-h-[44px] flex items-center justify-center"
+                className="group bg-[#b30018] hover:bg-[#990012] text-white px-6 sm:px-8 py-3.5 sm:py-4 rounded-lg font-bold text-xs sm:text-[13px] tracking-wider uppercase transition-all duration-300 shadow-[0_4px_16px_rgba(179,0,24,0.35)] hover:shadow-red-800/50 hover:-translate-y-0.5 active:translate-y-0 min-h-[44px] flex items-center justify-center"
               >
                 <span>DISCOVER ROOMS</span>
               </a>
               <button
                 data-cursor="Play"
-                className="flex items-center gap-3 text-white hover:text-[#e60023] transition-colors duration-200 uppercase tracking-wider font-semibold text-xs min-h-[44px] group"
+                className="flex items-center gap-3 text-white hover:text-[#c4001a] transition-colors duration-200 uppercase tracking-wider font-semibold text-xs min-h-[44px] group"
               >
-                <div className="w-10 h-10 rounded-full border border-white/60 group-hover:border-[#e60023] flex items-center justify-center transition-all duration-300 group-hover:scale-110 group-hover:rotate-12">
+                <div className="w-10 h-10 rounded-full border border-white/60 group-hover:border-[#c4001a] flex items-center justify-center transition-all duration-300 group-hover:scale-110 group-hover:rotate-12">
                   <Play className="w-3.5 h-3.5 fill-current ml-0.5" />
                 </div>
                 <span className="transition-transform duration-300 group-hover:translate-x-1">
@@ -144,7 +144,7 @@ export default function Home() {
             }`}
             style={{ transitionDelay: "800ms" }}
           >
-            <div className="w-2.5 h-2.5 rounded-full bg-[#e60023] animate-ping" />
+            <div className="w-2.5 h-2.5 rounded-full bg-[#c4001a] animate-ping" />
             <span className="text-xs font-semibold tracking-wider uppercase text-white/90">
               Free Wi-Fi • 24x7 Power Backup
             </span>
@@ -167,54 +167,54 @@ export default function Home() {
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:flex lg:flex-1 lg:items-center gap-4 lg:gap-0">
               {/* Check In */}
               <div className="lg:flex-1 lg:pr-6 xl:pr-8 lg:border-r border-gray-200/70 flex flex-col justify-center group hover:bg-neutral-50/80 p-3 sm:p-2.5 rounded-xl transition-colors duration-200 cursor-pointer min-h-[44px]">
-                <span className="text-[11px] font-bold text-gray-400 uppercase tracking-wider block mb-1 group-hover:text-[#e60023] transition-colors">
+                <span className="text-[11px] font-bold text-gray-400 uppercase tracking-wider block mb-1 group-hover:text-[#b30018] transition-colors">
                   CHECK IN
                 </span>
                 <div className="flex items-center justify-between">
                   <span className="text-[14px] sm:text-[15px] font-bold text-gray-900">24 May 2025</span>
-                  <Calendar className="w-4.5 h-4.5 text-gray-400 group-hover:text-[#e60023] transition-colors" />
+                  <Calendar className="w-4.5 h-4.5 text-gray-400 group-hover:text-[#b30018] transition-colors" />
                 </div>
               </div>
 
               {/* Check Out */}
               <div className="lg:flex-1 lg:px-6 xl:px-8 lg:border-r border-gray-200/70 flex flex-col justify-center group hover:bg-neutral-50/80 p-3 sm:p-2.5 rounded-xl transition-colors duration-200 cursor-pointer min-h-[44px]">
-                <span className="text-[11px] font-bold text-gray-400 uppercase tracking-wider block mb-1 group-hover:text-[#e60023] transition-colors">
+                <span className="text-[11px] font-bold text-gray-400 uppercase tracking-wider block mb-1 group-hover:text-[#b30018] transition-colors">
                   CHECK OUT
                 </span>
                 <div className="flex items-center justify-between">
                   <span className="text-[14px] sm:text-[15px] font-bold text-gray-900">25 May 2025</span>
-                  <Calendar className="w-4.5 h-4.5 text-gray-400 group-hover:text-[#e60023] transition-colors" />
+                  <Calendar className="w-4.5 h-4.5 text-gray-400 group-hover:text-[#b30018] transition-colors" />
                 </div>
               </div>
 
               {/* Guests */}
               <div className="lg:flex-1 lg:px-6 xl:px-8 lg:border-r border-gray-200/70 flex flex-col justify-center group hover:bg-neutral-50/80 p-3 sm:p-2.5 rounded-xl transition-colors duration-200 cursor-pointer min-h-[44px]">
-                <span className="text-[11px] font-bold text-gray-400 uppercase tracking-wider block mb-1 group-hover:text-[#e60023] transition-colors">
+                <span className="text-[11px] font-bold text-gray-400 uppercase tracking-wider block mb-1 group-hover:text-[#b30018] transition-colors">
                   GUESTS
                 </span>
                 <div className="flex items-center justify-between">
                   <span className="text-[14px] sm:text-[15px] font-bold text-gray-900">2 Guests</span>
-                  <Users className="w-4.5 h-4.5 text-gray-400 group-hover:text-[#e60023] transition-colors" />
+                  <Users className="w-4.5 h-4.5 text-gray-400 group-hover:text-[#b30018] transition-colors" />
                 </div>
               </div>
 
               {/* Room Type */}
               <div className="lg:flex-1 lg:px-6 xl:px-8 flex flex-col justify-center group hover:bg-neutral-50/80 p-3 sm:p-2.5 rounded-xl transition-colors duration-200 cursor-pointer min-h-[44px]">
-                <span className="text-[11px] font-bold text-gray-400 uppercase tracking-wider block mb-1 group-hover:text-[#e60023] transition-colors">
+                <span className="text-[11px] font-bold text-gray-400 uppercase tracking-wider block mb-1 group-hover:text-[#b30018] transition-colors">
                   ROOM TYPE
                 </span>
                 <div className="flex items-center justify-between">
                   <span className="text-[14px] sm:text-[15px] font-bold text-gray-900">Any</span>
-                  <ChevronDown className="w-4.5 h-4.5 text-gray-400 group-hover:text-[#e60023] transition-colors" />
+                  <ChevronDown className="w-4.5 h-4.5 text-gray-400 group-hover:text-[#b30018] transition-colors" />
                 </div>
               </div>
             </div>
 
-            {/* Submit Button */}
+            {/* Submit Button with Rich Crimson Red Depth */}
             <div className="lg:pl-6 xl:pl-8 flex items-center pt-2 lg:pt-0">
               <button
                 data-cursor="Book"
-                className="bg-[#e60023] hover:bg-[#c9001f] text-white px-8 xl:px-10 py-3.5 sm:py-4 rounded-xl font-bold text-xs sm:text-[13px] tracking-wider uppercase transition-all duration-300 shadow-md hover:shadow-red-600/40 hover:-translate-y-0.5 active:translate-y-0 whitespace-nowrap w-full lg:w-auto min-h-[48px]"
+                className="bg-[#b30018] hover:bg-[#990012] text-white px-8 xl:px-10 py-3.5 sm:py-4 rounded-xl font-bold text-xs sm:text-[13px] tracking-wider uppercase transition-all duration-300 shadow-[0_4px_16px_rgba(179,0,24,0.35)] hover:shadow-red-800/50 hover:-translate-y-0.5 active:translate-y-0 whitespace-nowrap w-full lg:w-auto min-h-[48px]"
               >
                 CHECK AVAILABILITY
               </button>
@@ -229,7 +229,7 @@ export default function Home() {
             <Reveal type="up" delay={50} className="h-full">
               <div className="flex flex-col items-center px-4 py-3 lg:border-r border-gray-200/80 group hover:-translate-y-1.5 transition-transform duration-300">
                 <div className="mb-3 sm:mb-4 transform transition-transform duration-300 group-hover:scale-110">
-                  <BedDouble className="w-9 h-9 sm:w-10 sm:h-10 text-[#e60023]" strokeWidth={1.6} />
+                  <BedDouble className="w-9 h-9 sm:w-10 sm:h-10 text-[#b30018]" strokeWidth={1.6} />
                 </div>
                 <h3 className="font-bold text-[16px] sm:text-[18px] text-gray-900 mb-1.5">Comfortable Rooms</h3>
                 <p className="text-[13px] sm:text-[14px] text-gray-500 leading-relaxed max-w-[240px]">
@@ -242,7 +242,7 @@ export default function Home() {
             <Reveal type="up" delay={150} className="h-full">
               <div className="flex flex-col items-center px-4 py-3 lg:border-r border-gray-200/80 group hover:-translate-y-1.5 transition-transform duration-300">
                 <div className="mb-3 sm:mb-4 transform transition-transform duration-300 group-hover:scale-110">
-                  <Zap className="w-9 h-9 sm:w-10 sm:h-10 text-[#e60023]" strokeWidth={1.6} />
+                  <Zap className="w-9 h-9 sm:w-10 sm:h-10 text-[#b30018]" strokeWidth={1.6} />
                 </div>
                 <h3 className="font-bold text-[16px] sm:text-[18px] text-gray-900 mb-1.5">Power Backup</h3>
                 <p className="text-[13px] sm:text-[14px] text-gray-500 leading-relaxed max-w-[240px]">
@@ -255,7 +255,7 @@ export default function Home() {
             <Reveal type="up" delay={250} className="h-full">
               <div className="flex flex-col items-center px-4 py-3 lg:border-r border-gray-200/80 group hover:-translate-y-1.5 transition-transform duration-300">
                 <div className="mb-3 sm:mb-4 transform transition-transform duration-300 group-hover:scale-110">
-                  <Wifi className="w-9 h-9 sm:w-10 sm:h-10 text-[#e60023]" strokeWidth={1.6} />
+                  <Wifi className="w-9 h-9 sm:w-10 sm:h-10 text-[#b30018]" strokeWidth={1.6} />
                 </div>
                 <h3 className="font-bold text-[16px] sm:text-[18px] text-gray-900 mb-1.5">Free Wi-Fi</h3>
                 <p className="text-[13px] sm:text-[14px] text-gray-500 leading-relaxed max-w-[240px]">
@@ -268,7 +268,7 @@ export default function Home() {
             <Reveal type="up" delay={350} className="h-full">
               <div className="flex flex-col items-center px-4 py-3 group hover:-translate-y-1.5 transition-transform duration-300">
                 <div className="mb-3 sm:mb-4 transform transition-transform duration-300 group-hover:scale-110">
-                  <MapPin className="w-9 h-9 sm:w-10 sm:h-10 text-[#e60023]" strokeWidth={1.6} />
+                  <MapPin className="w-9 h-9 sm:w-10 sm:h-10 text-[#b30018]" strokeWidth={1.6} />
                 </div>
                 <h3 className="font-bold text-[16px] sm:text-[18px] text-gray-900 mb-1.5">Prime Location</h3>
                 <p className="text-[13px] sm:text-[14px] text-gray-500 leading-relaxed max-w-[240px]">
@@ -290,7 +290,7 @@ export default function Home() {
               {/* Welcome Badge */}
               <Reveal type="left" delay={50}>
                 <div className="flex items-center gap-3 mb-3 sm:mb-4">
-                  <span className="w-6 h-[2px] bg-[#e60023]" />
+                  <span className="w-6 h-[2px] bg-[#b30018]" />
                   <span className="text-[12px] sm:text-[13px] font-bold tracking-[0.2em] text-gray-700 uppercase">
                     WELCOME TO
                   </span>
@@ -316,7 +316,7 @@ export default function Home() {
               <div className="flex flex-col gap-3.5 sm:gap-4 mb-6 sm:mb-8 w-full">
                 <Reveal type="up" delay={280}>
                   <div className="flex items-center gap-3.5 group">
-                    <Check className="w-5 h-5 text-[#e60023] shrink-0 transition-transform duration-200 group-hover:scale-125" strokeWidth={2.5} />
+                    <Check className="w-5 h-5 text-[#b30018] shrink-0 transition-transform duration-200 group-hover:scale-125" strokeWidth={2.5} />
                     <span className="text-[14px] sm:text-[16px] font-semibold text-gray-800">
                       Clean &amp; Comfortable Rooms
                     </span>
@@ -324,7 +324,7 @@ export default function Home() {
                 </Reveal>
                 <Reveal type="up" delay={340}>
                   <div className="flex items-center gap-3.5 group">
-                    <Check className="w-5 h-5 text-[#e60023] shrink-0 transition-transform duration-200 group-hover:scale-125" strokeWidth={2.5} />
+                    <Check className="w-5 h-5 text-[#b30018] shrink-0 transition-transform duration-200 group-hover:scale-125" strokeWidth={2.5} />
                     <span className="text-[14px] sm:text-[16px] font-semibold text-gray-800">
                       Friendly &amp; Dedicated Staff
                     </span>
@@ -332,7 +332,7 @@ export default function Home() {
                 </Reveal>
                 <Reveal type="up" delay={400}>
                   <div className="flex items-center gap-3.5 group">
-                    <Check className="w-5 h-5 text-[#e60023] shrink-0 transition-transform duration-200 group-hover:scale-125" strokeWidth={2.5} />
+                    <Check className="w-5 h-5 text-[#b30018] shrink-0 transition-transform duration-200 group-hover:scale-125" strokeWidth={2.5} />
                     <span className="text-[14px] sm:text-[16px] font-semibold text-gray-800">
                       Best Value for Your Stay
                     </span>
@@ -354,7 +354,7 @@ export default function Home() {
                 <a
                   href="#rooms"
                   data-cursor="Explore"
-                  className="inline-flex items-center justify-center bg-[#e60023] hover:bg-[#c9001f] text-white px-8 py-3.5 rounded-lg font-bold text-xs tracking-[0.14em] uppercase transition-all duration-300 shadow-md hover:shadow-red-600/40 hover:-translate-y-0.5 active:translate-y-0 min-h-[44px]"
+                  className="inline-flex items-center justify-center bg-[#b30018] hover:bg-[#990012] text-white px-8 py-3.5 rounded-lg font-bold text-xs tracking-[0.14em] uppercase transition-all duration-300 shadow-[0_4px_14px_rgba(179,0,24,0.35)] hover:shadow-red-800/40 hover:-translate-y-0.5 active:translate-y-0 min-h-[44px]"
                 >
                   ABOUT US
                 </a>
@@ -375,7 +375,7 @@ export default function Home() {
                         r="2.5"
                         className={
                           row >= 4 && col >= 3
-                            ? "fill-[#e60023]/80"
+                            ? "fill-[#b30018]/80"
                             : "fill-gray-300/80"
                         }
                       />

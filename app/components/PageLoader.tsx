@@ -34,7 +34,7 @@ export default function PageLoader() {
       <div className="flex flex-col items-center">
         {/* Star Icon */}
         <div className="w-12 h-12 flex items-center justify-center animate-pulse mb-3">
-          <Star className="w-10 h-10 fill-[#e60023] text-[#e60023]" />
+          <Star className="w-10 h-10 fill-[#b30018] text-[#b30018]" />
         </div>
 
         {/* Title */}
@@ -50,7 +50,7 @@ export default function PageLoader() {
         {/* Expanding Red Line */}
         <div className="w-24 h-[2px] bg-white/10 rounded-full overflow-hidden">
           <div
-            className={`h-full bg-[#e60023] transition-all duration-700 ease-out ${
+            className={`h-full bg-[#b30018] transition-all duration-700 ease-out ${
               loaded ? "w-full" : "w-1/3"
             }`}
           />

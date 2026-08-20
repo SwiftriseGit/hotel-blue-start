@@ -77,7 +77,7 @@ export default function Testimonials() {
         <div className="flex flex-col items-center text-center mb-12 sm:mb-16">
           <Reveal type="up" delay={50}>
             <div className="flex items-center gap-3 mb-3">
-              <span className="w-5 h-[2px] bg-[#e60023]" />
+              <span className="w-5 h-[2px] bg-[#b30018]" />
               <span className="text-[12px] font-bold tracking-[0.2em] text-gray-700 uppercase">
                 GUESTS LOVE US
               </span>
@@ -90,7 +90,7 @@ export default function Testimonials() {
           </Reveal>
         </div>
 
-        {/* Testimonials Cards Grid (1 col on mobile, 2 on md, 3 on lg) */}
+        {/* Testimonials Cards Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
           {testimonials.slice(startIndex, startIndex + 3).map((item, idx) => (
             <Reveal
@@ -103,12 +103,12 @@ export default function Testimonials() {
                 className="bg-white rounded-2xl p-6 sm:p-7 md:p-8 shadow-[0_10px_35px_rgba(0,0,0,0.04)] border border-gray-100/80 flex flex-col justify-between transition-all duration-500 hover:shadow-[0_20px_50px_rgba(0,0,0,0.09)] hover:-translate-y-1.5 h-full group"
               >
                 <div>
-                  {/* 5 Stars with subtle scale */}
+                  {/* 5 Stars with crimson color */}
                   <div className="flex items-center gap-1 mb-4 sm:mb-5">
                     {Array.from({ length: item.rating }).map((_, i) => (
                       <Star
                         key={i}
-                        className="w-4 h-4 fill-[#e60023] text-[#e60023] transition-transform duration-300 group-hover:scale-110"
+                        className="w-4 h-4 fill-[#b30018] text-[#b30018] transition-transform duration-300 group-hover:scale-110"
                         style={{ transitionDelay: `${i * 40}ms` }}
                       />
                     ))}
@@ -148,12 +148,12 @@ export default function Testimonials() {
               key={index}
               onClick={() => setStartIndex(index)}
               aria-label={`Go to slide ${index + 1}`}
-              className={`h-2.5 rounded-full transition-all duration-500 ease-out cursor-pointer min-w-[24px] min-h-[24px] flex items-center justify-center`}
+              className="h-2.5 rounded-full transition-all duration-500 ease-out cursor-pointer min-w-[24px] min-h-[24px] flex items-center justify-center"
             >
               <span
                 className={`block h-2.5 rounded-full transition-all duration-500 ${
                   startIndex === index
-                    ? "w-8 bg-[#e60023] shadow-sm shadow-red-500/30"
+                    ? "w-8 bg-[#b30018] shadow-sm shadow-red-900/30"
                     : "w-2.5 bg-gray-300 hover:bg-gray-400"
                 }`}
               />
