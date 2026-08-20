@@ -1,7 +1,7 @@
 "use client";
 
 import { Star, Phone, Mail } from "lucide-react";
-import { FaFacebookF, FaInstagram, FaXTwitter, FaWhatsapp, FaLocationDot } from "react-icons/fa6";
+import { FaFacebookF, FaInstagram } from "react-icons/fa6";
 import Reveal from "./Reveal";
 
 export default function Footer() {
@@ -41,7 +41,7 @@ export default function Footer() {
                 Comfortable stays, warm hospitality and unforgettable experiences.
               </p>
 
-              {/* Official Social Media Icons with Brand Hover Color Fill */}
+              {/* Official Social Media Icons: Facebook & Instagram only */}
               <div className="flex items-center gap-3">
                 {/* Facebook */}
                 <a
@@ -59,35 +59,6 @@ export default function Footer() {
                   className="w-11 h-11 rounded-full bg-white/5 border border-white/10 text-gray-300 flex items-center justify-center transition-all duration-300 hover:-translate-y-1 hover:scale-105 hover:bg-[#E4405F] hover:border-[#E4405F] hover:text-white hover:shadow-[0_8px_20px_rgba(228,64,95,0.4)] min-w-[44px] min-h-[44px]"
                 >
                   <FaInstagram className="w-4.5 h-4.5" />
-                </a>
-
-                {/* Twitter / X */}
-                <a
-                  href="#"
-                  aria-label="X Twitter"
-                  className="w-11 h-11 rounded-full bg-white/5 border border-white/10 text-gray-300 flex items-center justify-center transition-all duration-300 hover:-translate-y-1 hover:scale-105 hover:bg-[#1DA1F2] hover:border-[#1DA1F2] hover:text-white hover:shadow-[0_8px_20px_rgba(29,161,242,0.4)] min-w-[44px] min-h-[44px]"
-                >
-                  <FaXTwitter className="w-4 h-4" />
-                </a>
-
-                {/* Location */}
-                <a
-                  href="#"
-                  aria-label="Location Map"
-                  className="w-11 h-11 rounded-full bg-white/5 border border-white/10 text-gray-300 flex items-center justify-center transition-all duration-300 hover:-translate-y-1 hover:scale-105 hover:bg-[#EA4335] hover:border-[#EA4335] hover:text-white hover:shadow-[0_8px_20px_rgba(234,67,53,0.4)] min-w-[44px] min-h-[44px]"
-                >
-                  <FaLocationDot className="w-4 h-4" />
-                </a>
-
-                {/* WhatsApp */}
-                <a
-                  href={contactWhatsAppUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="WhatsApp"
-                  className="w-11 h-11 rounded-full bg-white/5 border border-white/10 text-gray-300 flex items-center justify-center transition-all duration-300 hover:-translate-y-1 hover:scale-105 hover:bg-[#25D366] hover:border-[#25D366] hover:text-white hover:shadow-[0_8px_20px_rgba(37,211,102,0.4)] min-w-[44px] min-h-[44px]"
-                >
-                  <FaWhatsapp className="w-5 h-5" />
                 </a>
               </div>
             </div>
