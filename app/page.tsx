@@ -108,14 +108,14 @@ export default function Home() {
 
             {/* CTA Buttons */}
             <div
-              className={`flex flex-wrap items-center gap-4 sm:gap-5 transition-all duration-700 ease-out ${
+              className={`flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-5 transition-all duration-700 ease-out ${
                 heroMounted ? "translate-y-0 opacity-100" : "translate-y-6 opacity-0"
               }`}
               style={{ transitionDelay: "650ms" }}
             >
               <a
                 href="#rooms"
-                className="group bg-[#b30018] hover:bg-[#990012] text-white px-6 sm:px-8 py-3.5 sm:py-4 rounded-lg font-bold text-xs sm:text-[13px] tracking-wider uppercase transition-all duration-300 shadow-[0_4px_16px_rgba(179,0,24,0.35)] hover:shadow-red-800/50 hover:-translate-y-0.5 active:translate-y-0 min-h-[44px] flex items-center justify-center"
+                className="w-full sm:w-auto group bg-[#b30018] hover:bg-[#990012] text-white px-6 sm:px-8 py-3.5 sm:py-4 rounded-lg font-bold text-xs sm:text-[13px] tracking-wider uppercase transition-all duration-300 shadow-[0_4px_16px_rgba(179,0,24,0.35)] hover:shadow-red-800/50 hover:-translate-y-0.5 active:translate-y-0 min-h-[44px] flex items-center justify-center"
               >
                 <span>DISCOVER ROOMS</span>
               </a>
