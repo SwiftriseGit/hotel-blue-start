@@ -82,7 +82,12 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <h4 className="font-bold text-gray-900 text-sm mb-0.5">Hotel Address</h4>
-                    <p className="text-xs sm:text-sm text-gray-600">Plot no A38, Ruchika market, Baramunda, 751003<br/><strong>Branches:</strong> Jaydev Vihar | Tamando</p>
+                    <p className="text-xs sm:text-sm text-gray-600 mb-1.5">Plot no A38, Ruchika market, Baramunda, 751003</p>
+                    <div className="flex flex-col gap-0.5">
+                      <span className="text-gray-400 text-[11px] font-bold uppercase tracking-wider">Our Branches:</span>
+                      <span className="text-[#bfa76a] text-xs sm:text-[13px] font-extrabold tracking-wide">Jaydev Vihar - Silver Suit</span>
+                      <span className="text-[#bfa76a] text-xs sm:text-[13px] font-extrabold tracking-wide">Tamando - Silver Crown</span>
+                    </div>
                   </div>
                 </div>
 

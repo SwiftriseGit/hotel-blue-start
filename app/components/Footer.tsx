@@ -100,7 +100,11 @@ export default function Footer() {
                   <MapPin className="w-4.5 h-4.5 text-[#bfa76a] shrink-0 mt-1" />
                   <div className="flex flex-col gap-1">
                     <span>Plot no A38, Ruchika market, Baramunda, 751003</span>
-                    <span className="text-[#bfa76a] text-[12px] font-semibold mt-1">Our Branches: Jaydev Vihar | Tamando</span>
+                    <div className="flex flex-col mt-2 gap-0.5">
+                      <span className="text-gray-300 text-[11px] font-bold uppercase tracking-wider">Our Branches:</span>
+                      <span className="text-[#bfa76a] text-[13px] font-bold">Jaydev Vihar - Silver Suit</span>
+                      <span className="text-[#bfa76a] text-[13px] font-bold">Tamando - Silver Crown</span>
+                    </div>
                   </div>
                 </div>
                 <div className="flex items-center gap-2.5">
