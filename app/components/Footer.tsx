@@ -36,7 +36,7 @@ export default function Footer() {
                 Comfortable stays, warm hospitality and unforgettable experiences in Bhubaneswar, Odisha.
               </p>
 
-              {/* Official Social Media Icons */}
+              {/* Official Social Media Icons - Commented out as requested
               <div className="flex items-center gap-3">
                 <a
                   href="#"
@@ -54,6 +54,7 @@ export default function Footer() {
                   <FaInstagram className="w-4.5 h-4.5" />
                 </a>
               </div>
+              */}
             </div>
 
             {/* Col 2: Quick Links (lg:col-span-2) */}
