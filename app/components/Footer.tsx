@@ -178,7 +178,7 @@ export default function Footer() {
 
         {/* Footer Bottom Bar */}
         <div className="border-t border-white/10 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-gray-500">
-          <p>© {new Date().getFullYear()} Hotel Silver Star. All rights reserved.</p>
+          <p>© {new Date().getFullYear()} <a href="https://swiftrise.in" target="_blank" rel="noopener noreferrer" className="hover:text-[#bfa76a] transition-colors underline underline-offset-4 decoration-gray-600 hover:decoration-[#bfa76a]">Swiftrise Solution Pvt Ltd</a>. ALL RIGHTS RESERVED.</p>
 
           <div className="flex items-center gap-6">
             <span className="hover:text-gray-400 transition-colors">Privacy Policy</span>
