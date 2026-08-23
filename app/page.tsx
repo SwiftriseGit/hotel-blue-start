@@ -152,7 +152,7 @@ export default function Home() {
         </div>
 
         {/* Bottom Curved Wave Divider transitioning into white section */}
-        <div className="absolute bottom-[-1px] left-0 w-full z-20 pointer-events-none overflow-hidden leading-none">
+        <div className="absolute bottom-0 left-0 w-full z-20 pointer-events-none overflow-hidden leading-none">
           <svg
             viewBox="0 0 1440 60"
             fill="none"
@@ -169,7 +169,7 @@ export default function Home() {
       </section>
 
       {/* Key Highlights / Features Bar */}
-      <section className="w-full bg-white border-b border-gray-100 py-8 sm:py-10 relative z-10">
+      <section className="w-full bg-white border-b border-gray-100 py-8 sm:py-10 relative z-10 -mt-[1px]">
         <div className="max-w-[1440px] mx-auto px-4 sm:px-6 md:px-8 lg:px-10">
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 text-center">
             
