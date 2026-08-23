@@ -76,13 +76,10 @@ export default function Footer() {
                   <a href="#rooms" className="hover:text-white transition-colors duration-200 footer-link-hover py-0.5 inline-block">Rooms</a>
                 </li>
                 <li>
-                  <a href="#amenities" className="hover:text-white transition-colors duration-200 footer-link-hover py-0.5 inline-block">Amenities</a>
-                </li>
-                <li>
                   <a href="#gallery" className="hover:text-white transition-colors duration-200 footer-link-hover py-0.5 inline-block">Gallery</a>
                 </li>
                 <li>
-                  <a href="#rooms" className="hover:text-white transition-colors duration-200 footer-link-hover py-0.5 inline-block">Offers</a>
+                  <a href="#about" className="hover:text-white transition-colors duration-200 footer-link-hover py-0.5 inline-block">About Us</a>
                 </li>
                 <li>
                   <a href={contactWhatsAppUrl} target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors duration-200 footer-link-hover py-0.5 inline-block">Contact</a>

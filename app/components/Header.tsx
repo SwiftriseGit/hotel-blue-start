@@ -6,9 +6,8 @@ import { Star, ArrowRight, Menu, X } from "lucide-react";
 const navLinks = [
   { label: "HOME", href: "#" },
   { label: "ROOMS", href: "#rooms" },
-  { label: "AMENITIES", href: "#amenities" },
   { label: "GALLERY", href: "#gallery" },
-  { label: "OFFERS", href: "#rooms" },
+  { label: "ABOUT", href: "#about" },
   {
     label: "CONTACT",
     href: "https://wa.me/919876543210?text=Hello%20Hotel%20Silver%20Star%2C%20I%20have%20a%20query%20regarding%20my%20stay.",
