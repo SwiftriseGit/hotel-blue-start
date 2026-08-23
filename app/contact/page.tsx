@@ -3,7 +3,7 @@
 import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { Phone, Mail, MapPin, Send, CheckCircle2, Clock } from "lucide-react";
+import { Phone, Mail, MapPin, Send, CheckCircle2, Clock, MessageCircle } from "lucide-react";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import ScrollProgress from "../components/ScrollProgress";
@@ -127,14 +127,23 @@ export default function ContactPage() {
               </div>
             </div>
 
-            {/* Direct Phone Call Button */}
-            <div className="mt-8 pt-6 border-t border-gray-200">
+            {/* Direct Phone Call & WhatsApp Buttons */}
+            <div className="mt-8 pt-6 border-t border-gray-200 flex flex-col sm:flex-row gap-4">
               <a
-                href="tel:+919876543210"
-                className="inline-flex items-center justify-center gap-2.5 w-full bg-[#bfa76a] hover:bg-[#a69055] text-white py-4 rounded-xl font-bold text-sm tracking-wider uppercase transition-all shadow-md shadow-[#bfa76a]/30"
+                href="tel:+916370157311"
+                className="flex-1 inline-flex items-center justify-center gap-2.5 w-full bg-[#bfa76a] hover:bg-[#a69055] text-white py-4 rounded-xl font-bold text-sm tracking-wider uppercase transition-all shadow-md shadow-[#bfa76a]/30"
               >
                 <Phone className="w-4.5 h-4.5" />
-                <span>Call Front Desk Directly</span>
+                <span>Call Front Desk</span>
+              </a>
+              <a
+                href="https://wa.me/916370157311"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex-1 inline-flex items-center justify-center gap-2.5 w-full bg-[#25D366] hover:bg-[#20b858] text-white py-4 rounded-xl font-bold text-sm tracking-wider uppercase transition-all shadow-md shadow-[#25D366]/30"
+              >
+                <MessageCircle className="w-4.5 h-4.5" />
+                <span>WhatsApp Us</span>
               </a>
             </div>
           </div>
