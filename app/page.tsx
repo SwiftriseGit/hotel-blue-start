@@ -150,6 +150,22 @@ export default function Home() {
             </div>
           </div>
         </div>
+
+        {/* Bottom Curved Wave Divider transitioning into white section */}
+        <div className="absolute bottom-0 left-0 w-full z-20 pointer-events-none overflow-hidden leading-none">
+          <svg
+            viewBox="0 0 1440 60"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            className="w-full block h-8 sm:h-12 md:h-14"
+            preserveAspectRatio="none"
+          >
+            <path
+              d="M0 60 L0 30 Q360 0 720 30 Q1080 60 1440 30 L1440 60 Z"
+              fill="#ffffff"
+            />
+          </svg>
+        </div>
       </section>
 
       {/* Key Highlights / Features Bar */}
