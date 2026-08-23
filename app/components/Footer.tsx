@@ -33,7 +33,7 @@ export default function Footer() {
               </Link>
 
               <p className="text-gray-400 text-[14px] sm:text-[15px] leading-relaxed max-w-sm mb-6">
-                Comfortable stays, warm hospitality and unforgettable experiences in the heart of Rourkela, Odisha.
+                Comfortable stays, warm hospitality and unforgettable experiences in Bhubaneswar, Odisha.
               </p>
 
               {/* Official Social Media Icons */}
@@ -98,18 +98,21 @@ export default function Footer() {
               <div className="flex flex-col gap-3.5 text-gray-400 text-[14px]">
                 <div className="flex items-start gap-2.5">
                   <MapPin className="w-4.5 h-4.5 text-[#bfa76a] shrink-0 mt-1" />
-                  <span>Near City Center, Main Road, Rourkela, Odisha - 769001</span>
+                  <div className="flex flex-col gap-1">
+                    <span>Plot no A38, Ruchika market, Baramunda, 751003</span>
+                    <span className="text-[#bfa76a] text-[12px] font-semibold mt-1">Our Branches: Jaydev Vihar | Tamando</span>
+                  </div>
                 </div>
                 <div className="flex items-center gap-2.5">
                   <Phone className="w-4.5 h-4.5 text-[#bfa76a] shrink-0" />
-                  <a href="tel:+919876543210" className="hover:text-white transition-colors">
-                    +91 98765 43210
+                  <a href="tel:+916370157311" className="hover:text-white transition-colors">
+                    +91 6370157311
                   </a>
                 </div>
                 <div className="flex items-center gap-2.5">
                   <Mail className="w-4.5 h-4.5 text-[#bfa76a] shrink-0" />
-                  <a href="mailto:info@hotelsilverstar.com" className="hover:text-white transition-colors">
-                    info@hotelsilverstar.com
+                  <a href="mailto:hotelsilverstar86@gmail.com" className="hover:text-white transition-colors">
+                    hotelsilverstar86@gmail.com
                   </a>
                 </div>
               </div>

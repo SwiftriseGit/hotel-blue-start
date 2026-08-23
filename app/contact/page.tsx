@@ -82,7 +82,7 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <h4 className="font-bold text-gray-900 text-sm mb-0.5">Hotel Address</h4>
-                    <p className="text-xs sm:text-sm text-gray-600">Near City Center, Main Road, Rourkela, Odisha - 769001</p>
+                    <p className="text-xs sm:text-sm text-gray-600">Plot no A38, Ruchika market, Baramunda, 751003<br/><strong>Branches:</strong> Jaydev Vihar | Tamando</p>
                   </div>
                 </div>
 
@@ -92,8 +92,8 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <h4 className="font-bold text-gray-900 text-sm mb-0.5">Phone Contact</h4>
-                    <a href="tel:+919876543210" className="text-xs sm:text-sm text-[#bfa76a] font-bold hover:underline block">
-                      +91 98765 43210 / +91 80932 61999
+                    <a href="tel:+916370157311" className="text-xs sm:text-sm text-[#bfa76a] font-bold hover:underline block">
+                      +91 6370157311
                     </a>
                   </div>
                 </div>
@@ -104,8 +104,8 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <h4 className="font-bold text-gray-900 text-sm mb-0.5">Email Support</h4>
-                    <a href="mailto:info@hotelsilverstar.com" className="text-xs sm:text-sm text-gray-600 hover:text-[#bfa76a]">
-                      info@hotelsilverstar.com
+                    <a href="mailto:hotelsilverstar86@gmail.com" className="text-xs sm:text-sm text-gray-600 hover:text-[#bfa76a]">
+                      hotelsilverstar86@gmail.com
                     </a>
                   </div>
                 </div>
