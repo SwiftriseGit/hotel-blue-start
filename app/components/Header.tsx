@@ -113,29 +113,33 @@ export default function Header() {
       </header>
 
       {/* Mobile Drawer Overlay & Menu (Outside header to prevent containing block issues) */}
-      {mobileOpen && (
-        <div className="fixed inset-0 top-[70px] sm:top-[85px] z-[100] lg:hidden bg-black/95 backdrop-blur-2xl px-6 py-8 flex flex-col justify-start overflow-y-auto animate-in fade-in slide-in-from-top-4 duration-300">
-          <nav className="flex flex-col gap-2">
-            {navLinks.map((link, idx) => {
-              const isActive = pathname === link.href;
-              return (
-                <Link
-                  key={link.label}
-                  href={link.href}
-                  onClick={() => setMobileOpen(false)}
-                  className={`text-[18px] font-semibold py-4 border-b border-white/5 flex items-center justify-between min-h-[48px] transition-colors ${
-                    isActive ? "text-[#bfa76a]" : "text-white/90 hover:text-[#bfa76a]"
-                  }`}
-                  style={{ animationDelay: `${idx * 40}ms` }}
-                >
-                  <span>{link.label}</span>
-                  {isActive && <span className="w-2 h-2 rounded-full bg-[#bfa76a]" />}
-                </Link>
-              );
-            })}
-          </nav>
-        </div>
-      )}
+      <div 
+        className={`fixed inset-0 top-[70px] sm:top-[85px] z-[100] lg:hidden bg-black/95 backdrop-blur-2xl px-6 py-8 flex flex-col justify-start overflow-y-auto transition-all duration-300 ease-in-out ${
+          mobileOpen ? "opacity-100 translate-y-0 pointer-events-auto" : "opacity-0 -translate-y-4 pointer-events-none"
+        }`}
+      >
+        <nav className="flex flex-col gap-2">
+          {navLinks.map((link, idx) => {
+            const isActive = pathname === link.href;
+            return (
+              <Link
+                key={link.label}
+                href={link.href}
+                onClick={() => setMobileOpen(false)}
+                className={`text-[18px] font-semibold py-4 border-b border-white/5 flex items-center justify-between min-h-[48px] transition-all duration-300 ${
+                  isActive ? "text-[#bfa76a]" : "text-white/90 hover:text-[#bfa76a]"
+                } ${
+                  mobileOpen ? "translate-x-0 opacity-100" : "-translate-x-4 opacity-0"
+                }`}
+                style={{ transitionDelay: mobileOpen ? `${idx * 40 + 100}ms` : "0ms" }}
+              >
+                <span>{link.label}</span>
+                {isActive && <span className="w-2 h-2 rounded-full bg-[#bfa76a]" />}
+              </Link>
+            );
+          })}
+        </nav>
+      </div>
     </>
   );
 }
