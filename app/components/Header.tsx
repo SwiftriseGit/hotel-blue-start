@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { ArrowRight, Menu, X } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -39,14 +39,11 @@ export default function Header() {
     };
   }, [mobileOpen]);
 
-  const bookUrl =
-    "https://wa.me/919876543210?text=Hello%20Hotel%20Silver%20Star%2C%20I%20would%20like%20to%20book%20a%20room.";
-
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ease-out ${
         scrolled
-          ? "bg-black/90 backdrop-blur-md py-2.5 sm:py-3 shadow-2xl border-b border-white/10"
+          ? "bg-black/95 backdrop-blur-md py-3 sm:py-3.5 shadow-2xl"
           : "bg-gradient-to-b from-black/80 via-black/40 to-transparent py-4 sm:py-6"
       }`}
     >
@@ -70,12 +67,12 @@ export default function Header() {
         </Link>
 
         {/* Desktop Nav Links */}
-        <nav className="hidden lg:flex items-center gap-7 xl:gap-10">
+        <nav className="hidden lg:flex items-center gap-8 xl:gap-12">
           {navLinks.map((link, idx) => (
             <Link
               key={link.label}
               href={link.href}
-              className={`text-[14px] xl:text-[15px] font-semibold text-white/95 hover:text-[#bfa76a] tracking-wider transition-all duration-300 nav-link-hover ${
+              className={`text-[14px] xl:text-[16px] font-semibold text-white/95 hover:text-[#bfa76a] tracking-wider transition-all duration-300 nav-link-hover ${
                 mounted ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-2"
               }`}
               style={{
@@ -87,75 +84,34 @@ export default function Header() {
           ))}
         </nav>
 
-        {/* Desktop Book Now Button -> WhatsApp */}
-        <div
-          className={`hidden lg:block transition-all duration-500 ${
-            mounted ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-2"
-          }`}
-          style={{ transitionDelay: "650ms" }}
-        >
-          <a
-            href={bookUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="group bg-[#bfa76a] hover:bg-[#a69055] text-white px-7 xl:px-8 py-3 xl:py-3.5 rounded-xl font-bold text-xs xl:text-[13px] uppercase tracking-wider flex items-center gap-2.5 transition-all duration-300 shadow-[0_4px_20px_rgba(191,167,106,0.4)] hover:shadow-[0_6px_25px_rgba(191,167,106,0.6)] hover:-translate-y-0.5 active:translate-y-0"
-          >
-            <span>BOOK NOW</span>
-            <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1.5" />
-          </a>
-        </div>
-
-        {/* Mobile Actions: Compact CTA + Hamburger */}
-        <div className="flex items-center gap-2.5 lg:hidden">
-          <a
-            href={bookUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="bg-[#bfa76a] text-white px-4 py-2 rounded-lg font-bold text-[12px] uppercase tracking-wider flex items-center gap-1.5 active:scale-95 transition-transform shadow-md shadow-[#bfa76a]/30"
-          >
-            <span>BOOK</span>
-            <ArrowRight className="w-3.5 h-3.5" />
-          </a>
+        {/* Mobile Hamburger Button */}
+        <div className="flex items-center lg:hidden">
           <button
             onClick={() => setMobileOpen(!mobileOpen)}
             className="text-white p-2 min-w-[44px] min-h-[44px] flex items-center justify-center rounded-lg hover:bg-white/10 active:scale-95 transition-all focus:outline-none"
             aria-label="Toggle Menu"
           >
-            {mobileOpen ? <X className="w-7 h-7" /> : <Menu className="w-7 h-7" />}
+            {mobileOpen ? <X className="w-7 h-7 text-[#bfa76a]" /> : <Menu className="w-7 h-7" />}
           </button>
         </div>
       </div>
 
       {/* Mobile Drawer Overlay & Menu */}
       {mobileOpen && (
-        <div className="fixed inset-0 top-[70px] sm:top-[85px] z-40 lg:hidden bg-black/95 backdrop-blur-2xl border-t border-white/10 px-6 py-8 flex flex-col justify-between overflow-y-auto animate-in fade-in slide-in-from-top-4 duration-300">
+        <div className="fixed inset-0 top-[70px] sm:top-[85px] z-40 lg:hidden bg-black/95 backdrop-blur-2xl px-6 py-8 flex flex-col justify-start overflow-y-auto animate-in fade-in slide-in-from-top-4 duration-300">
           <nav className="flex flex-col gap-2">
             {navLinks.map((link, idx) => (
               <Link
                 key={link.label}
                 href={link.href}
                 onClick={() => setMobileOpen(false)}
-                className="text-[18px] font-semibold text-white/90 hover:text-[#bfa76a] transition-colors py-3.5 border-b border-white/5 flex items-center justify-between min-h-[44px]"
+                className="text-[18px] font-semibold text-white/90 hover:text-[#bfa76a] transition-colors py-4 border-b border-white/5 flex items-center justify-between min-h-[48px]"
                 style={{ animationDelay: `${idx * 40}ms` }}
               >
                 <span>{link.label}</span>
-                <ArrowRight className="w-4 h-4 text-white/40" />
               </Link>
             ))}
           </nav>
-
-          <div className="pt-8 pb-6">
-            <a
-              href={bookUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              onClick={() => setMobileOpen(false)}
-              className="w-full flex items-center justify-center gap-2.5 bg-[#bfa76a] active:bg-[#a69055] text-white px-6 py-4 rounded-xl font-bold text-[14px] uppercase tracking-wider shadow-lg shadow-[#bfa76a]/30 min-h-[48px]"
-            >
-              <span>BOOK NOW</span>
-              <ArrowRight className="w-4.5 h-4.5" />
-            </a>
-          </div>
         </div>
       )}
     </header>

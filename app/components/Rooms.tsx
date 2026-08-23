@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { ArrowRight, Check } from "lucide-react";
 import Reveal from "./Reveal";
 
@@ -110,19 +111,15 @@ export default function Rooms() {
                     </div>
                   </div>
 
-                  {/* Actions: Book Now -> WhatsApp */}
+                  {/* Actions: Book Now */}
                   <div className="pt-2">
-                    <a
-                      href={`https://wa.me/919876543210?text=${encodeURIComponent(
-                        `Hello Hotel Silver Star, I would like to book the ${room.title} (${room.price}/night).`
-                      )}`}
-                      target="_blank"
-                      rel="noopener noreferrer"
+                    <Link
+                      href="/contact"
                       className="w-full inline-flex items-center justify-center gap-2 bg-[#bfa76a] hover:bg-[#a69055] text-white px-7 sm:px-9 py-3.5 rounded-xl font-bold text-xs sm:text-sm tracking-[0.14em] uppercase transition-all duration-300 shadow-[0_4px_16px_rgba(191,167,106,0.35)] hover:shadow-[#bfa76a]/50 hover:-translate-y-0.5 active:translate-y-0 min-h-[46px] cursor-pointer"
                     >
                       <span>BOOK THIS ROOM</span>
                       <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
-                    </a>
+                    </Link>
                   </div>
                 </div>
 

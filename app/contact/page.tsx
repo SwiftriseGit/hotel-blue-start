@@ -3,7 +3,7 @@
 import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { Phone, Mail, MapPin, Send, MessageCircle } from "lucide-react";
+import { Phone, Mail, MapPin, Send, CheckCircle2, Clock } from "lucide-react";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import ScrollProgress from "../components/ScrollProgress";
@@ -13,15 +13,11 @@ export default function ContactPage() {
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
   const [query, setQuery] = useState("");
+  const [submitted, setSubmitted] = useState(false);
 
   const handleSendMessage = (e: React.FormEvent) => {
     e.preventDefault();
-    const text = `Hello Hotel Silver Star,
-• Name: ${name}
-• Phone: ${phone}
-• Query: ${query}`;
-    const url = `https://wa.me/919876543210?text=${encodeURIComponent(text)}`;
-    window.open(url, "_blank", "noopener,noreferrer");
+    setSubmitted(true);
   };
 
   return (
@@ -75,10 +71,10 @@ export default function ContactPage() {
                 We Are Always Here For You
               </h2>
               <p className="text-gray-600 text-sm sm:text-base leading-relaxed mb-8">
-                Have questions about room availability, banquet arrangements, or special requests? Drop us a message or call our 24/7 front desk.
+                Have questions about room availability, advance reservations, or special arrangements? Reach out to our 24/7 front desk team directly.
               </p>
 
-              <div className="flex flex-col gap-6">
+              <div className="flex flex-col gap-5">
                 <div className="flex items-start gap-4 p-4 rounded-2xl bg-white border border-gray-100 shadow-sm">
                   <div className="w-12 h-12 rounded-xl bg-[#bfa76a]/10 flex items-center justify-center shrink-0">
                     <MapPin className="w-6 h-6 text-[#bfa76a]" />
@@ -94,8 +90,10 @@ export default function ContactPage() {
                     <Phone className="w-6 h-6 text-[#bfa76a]" />
                   </div>
                   <div>
-                    <h4 className="font-bold text-gray-900 text-sm mb-0.5">Phone &amp; WhatsApp</h4>
-                    <p className="text-xs sm:text-sm text-gray-600">+91 98765 43210 / +91 80932 61999</p>
+                    <h4 className="font-bold text-gray-900 text-sm mb-0.5">Phone Contact</h4>
+                    <a href="tel:+919876543210" className="text-xs sm:text-sm text-[#bfa76a] font-bold hover:underline block">
+                      +91 98765 43210 / +91 80932 61999
+                    </a>
                   </div>
                 </div>
 
@@ -105,88 +103,152 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <h4 className="font-bold text-gray-900 text-sm mb-0.5">Email Support</h4>
-                    <p className="text-xs sm:text-sm text-gray-600">info@hotelsilverstar.com</p>
+                    <a href="mailto:info@hotelsilverstar.com" className="text-xs sm:text-sm text-gray-600 hover:text-[#bfa76a]">
+                      info@hotelsilverstar.com
+                    </a>
+                  </div>
+                </div>
+
+                <div className="flex items-start gap-4 p-4 rounded-2xl bg-white border border-gray-100 shadow-sm">
+                  <div className="w-12 h-12 rounded-xl bg-[#bfa76a]/10 flex items-center justify-center shrink-0">
+                    <Clock className="w-6 h-6 text-[#bfa76a]" />
+                  </div>
+                  <div>
+                    <h4 className="font-bold text-gray-900 text-sm mb-0.5">Front Desk Hours</h4>
+                    <p className="text-xs sm:text-sm text-gray-600">Open 24 Hours / 7 Days a Week</p>
                   </div>
                 </div>
               </div>
             </div>
 
-            {/* Instant WhatsApp Quick Button */}
+            {/* Direct Phone Call Button */}
             <div className="mt-8 pt-6 border-t border-gray-200">
               <a
-                href="https://wa.me/919876543210?text=Hello%20Hotel%20Silver%20Star%2C%20I%20have%20an%20urgent%20inquiry."
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 w-full bg-[#25D366] hover:bg-[#20ba5a] text-white py-3.5 rounded-xl font-bold text-sm tracking-wider uppercase transition-all shadow-md"
+                href="tel:+919876543210"
+                className="inline-flex items-center justify-center gap-2.5 w-full bg-[#bfa76a] hover:bg-[#a69055] text-white py-4 rounded-xl font-bold text-sm tracking-wider uppercase transition-all shadow-md shadow-[#bfa76a]/30"
               >
-                <MessageCircle className="w-5 h-5" />
-                <span>Chat Instantly on WhatsApp</span>
+                <Phone className="w-4.5 h-4.5" />
+                <span>Call Front Desk Directly</span>
               </a>
             </div>
           </div>
 
           {/* Right Direct Query Form */}
-          <div className="lg:col-span-7 bg-white p-8 sm:p-12 rounded-3xl shadow-xl border border-gray-100">
+          <div className="lg:col-span-7 bg-white p-8 sm:p-12 rounded-3xl shadow-xl border border-gray-100 flex flex-col justify-center">
             <h3 className="font-serif text-2xl sm:text-3xl font-bold text-gray-900 mb-2">
               Send Us a Message
             </h3>
             <p className="text-gray-500 text-sm mb-8">
-              Fill in the form below to connect instantly with our reservation desk.
+              Fill in your details below and our team will get back to you promptly.
             </p>
 
-            <form onSubmit={handleSendMessage} className="flex flex-col gap-5">
-              <div>
-                <label className="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-2">
-                  Your Full Name
-                </label>
-                <input
-                  type="text"
-                  required
-                  value={name}
-                  onChange={(e) => setName(e.target.value)}
-                  placeholder="e.g. Rahul Sharma"
-                  className="w-full px-4 py-3.5 rounded-xl border border-gray-200 focus:border-[#bfa76a] focus:ring-2 focus:ring-[#bfa76a]/20 outline-none text-sm text-gray-900 transition-all"
-                />
+            {submitted ? (
+              <div className="p-8 bg-amber-50/70 border border-amber-200/60 rounded-2xl text-center flex flex-col items-center">
+                <CheckCircle2 className="w-12 h-12 text-[#bfa76a] mb-3" />
+                <h4 className="font-serif text-2xl font-bold text-gray-900 mb-2">
+                  Inquiry Received!
+                </h4>
+                <p className="text-gray-600 text-sm max-w-md mb-6">
+                  Thank you, <span className="font-bold text-gray-900">{name}</span>. We have received your message and our reservation desk will contact you at <span className="font-bold text-gray-900">{phone}</span> shortly.
+                </p>
+                <button
+                  onClick={() => {
+                    setSubmitted(false);
+                    setName("");
+                    setPhone("");
+                    setQuery("");
+                  }}
+                  className="px-6 py-2.5 bg-[#bfa76a] hover:bg-[#a69055] text-white text-xs font-bold uppercase tracking-wider rounded-xl transition-colors cursor-pointer"
+                >
+                  Send Another Message
+                </button>
               </div>
+            ) : (
+              <form onSubmit={handleSendMessage} className="flex flex-col gap-5">
+                <div>
+                  <label className="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-2">
+                    Your Full Name
+                  </label>
+                  <input
+                    type="text"
+                    required
+                    value={name}
+                    onChange={(e) => setName(e.target.value)}
+                    placeholder="e.g. Rahul Sharma"
+                    className="w-full px-4 py-3.5 rounded-xl border border-gray-200 focus:border-[#bfa76a] focus:ring-2 focus:ring-[#bfa76a]/20 outline-none text-sm text-gray-900 transition-all"
+                  />
+                </div>
 
-              <div>
-                <label className="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-2">
-                  Phone Number
-                </label>
-                <input
-                  type="tel"
-                  required
-                  value={phone}
-                  onChange={(e) => setPhone(e.target.value)}
-                  placeholder="e.g. +91 98765 43210"
-                  className="w-full px-4 py-3.5 rounded-xl border border-gray-200 focus:border-[#bfa76a] focus:ring-2 focus:ring-[#bfa76a]/20 outline-none text-sm text-gray-900 transition-all"
-                />
-              </div>
+                <div>
+                  <label className="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-2">
+                    Phone Number
+                  </label>
+                  <input
+                    type="tel"
+                    required
+                    value={phone}
+                    onChange={(e) => setPhone(e.target.value)}
+                    placeholder="e.g. +91 98765 43210"
+                    className="w-full px-4 py-3.5 rounded-xl border border-gray-200 focus:border-[#bfa76a] focus:ring-2 focus:ring-[#bfa76a]/20 outline-none text-sm text-gray-900 transition-all"
+                  />
+                </div>
 
-              <div>
-                <label className="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-2">
-                  Your Inquiry / Message
-                </label>
-                <textarea
-                  rows={4}
-                  required
-                  value={query}
-                  onChange={(e) => setQuery(e.target.value)}
-                  placeholder="Tell us your check-in dates, number of guests, or special requirements..."
-                  className="w-full px-4 py-3.5 rounded-xl border border-gray-200 focus:border-[#bfa76a] focus:ring-2 focus:ring-[#bfa76a]/20 outline-none text-sm text-gray-900 transition-all resize-none"
-                />
-              </div>
+                <div>
+                  <label className="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-2">
+                    Your Inquiry / Message
+                  </label>
+                  <textarea
+                    rows={4}
+                    required
+                    value={query}
+                    onChange={(e) => setQuery(e.target.value)}
+                    placeholder="Tell us your check-in dates, number of guests, or special requirements..."
+                    className="w-full px-4 py-3.5 rounded-xl border border-gray-200 focus:border-[#bfa76a] focus:ring-2 focus:ring-[#bfa76a]/20 outline-none text-sm text-gray-900 transition-all resize-none"
+                  />
+                </div>
 
-              <button
-                type="submit"
-                className="inline-flex items-center justify-center gap-2 bg-[#bfa76a] hover:bg-[#a69055] text-white py-4 rounded-xl font-bold text-xs sm:text-sm tracking-wider uppercase transition-all duration-300 shadow-md shadow-[#bfa76a]/30 hover:shadow-lg hover:-translate-y-0.5 active:translate-y-0 cursor-pointer mt-2"
-              >
-                <span>SEND DIRECTLY VIA WHATSAPP</span>
-                <Send className="w-4 h-4" />
-              </button>
-            </form>
+                <button
+                  type="submit"
+                  className="inline-flex items-center justify-center gap-2 bg-[#bfa76a] hover:bg-[#a69055] text-white py-4 rounded-xl font-bold text-xs sm:text-sm tracking-wider uppercase transition-all duration-300 shadow-md shadow-[#bfa76a]/30 hover:shadow-lg hover:-translate-y-0.5 active:translate-y-0 cursor-pointer mt-2"
+                >
+                  <span>SUBMIT INQUIRY</span>
+                  <Send className="w-4 h-4" />
+                </button>
+              </form>
+            )}
           </div>
 
+        </div>
+      </section>
+
+      {/* Embedded Google Map Section */}
+      <section className="w-full bg-white border-t border-gray-100 py-16">
+        <div className="max-w-[1440px] mx-auto px-4 sm:px-6 md:px-8 lg:px-10">
+          <div className="text-center mb-8">
+            <div className="flex items-center justify-center gap-2 mb-2">
+              <span className="w-4 h-0.5 bg-[#bfa76a]" />
+              <span className="text-xs font-bold tracking-[0.2em] text-[#bfa76a] uppercase">
+                FIND US ON MAP
+              </span>
+              <span className="w-4 h-0.5 bg-[#bfa76a]" />
+            </div>
+            <h3 className="font-serif text-3xl sm:text-4xl font-bold text-gray-900">
+              Location &amp; Directions
+            </h3>
+          </div>
+
+          <div className="w-full h-[400px] sm:h-[480px] rounded-3xl overflow-hidden shadow-xl border border-gray-200">
+            <iframe
+              title="Hotel Silver Star Location Map"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d118228.8475225139!2d84.77884784783387!3d22.253303649646876!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a201c1c73a69145%3A0xe54d90e88383cfbb!2sRourkela%2C%20Odisha!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin"
+              width="100%"
+              height="100%"
+              style={{ border: 0 }}
+              allowFullScreen={false}
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+            ></iframe>
+          </div>
         </div>
       </section>
 

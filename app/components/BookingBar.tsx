@@ -1,7 +1,8 @@
 "use client";
 
 import { useState, useRef } from "react";
-import { CalendarCheck, CalendarClock, Users, ChevronDown, Sparkles } from "lucide-react";
+import { useRouter } from "next/navigation";
+import { CalendarCheck, CalendarClock, Users, ChevronDown } from "lucide-react";
 
 // Format YYYY-MM-DD to "24 May 2025"
 function formatDateDisplay(dateStr: string): string {
@@ -16,7 +17,7 @@ function formatDateDisplay(dateStr: string): string {
 }
 
 export default function BookingBar({ heroMounted }: { heroMounted: boolean }) {
-  // Default check-in: today, check-out: tomorrow
+  const router = useRouter();
   const today = new Date();
   const tomorrow = new Date(today);
   tomorrow.setDate(tomorrow.getDate() + 1);
@@ -34,16 +35,7 @@ export default function BookingBar({ heroMounted }: { heroMounted: boolean }) {
   const roomTypeRef = useRef<HTMLSelectElement>(null);
 
   const handleCheckAvailability = () => {
-    const formattedIn = formatDateDisplay(checkIn);
-    const formattedOut = formatDateDisplay(checkOut);
-    const text = `Hello Hotel Silver Star, I would like to check room availability:
-• Check-In: ${formattedIn}
-• Check-Out: ${formattedOut}
-• Guests: ${guests}
-• Room Type: ${roomType}`;
-
-    const url = `https://wa.me/919876543210?text=${encodeURIComponent(text)}`;
-    window.open(url, "_blank", "noopener,noreferrer");
+    router.push("/rooms");
   };
 
   return (
@@ -195,7 +187,7 @@ export default function BookingBar({ heroMounted }: { heroMounted: boolean }) {
 
         </div>
 
-        {/* Submit Button with WhatsApp Redirect */}
+        {/* Submit Button */}
         <div className="lg:pl-6 xl:pl-8 flex items-center pt-2 lg:pt-0">
           <button
             onClick={handleCheckAvailability}

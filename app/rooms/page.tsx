@@ -164,19 +164,15 @@ export default function RoomsPage() {
                     </div>
                   </div>
 
-                  {/* WhatsApp Booking Button Pinned at Bottom */}
+                  {/* Booking Button Pinned at Bottom */}
                   <div className="pt-2 mt-auto">
-                    <a
-                      href={`https://wa.me/919876543210?text=${encodeURIComponent(
-                        `Hello Hotel Silver Star, I want to book the ${room.title} (${room.price}/night).`
-                      )}`}
-                      target="_blank"
-                      rel="noopener noreferrer"
+                    <Link
+                      href="/contact"
                       className="w-full inline-flex items-center justify-center gap-2 bg-[#bfa76a] hover:bg-[#a69055] text-white py-3.5 sm:py-4 rounded-xl font-bold text-xs sm:text-sm tracking-wider uppercase transition-all duration-300 shadow-md shadow-[#bfa76a]/30 hover:shadow-lg hover:-translate-y-0.5 active:translate-y-0 min-h-[48px]"
                     >
-                      <span>RESERVE ON WHATSAPP</span>
+                      <span>BOOK THIS ROOM</span>
                       <ArrowRight className="w-4 h-4" />
-                    </a>
+                    </Link>
                   </div>
                 </div>
 

@@ -11,11 +11,6 @@ export default function Footer() {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
-  const bookWhatsAppUrl =
-    "https://wa.me/919876543210?text=Hello%20Hotel%20Silver%20Star%2C%20I%20would%20like%20to%20book%20a%20room.";
-  const contactWhatsAppUrl =
-    "https://wa.me/919876543210?text=Hello%20Hotel%20Silver%20Star%2C%20I%20have%20a%20query%20regarding%20my%20stay.";
-
   return (
     <footer className="relative w-full bg-[#121214] text-white pt-28 sm:pt-32 pb-12 overflow-hidden border-t border-white/5">
       <div className="max-w-[1440px] mx-auto px-4 sm:px-6 md:px-8 lg:px-10">
@@ -104,17 +99,17 @@ export default function Footer() {
                 <li>Free High-Speed Wi-Fi</li>
                 <li>24/7 Power Backup</li>
                 <li>Daily Housekeeping</li>
-                <li>24x7 Front Desk & Support</li>
+                <li>24x7 Front Desk &amp; Support</li>
                 <li>Attached Modern Bathrooms</li>
               </ul>
             </div>
 
-            {/* Col 4: Contact & Reserve */}
+            {/* Col 4: Contact Information */}
             <div className="flex flex-col items-start">
               <span className="text-[12px] sm:text-[13px] font-bold tracking-[0.2em] text-[#bfa76a] uppercase mb-5 block">
                 CONTACT US
               </span>
-              <div className="flex flex-col gap-3.5 text-gray-400 text-[14px] sm:text-[15px] mb-6">
+              <div className="flex flex-col gap-3.5 text-gray-400 text-[14px] sm:text-[15px]">
                 <div className="flex items-start gap-2.5">
                   <MapPin className="w-4.5 h-4.5 text-[#bfa76a] shrink-0 mt-1" />
                   <span>Near City Center, Main Road, Rourkela, Odisha</span>
@@ -132,16 +127,6 @@ export default function Footer() {
                   </a>
                 </div>
               </div>
-
-              {/* Reserve Button */}
-              <a
-                href={bookWhatsAppUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center justify-center bg-[#bfa76a] hover:bg-[#a69055] text-white px-8 sm:px-9 py-3.5 rounded-xl font-bold text-xs sm:text-[13px] tracking-[0.14em] uppercase transition-all duration-300 shadow-lg shadow-[#bfa76a]/30 hover:shadow-[#bfa76a]/50 hover:-translate-y-0.5 active:translate-y-0 min-h-[44px]"
-              >
-                BOOK NOW
-              </a>
             </div>
 
           </div>

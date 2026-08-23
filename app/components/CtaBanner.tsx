@@ -1,12 +1,10 @@
 "use client";
 
 import { PhoneCall } from "lucide-react";
+import Link from "next/link";
 import Reveal from "./Reveal";
 
 export default function CtaBanner() {
-  const contactWhatsAppUrl =
-    "https://wa.me/919876543210?text=Hello%20Hotel%20Silver%20Star%2C%20I%20have%20a%20question%20regarding%20my%20stay.";
-
   return (
     <div className="w-full max-w-[1440px] mx-auto px-4 sm:px-6 md:px-8 lg:px-10 relative z-20 -mb-14 sm:-mb-16">
       <Reveal type="up" delay={50}>
@@ -30,16 +28,14 @@ export default function CtaBanner() {
             </div>
           </div>
 
-          {/* Right CTA Button -> WhatsApp */}
+          {/* Right CTA Button -> Link to /contact */}
           <div className="w-full sm:w-auto">
-            <a
-              href={contactWhatsAppUrl}
-              target="_blank"
-              rel="noopener noreferrer"
+            <Link
+              href="/contact"
               className="inline-flex items-center justify-center bg-white hover:bg-neutral-900 hover:text-white text-neutral-900 px-9 sm:px-11 py-3.5 sm:py-4 rounded-xl font-bold text-xs sm:text-[13px] tracking-wider uppercase transition-all duration-300 shadow-md hover:shadow-xl hover:-translate-y-0.5 active:translate-y-0 whitespace-nowrap w-full sm:w-auto min-h-[48px]"
             >
               CONTACT US
-            </a>
+            </Link>
           </div>
 
         </div>
