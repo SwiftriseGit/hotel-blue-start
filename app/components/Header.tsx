@@ -44,35 +44,37 @@ export default function Header() {
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ease-out ${
         scrolled
           ? "bg-black/95 backdrop-blur-md py-3 sm:py-3.5 shadow-2xl"
-          : "bg-gradient-to-b from-black/80 via-black/40 to-transparent py-4 sm:py-6"
+          : "bg-gradient-to-b from-black/85 via-black/45 to-transparent py-4 sm:py-6"
       }`}
     >
-      <div className="w-full max-w-[1440px] mx-auto px-4 sm:px-6 md:px-8 lg:px-10 flex items-center justify-between">
+      <div className="w-full max-w-[1440px] mx-auto px-4 sm:px-6 md:px-8 lg:px-10 grid grid-cols-2 lg:grid-cols-3 items-center">
         
-        {/* Prominent Big Logo */}
-        <Link
-          href="/"
-          className={`block transition-all duration-500 origin-left ${
-            mounted ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-2"
-          } ${scrolled ? "scale-95" : "scale-100"}`}
-        >
-          <Image
-            src="/logo.png"
-            alt="Hotel Silver Star"
-            width={260}
-            height={85}
-            className="h-14 sm:h-16 md:h-18 w-auto object-contain drop-shadow-xl"
-            priority
-          />
-        </Link>
+        {/* Left Column: Prominent Logo */}
+        <div className="flex justify-start">
+          <Link
+            href="/"
+            className={`block transition-all duration-500 origin-left ${
+              mounted ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-2"
+            } ${scrolled ? "scale-95" : "scale-100"}`}
+          >
+            <Image
+              src="/logo.png"
+              alt="Hotel Silver Star"
+              width={260}
+              height={85}
+              className="h-14 sm:h-16 md:h-18 w-auto object-contain drop-shadow-xl"
+              priority
+            />
+          </Link>
+        </div>
 
-        {/* Desktop Nav Links */}
-        <nav className="hidden lg:flex items-center gap-8 xl:gap-12">
+        {/* Center Column: Perfectly Centered Nav Links */}
+        <nav className="hidden lg:flex items-center justify-center gap-7 xl:gap-10">
           {navLinks.map((link, idx) => (
             <Link
               key={link.label}
               href={link.href}
-              className={`text-[14px] xl:text-[16px] font-semibold text-white/95 hover:text-[#bfa76a] tracking-wider transition-all duration-300 nav-link-hover ${
+              className={`text-[14px] xl:text-[15px] font-semibold text-white/95 hover:text-[#bfa76a] tracking-wider transition-all duration-300 nav-link-hover ${
                 mounted ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-2"
               }`}
               style={{
@@ -84,16 +86,19 @@ export default function Header() {
           ))}
         </nav>
 
-        {/* Mobile Hamburger Button */}
-        <div className="flex items-center lg:hidden">
-          <button
-            onClick={() => setMobileOpen(!mobileOpen)}
-            className="text-white p-2 min-w-[44px] min-h-[44px] flex items-center justify-center rounded-lg hover:bg-white/10 active:scale-95 transition-all focus:outline-none"
-            aria-label="Toggle Menu"
-          >
-            {mobileOpen ? <X className="w-7 h-7 text-[#bfa76a]" /> : <Menu className="w-7 h-7" />}
-          </button>
+        {/* Right Column: Empty spacer on desktop, Hamburger on mobile */}
+        <div className="flex justify-end items-center">
+          <div className="lg:hidden">
+            <button
+              onClick={() => setMobileOpen(!mobileOpen)}
+              className="text-white p-2 min-w-[44px] min-h-[44px] flex items-center justify-center rounded-lg hover:bg-white/10 active:scale-95 transition-all focus:outline-none"
+              aria-label="Toggle Menu"
+            >
+              {mobileOpen ? <X className="w-7 h-7 text-[#bfa76a]" /> : <Menu className="w-7 h-7" />}
+            </button>
+          </div>
         </div>
+
       </div>
 
       {/* Mobile Drawer Overlay & Menu */}

@@ -5,7 +5,6 @@ import Image from "next/image";
 import Link from "next/link";
 import { Play, BedDouble, Zap, Wifi, MapPin, Check } from "lucide-react";
 import Header from "./components/Header";
-import BookingBar from "./components/BookingBar";
 import Rooms from "./components/Rooms";
 import Gallery from "./components/Gallery";
 import Testimonials from "./components/Testimonials";
@@ -40,7 +39,7 @@ export default function Home() {
       <Header />
 
       {/* Hero Section with Parallax & Masked Text Reveals */}
-      <section className="relative w-full min-h-[620px] sm:min-h-[750px] lg:h-[1060px] xl:h-[1050px] flex flex-col justify-between bg-black overflow-hidden">
+      <section className="relative w-full min-h-[580px] sm:min-h-[700px] lg:h-[900px] xl:h-[920px] flex flex-col justify-center bg-black overflow-hidden">
         {/* Background Image with subtle Parallax */}
         <div
           className="absolute inset-0 z-0 transition-transform duration-75 ease-out"
@@ -77,7 +76,7 @@ export default function Home() {
         </div>
 
         {/* Hero Content */}
-        <div className="relative z-10 w-full max-w-[1440px] mx-auto px-4 sm:px-6 md:px-8 lg:px-10 flex flex-col justify-center flex-1 pt-28 sm:pt-36 pb-16 sm:pb-24 lg:pb-32">
+        <div className="relative z-10 w-full max-w-[1440px] mx-auto px-4 sm:px-6 md:px-8 lg:px-10 flex flex-col justify-center pt-28 sm:pt-36 pb-20 sm:pb-24">
           <div className="max-w-2xl">
             {/* Masked Staggered Headline */}
             <h1 className="font-serif text-[clamp(2.75rem,7.5vw,6.5rem)] font-bold text-white leading-[1.05] tracking-tight mb-5 sm:mb-6 drop-shadow-lg">
@@ -151,9 +150,6 @@ export default function Home() {
             </div>
           </div>
         </div>
-
-        {/* Floating Interactive Booking Bar */}
-        <BookingBar heroMounted={heroMounted} />
       </section>
 
       {/* Key Highlights / Features Bar */}
