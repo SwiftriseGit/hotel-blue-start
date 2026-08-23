@@ -2,10 +2,12 @@
 
 import { useEffect, useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { Play, BedDouble, Zap, Wifi, MapPin, Check } from "lucide-react";
 import Header from "./components/Header";
 import BookingBar from "./components/BookingBar";
 import Rooms from "./components/Rooms";
+import Gallery from "./components/Gallery";
 import Testimonials from "./components/Testimonials";
 import CtaBanner from "./components/CtaBanner";
 import Footer from "./components/Footer";
@@ -28,17 +30,17 @@ export default function Home() {
 
   return (
     <div className="min-h-screen flex flex-col font-sans bg-[#faf8f5] selection:bg-[#bfa76a] selection:text-white overflow-x-hidden">
-      {/* Branded Splash Loader (short ~0.7s) */}
+      {/* Branded Splash Loader */}
       <PageLoader />
 
-      {/* Top 2.5px Scroll Progress Indicator */}
+      {/* Top Scroll Progress Indicator */}
       <ScrollProgress />
 
       {/* Fixed Sticky Header */}
       <Header />
 
       {/* Hero Section with Parallax & Masked Text Reveals */}
-      <section className="relative w-full min-h-[580px] sm:min-h-[750px] lg:h-[1060px] xl:h-[1050px] flex flex-col justify-between bg-black overflow-hidden">
+      <section className="relative w-full min-h-[620px] sm:min-h-[750px] lg:h-[1060px] xl:h-[1050px] flex flex-col justify-between bg-black overflow-hidden">
         {/* Background Image with subtle Parallax */}
         <div
           className="absolute inset-0 z-0 transition-transform duration-75 ease-out"
@@ -50,39 +52,40 @@ export default function Home() {
           {/* Dedicated Mobile Portrait Background */}
           <div className="block sm:hidden absolute inset-0">
             <Image
-              src="/mobile.png"
-              alt="Hotel Silver Star Entrance"
+              src="/about.png"
+              alt="Hotel Silver Star Reception & Lounge"
               fill
-              className="object-cover object-[center_50%]"
+              className="object-cover object-[center_35%]"
               priority
               sizes="100vw"
             />
-            {/* <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/35 to-black/40 pointer-events-none" /> */}
+            <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-black/60 pointer-events-none" />
           </div>
 
-          {/* Desktop & Tablet Background (shifts left under 1200px) */}
+          {/* Desktop & Tablet Background */}
           <div className="hidden sm:block absolute inset-0">
             <Image
-              src="/image.png"
-              alt="Hotel Silver Star Entrance"
+              src="/about.png"
+              alt="Hotel Silver Star Reception & Lounge"
               fill
-              className="object-cover object-[center_28%] max-[1200px]:object-[22%_28%] max-[900px]:object-[15%_28%] transition-all duration-300"
+              className="object-cover object-[center_35%] transition-all duration-300"
               priority
               sizes="100vw"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/20 pointer-events-none" />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/45 to-black/60 pointer-events-none" />
           </div>
         </div>
 
         {/* Hero Content */}
-        <div className="relative z-10 w-full max-w-[1440px] mx-auto px-4 sm:px-6 md:px-8 lg:px-10 flex flex-col justify-center flex-1 pt-24 sm:pt-32 pb-16 sm:pb-24 lg:pb-32">
+        <div className="relative z-10 w-full max-w-[1440px] mx-auto px-4 sm:px-6 md:px-8 lg:px-10 flex flex-col justify-center flex-1 pt-28 sm:pt-36 pb-16 sm:pb-24 lg:pb-32">
           <div className="max-w-2xl">
             {/* Masked Staggered Headline */}
-            <h1 className="font-serif text-[clamp(2.75rem,7.5vw,6.5rem)] font-normal text-white leading-[1.05] tracking-tight mb-5 sm:mb-6 drop-shadow-md">
+            <h1 className="font-serif text-[clamp(2.75rem,7.5vw,6.5rem)] font-bold text-white leading-[1.05] tracking-tight mb-5 sm:mb-6 drop-shadow-lg">
               <span className="block overflow-hidden">
                 <span
-                  className={`block transition-all duration-700 ease-out ${heroMounted ? "translate-y-0 opacity-100" : "translate-y-full opacity-0"
-                    }`}
+                  className={`block transition-all duration-700 ease-out ${
+                    heroMounted ? "translate-y-0 opacity-100" : "translate-y-full opacity-0"
+                  }`}
                   style={{ transitionDelay: "100ms" }}
                 >
                   Your
@@ -90,8 +93,9 @@ export default function Home() {
               </span>
               <span className="block overflow-hidden">
                 <span
-                  className={`block transition-all duration-700 ease-out ${heroMounted ? "translate-y-0 opacity-100" : "translate-y-full opacity-0"
-                    }`}
+                  className={`block transition-all duration-700 ease-out ${
+                    heroMounted ? "translate-y-0 opacity-100" : "translate-y-full opacity-0"
+                  }`}
                   style={{ transitionDelay: "220ms" }}
                 >
                   Comfort,
@@ -99,61 +103,65 @@ export default function Home() {
               </span>
               <span className="block overflow-hidden">
                 <span
-                  className={`block transition-all duration-700 ease-out ${heroMounted ? "translate-y-0 opacity-100" : "translate-y-full opacity-0"
-                    }`}
+                  className={`block transition-all duration-700 ease-out ${
+                    heroMounted ? "translate-y-0 opacity-100" : "translate-y-full opacity-0"
+                  }`}
                   style={{ transitionDelay: "340ms" }}
                 >
                   Our{" "}
-                  <span className="text-[#bfa76a] inline-block font-medium">Promise.</span>
+                  <span className="text-[#bfa76a] inline-block font-semibold">Promise.</span>
                 </span>
               </span>
             </h1>
 
-            {/* Supporting Paragraph */}
+            {/* Subtitle */}
             <p
-              className={`text-gray-200 text-sm sm:text-base md:text-lg lg:text-xl font-light leading-relaxed mb-6 sm:mb-8 max-w-md transition-all duration-700 ease-out ${heroMounted ? "translate-y-0 opacity-100" : "translate-y-6 opacity-0"
-                }`}
-              style={{ transitionDelay: "500ms" }}
+              className={`text-gray-200 text-sm sm:text-base md:text-lg max-w-lg mb-8 sm:mb-10 font-normal leading-relaxed transition-all duration-800 ease-out ${
+                heroMounted ? "translate-y-0 opacity-100" : "translate-y-6 opacity-0"
+              }`}
+              style={{ transitionDelay: "480ms" }}
             >
-              A cozy stay with warm hospitality at the heart of the city.
+              Experience unmatched hospitality, serene rooms, and delightful stays in the heart of Rourkela.
             </p>
 
             {/* CTA Buttons */}
             <div
-              className={`flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-5 transition-all duration-700 ease-out ${heroMounted ? "translate-y-0 opacity-100" : "translate-y-6 opacity-0"
-                }`}
-              style={{ transitionDelay: "650ms" }}
+              className={`flex flex-row items-center gap-4 sm:gap-6 transition-all duration-800 ease-out ${
+                heroMounted ? "translate-y-0 opacity-100" : "translate-y-6 opacity-0"
+              }`}
+              style={{ transitionDelay: "580ms" }}
             >
-              <a
-                href="#rooms"
-                className="inline-flex items-center justify-center group bg-[#bfa76a] hover:bg-[#732824] text-white px-6 sm:px-8 py-3 sm:py-3.5 rounded-lg font-bold text-xs sm:text-[13px] tracking-wider uppercase transition-all duration-300 shadow-[0_4px_16px_rgba(191,167,106,0.35)] hover:shadow-[#bfa76a]/40 hover:-translate-y-0.5 active:translate-y-0 min-h-[44px]"
+              <Link
+                href="/rooms"
+                className="inline-flex items-center justify-center group bg-[#bfa76a] hover:bg-[#a69055] text-white px-6 sm:px-8 py-3.5 sm:py-4 rounded-xl font-bold text-xs sm:text-[13px] tracking-wider uppercase transition-all duration-300 shadow-[0_4px_20px_rgba(191,167,106,0.4)] hover:shadow-[#bfa76a]/60 hover:-translate-y-0.5 active:translate-y-0 min-h-[46px]"
               >
                 <span>DISCOVER ROOMS</span>
-              </a>
-              <button
+              </Link>
+              <Link
+                href="/about"
                 className="flex items-center gap-3 text-white hover:text-[#bfa76a] transition-colors duration-200 uppercase tracking-wider font-semibold text-xs min-h-[44px] group cursor-pointer"
               >
-                <div className="w-10 h-10 rounded-full border border-white/60 group-hover:border-[#bfa76a] flex items-center justify-center transition-all duration-300 group-hover:scale-110 group-hover:rotate-12">
+                <div className="w-10 h-10 rounded-full border border-white/60 group-hover:border-[#bfa76a] flex items-center justify-center transition-all duration-300 group-hover:scale-110">
                   <Play className="w-3.5 h-3.5 fill-current ml-0.5" />
                 </div>
                 <span className="transition-transform duration-300 group-hover:translate-x-1">
-                  WATCH VIDEO
+                  ABOUT HOTEL
                 </span>
-              </button>
+              </Link>
             </div>
           </div>
         </div>
+
+        {/* Floating Interactive Booking Bar */}
+        <BookingBar heroMounted={heroMounted} />
       </section>
 
-      {/* Booking Form & Amenities Section (Light Background) */}
-      <section className="relative w-full bg-[#faf8f5] pb-20 sm:pb-24">
-        {/* Interactive Booking Form Widget -> WhatsApp */}
-        <BookingBar heroMounted={heroMounted} />
-
-        {/* Amenities 4-Column Grid with Staggered Viewport Reveal */}
-        <div className="max-w-[1440px] mx-auto px-4 sm:px-6 md:px-8 lg:px-10 pt-16 sm:pt-20">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 lg:gap-0 text-center">
-            {/* Comfortable Rooms */}
+      {/* Key Highlights / Features Bar */}
+      <section className="w-full bg-white border-b border-gray-100 py-8 sm:py-10 relative z-10">
+        <div className="max-w-[1440px] mx-auto px-4 sm:px-6 md:px-8 lg:px-10">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 text-center">
+            
+            {/* Feature 1 */}
             <Reveal type="up" delay={50} className="h-full">
               <div className="flex flex-col items-center px-4 py-3 lg:border-r border-gray-200/80 group hover:-translate-y-1.5 transition-transform duration-300">
                 <div className="mb-3 sm:mb-4 transform transition-transform duration-300 group-hover:scale-110">
@@ -161,12 +169,12 @@ export default function Home() {
                 </div>
                 <h3 className="font-bold text-[16px] sm:text-[18px] text-gray-900 mb-1.5">Comfortable Rooms</h3>
                 <p className="text-[13px] sm:text-[14px] text-gray-500 leading-relaxed max-w-[240px]">
-                  AC / Non AC rooms<br />for a pleasant stay.
+                  AC and Non-AC luxury rooms designed for pure rest and relaxation.
                 </p>
               </div>
             </Reveal>
 
-            {/* Power Backup */}
+            {/* Feature 2 */}
             <Reveal type="up" delay={150} className="h-full">
               <div className="flex flex-col items-center px-4 py-3 lg:border-r border-gray-200/80 group hover:-translate-y-1.5 transition-transform duration-300">
                 <div className="mb-3 sm:mb-4 transform transition-transform duration-300 group-hover:scale-110">
@@ -174,25 +182,25 @@ export default function Home() {
                 </div>
                 <h3 className="font-bold text-[16px] sm:text-[18px] text-gray-900 mb-1.5">Power Backup</h3>
                 <p className="text-[13px] sm:text-[14px] text-gray-500 leading-relaxed max-w-[240px]">
-                  24x7 power backup<br />for uninterrupted comfort.
+                  24/7 continuous electricity to keep your stay uninterrupted.
                 </p>
               </div>
             </Reveal>
 
-            {/* Free Wi-Fi */}
+            {/* Feature 3 */}
             <Reveal type="up" delay={250} className="h-full">
               <div className="flex flex-col items-center px-4 py-3 lg:border-r border-gray-200/80 group hover:-translate-y-1.5 transition-transform duration-300">
                 <div className="mb-3 sm:mb-4 transform transition-transform duration-300 group-hover:scale-110">
                   <Wifi className="w-9 h-9 sm:w-10 sm:h-10 text-[#bfa76a]" strokeWidth={1.6} />
                 </div>
-                <h3 className="font-bold text-[16px] sm:text-[18px] text-gray-900 mb-1.5">Free Wi-Fi</h3>
+                <h3 className="font-bold text-[16px] sm:text-[18px] text-gray-900 mb-1.5">Free High-Speed Wi-Fi</h3>
                 <p className="text-[13px] sm:text-[14px] text-gray-500 leading-relaxed max-w-[240px]">
-                  High speed internet<br />throughout the property.
+                  High-speed internet access throughout the entire property.
                 </p>
               </div>
             </Reveal>
 
-            {/* Prime Location */}
+            {/* Feature 4 */}
             <Reveal type="up" delay={350} className="h-full">
               <div className="flex flex-col items-center px-4 py-3 group hover:-translate-y-1.5 transition-transform duration-300">
                 <div className="mb-3 sm:mb-4 transform transition-transform duration-300 group-hover:scale-110">
@@ -200,53 +208,54 @@ export default function Home() {
                 </div>
                 <h3 className="font-bold text-[16px] sm:text-[18px] text-gray-900 mb-1.5">Prime Location</h3>
                 <p className="text-[13px] sm:text-[14px] text-gray-500 leading-relaxed max-w-[240px]">
-                  Easy access to the city&apos;s<br />top attractions.
+                  Near key transport hubs, markets, and city attractions.
                 </p>
               </div>
             </Reveal>
+
           </div>
         </div>
       </section>
 
-      {/* About Section (Pure White Background) */}
-      <section id="about" className="relative w-full bg-white py-20 sm:py-24 lg:py-32 overflow-hidden">
+      {/* About Section */}
+      <section id="about" className="relative w-full bg-[#faf8f5] py-14 sm:py-18 lg:py-24 overflow-hidden">
         <div className="max-w-[1440px] mx-auto px-4 sm:px-6 md:px-8 lg:px-10">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center">
-
-            {/* Left Content with Staggered Scroll Reveal */}
-            <div className="lg:col-span-6 xl:col-span-5 flex flex-col items-start">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
+            
+            {/* Left Content Column */}
+            <div className="lg:col-span-6 flex flex-col items-start">
+              
               {/* Welcome Badge */}
               <Reveal type="left" delay={50}>
                 <div className="flex items-center gap-3 mb-3 sm:mb-4">
                   <span className="w-6 h-[2px] bg-[#bfa76a]" />
-                  <span className="text-[12px] sm:text-[13px] font-bold tracking-[0.2em] text-gray-700 uppercase">
+                  <span className="text-[12px] sm:text-[13px] font-bold tracking-[0.2em] text-[#bfa76a] uppercase">
                     WELCOME TO
                   </span>
                 </div>
               </Reveal>
 
-              {/* Title */}
-              <Reveal type="up" delay={120}>
-                <h2 className="font-serif text-[clamp(2.2rem,5vw,3.5rem)] font-normal text-gray-900 leading-[1.12] mb-5 sm:mb-6">
+              {/* Heading */}
+              <Reveal type="left" delay={120}>
+                <h2 className="font-serif text-[clamp(2rem,4.5vw,3.25rem)] font-bold text-gray-900 leading-[1.12] mb-4 sm:mb-6">
                   Hotel Silver Star
                 </h2>
               </Reveal>
 
-              {/* Description */}
-              <Reveal type="up" delay={200}>
-                <p className="text-gray-600 text-sm sm:text-[15px] leading-relaxed mb-6 sm:mb-8 max-w-lg">
-                  Experience the perfect blend of comfort, convenience and warm hospitality.
-                  Whether you&apos;re here for business or leisure, we ensure a stay that feels like home.
+              {/* Description Paragraph */}
+              <Reveal type="left" delay={200}>
+                <p className="text-gray-600 text-[15px] sm:text-[16px] leading-relaxed mb-6 sm:mb-8 font-normal">
+                  Located in the vibrant center of the city, Hotel Silver Star offers a blend of modern amenities, cozy rooms, and heartfelt hospitality. Whether you are traveling for business, family vacations, or solo exploration, our dedicated team ensures your stay is seamless, relaxing, and memorable.
                 </p>
               </Reveal>
 
-              {/* Key Highlights / Checkmarks */}
+              {/* 3 Checkmark Bullet Points */}
               <div className="flex flex-col gap-3.5 sm:gap-4 mb-6 sm:mb-8 w-full">
                 <Reveal type="up" delay={280}>
                   <div className="flex items-center gap-3.5 group">
                     <Check className="w-5 h-5 text-[#bfa76a] shrink-0 transition-transform duration-200 group-hover:scale-125" strokeWidth={2.5} />
                     <span className="text-[14px] sm:text-[16px] font-semibold text-gray-800">
-                      Clean &amp; Comfortable Rooms
+                      Clean, Sanitized &amp; Comfortable Rooms
                     </span>
                   </div>
                 </Reveal>
@@ -254,7 +263,7 @@ export default function Home() {
                   <div className="flex items-center gap-3.5 group">
                     <Check className="w-5 h-5 text-[#bfa76a] shrink-0 transition-transform duration-200 group-hover:scale-125" strokeWidth={2.5} />
                     <span className="text-[14px] sm:text-[16px] font-semibold text-gray-800">
-                      Friendly &amp; Dedicated Staff
+                      Friendly, Courteous &amp; 24/7 Dedicated Staff
                     </span>
                   </div>
                 </Reveal>
@@ -262,39 +271,30 @@ export default function Home() {
                   <div className="flex items-center gap-3.5 group">
                     <Check className="w-5 h-5 text-[#bfa76a] shrink-0 transition-transform duration-200 group-hover:scale-125" strokeWidth={2.5} />
                     <span className="text-[14px] sm:text-[16px] font-semibold text-gray-800">
-                      Best Value for Your Stay
+                      Best Value &amp; Pocket-Friendly Rates in the City
                     </span>
                   </div>
                 </Reveal>
               </div>
 
-              {/* Signature */}
-              <Reveal type="up" delay={460}>
-                <div className="mb-6 sm:mb-8">
-                  <span className="font-signature text-3xl sm:text-5xl text-gray-700 block select-none">
-                    Silver Star
-                  </span>
-                </div>
+              {/* Read More Link / Button */}
+              <Reveal type="up" delay={480}>
+                <Link
+                  href="/about"
+                  className="inline-flex items-center justify-center bg-[#bfa76a] hover:bg-[#a69055] text-white px-8 py-3.5 rounded-xl font-bold text-xs tracking-[0.14em] uppercase transition-all duration-300 shadow-[0_4px_14px_rgba(191,167,106,0.35)] hover:shadow-[#bfa76a]/50 hover:-translate-y-0.5 active:translate-y-0 min-h-[44px]"
+                >
+                  LEARN MORE ABOUT US
+                </Link>
               </Reveal>
 
-              {/* CTA Button -> WhatsApp */}
-              <Reveal type="up" delay={520}>
-                <a
-                  href="https://wa.me/919876543210?text=Hello%20Hotel%20Silver%20Star%2C%20I%20would%20like%20to%20know%20more%20about%20your%20hotel."
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center bg-[#bfa76a] hover:bg-[#732824] text-white px-8 py-3.5 rounded-lg font-bold text-xs tracking-[0.14em] uppercase transition-all duration-300 shadow-[0_4px_14px_rgba(191,167,106,0.35)] hover:shadow-[#bfa76a]/40 hover:-translate-y-0.5 active:translate-y-0 min-h-[44px]"
-                >
-                  ABOUT US
-                </a>
-              </Reveal>
             </div>
 
-            {/* Right Image with Mask Reveal & Subtle Hover Zoom */}
-            <div className="lg:col-span-6 xl:col-span-7 relative w-full">
-              {/* Decorative Dot Matrix SVG behind bottom-left of image */}
-              <div className="hidden sm:block absolute -bottom-6 -left-6 sm:-bottom-8 sm:-left-10 z-0 pointer-events-none">
-                <svg width="130" height="130" viewBox="0 0 130 130" fill="none">
+            {/* Right Image Column with Decorative Gold Elements */}
+            <div className="lg:col-span-6 relative w-full flex items-center justify-center pt-6 lg:pt-0">
+              
+              {/* Decorative Dot Matrix Background */}
+              <div className="absolute -top-6 -left-6 z-0 pointer-events-none opacity-50">
+                <svg width="140" height="140" viewBox="0 0 140 140" fill="none" xmlns="http://www.w3.org/2000/svg">
                   {Array.from({ length: 6 }).map((_, row) =>
                     Array.from({ length: 6 }).map((_, col) => (
                       <circle
@@ -313,22 +313,23 @@ export default function Home() {
                 </svg>
               </div>
 
-              {/* Image Card with Smooth Reveal & Hover Zoom */}
+              {/* Image Card: Hotel Entrance Facade */}
               <Reveal type="up" delay={200} className="relative z-10 w-full">
                 <div
-                  className="group relative rounded-2xl md:rounded-3xl overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.12)] aspect-[4/3] sm:aspect-[16/11] lg:aspect-[4/3] w-full min-h-[300px] sm:min-h-[380px] bg-neutral-100 cursor-pointer"
+                  className="group relative rounded-2xl md:rounded-3xl overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.12)] aspect-[4/3] sm:aspect-[16/11] lg:aspect-[4/3] w-full min-h-[300px] sm:min-h-[380px] bg-neutral-900 cursor-pointer"
                 >
                   <Image
-                    src="/about.png"
-                    alt="Hotel Silver Star Reception"
+                    src="/image.png"
+                    alt="Hotel Silver Star Grand Entrance"
                     fill
                     className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
                     sizes="(max-width: 1024px) 100vw, 50vw"
                     priority
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent pointer-events-none" />
                 </div>
               </Reveal>
+
             </div>
 
           </div>
@@ -338,12 +339,13 @@ export default function Home() {
       {/* Rooms Section */}
       <Rooms />
 
-
+      {/* Gallery Section */}
+      <Gallery />
 
       {/* Testimonials / Guest Reviews Section */}
       <Testimonials />
 
-      {/* CTA Questions Banner (overlaps footer) */}
+      {/* Floating CTA Banner */}
       <CtaBanner />
 
       {/* Footer */}
