@@ -143,7 +143,7 @@ export default function Footer() {
                 {/* QR Code */}
                 <div className="relative w-24 h-24 sm:w-28 sm:h-28 shrink-0 bg-white p-2 rounded-xl shadow-md sm:mb-3.5 border border-amber-200/40">
                   <Image
-                    src="/qrcode.png"
+                    src="/qrcode-v2.png"
                     alt="Scan QR Code to Book"
                     fill
                     className="object-contain p-1"
