@@ -9,6 +9,7 @@ import CtaBanner from "../components/CtaBanner";
 import ScrollProgress from "../components/ScrollProgress";
 import Reveal from "../components/Reveal";
 
+
 const allRooms = [
   {
     id: 1,

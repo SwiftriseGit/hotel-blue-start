@@ -9,6 +9,7 @@ import CtaBanner from "../components/CtaBanner";
 import ScrollProgress from "../components/ScrollProgress";
 import Reveal from "../components/Reveal";
 
+
 export default function AboutPage() {
   return (
     <div className="min-h-screen flex flex-col font-sans bg-[#faf8f5] selection:bg-[#bfa76a] selection:text-white overflow-x-hidden">

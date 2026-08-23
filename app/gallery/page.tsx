@@ -7,6 +7,7 @@ import { Camera, Sparkles } from "lucide-react";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import CtaBanner from "../components/CtaBanner";
+
 import ScrollProgress from "../components/ScrollProgress";
 import Reveal from "../components/Reveal";
 

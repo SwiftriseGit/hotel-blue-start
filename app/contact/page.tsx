@@ -9,6 +9,7 @@ import Footer from "../components/Footer";
 import ScrollProgress from "../components/ScrollProgress";
 import Reveal from "../components/Reveal";
 
+
 export default function ContactPage() {
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");

@@ -18,8 +18,36 @@ const caveat = Caveat({
 });
 
 export const metadata: Metadata = {
-  title: "Hotel Silver Star",
-  description: "A cozy stay with warm hospitality at the heart of the city.",
+  metadataBase: new URL("https://hotelsilverstar.in"),
+  title: {
+    default: "Hotel Silver Star | Best Hotel in Rourkela",
+    template: "%s | Hotel Silver Star",
+  },
+  description: "Experience the perfect blend of luxury and value at Hotel Silver Star. Comfortable rooms, affordable prices, and spacious banquet halls for business and leisure stays in Rourkela, Odisha.",
+  keywords: ["Hotel Silver Star", "best hotel in Rourkela", "comfortable room", "affordable price", "business model hotel", "open space hotel", "luxury stay Rourkela", "Rourkela accommodation"],
+  authors: [{ name: "Hotel Silver Star" }],
+  openGraph: {
+    type: "website",
+    locale: "en_IN",
+    url: "https://hotelsilverstar.in",
+    siteName: "Hotel Silver Star",
+    title: "Hotel Silver Star | Best Hotel in Rourkela",
+    description: "Experience the perfect blend of luxury and value at Hotel Silver Star. Comfortable rooms and affordable prices in Rourkela.",
+    images: [
+      {
+        url: "/image copy.png",
+        width: 1200,
+        height: 630,
+        alt: "Hotel Silver Star Premium Room",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Hotel Silver Star | Best Hotel in Rourkela",
+    description: "Comfortable rooms, affordable prices, and luxury stays in Rourkela, Odisha.",
+    images: ["/image copy.png"],
+  },
 };
 
 export default function RootLayout({
