@@ -146,33 +146,29 @@ export default function RoomsPage() {
                 {/* Details Body (Stretches equally and aligns bottom button) */}
                 <div className="p-6 sm:p-8 flex flex-col flex-1 justify-between">
                   <div className="flex flex-col flex-1">
-                    <h2 className="font-serif text-2xl sm:text-[1.75rem] font-bold text-gray-900 mb-2.5 min-h-[2rem]">
+                    <h2 className="font-serif text-2xl sm:text-[1.75rem] font-bold text-[#800020] mb-1">
                       {room.title}
                     </h2>
-                    <p className="text-gray-600 text-sm sm:text-[15px] leading-relaxed mb-6 min-h-[3.5rem]">
+                    
+                    {/* Price in Bold */}
+                    <div className="mb-4">
+                      <span className="text-2xl sm:text-3xl font-extrabold text-[#800020]">{room.price}</span>
+                      <span className="text-sm font-medium text-gray-500"> / night</span>
+                    </div>
+
+                    <p className="text-gray-600 text-sm sm:text-[15px] leading-relaxed mb-6">
                       {room.description}
                     </p>
 
                     {/* Standardized 8-Item Amenities Grid */}
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-8 pt-4 border-t border-gray-100 flex-1">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-4 pt-4 border-t border-gray-100 flex-1">
                       {room.amenities.map((amenity) => (
-                        <div key={amenity} className="flex items-center gap-2.5 text-xs sm:text-sm text-gray-700">
+                        <div key={amenity} className="flex items-center gap-2.5 text-xs sm:text-sm text-gray-900 font-bold">
                           <Check className="w-4 h-4 text-[#bfa76a] shrink-0" />
                           <span>{amenity}</span>
                         </div>
                       ))}
                     </div>
-                  </div>
-
-                  {/* Booking Button Pinned at Bottom */}
-                  <div className="pt-2 mt-auto">
-                    <Link
-                      href="/contact"
-                      className="w-full inline-flex items-center justify-center gap-2 bg-[#bfa76a] hover:bg-[#a69055] text-white py-3.5 sm:py-4 rounded-xl font-bold text-xs sm:text-sm tracking-wider uppercase transition-all duration-300 shadow-md shadow-[#bfa76a]/30 hover:shadow-lg hover:-translate-y-0.5 active:translate-y-0 min-h-[48px]"
-                    >
-                      <span>BOOK THIS ROOM</span>
-                      <ArrowRight className="w-4 h-4" />
-                    </Link>
                   </div>
                 </div>
 

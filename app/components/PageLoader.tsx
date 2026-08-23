@@ -8,6 +8,17 @@ export default function PageLoader() {
   const [removed, setRemoved] = useState(false);
 
   useEffect(() => {
+    // Check if user has already seen the loader this session
+    const hasSeenLoader = sessionStorage.getItem("hasSeenLoader");
+    if (hasSeenLoader) {
+      setLoaded(true);
+      setRemoved(true);
+      return;
+    }
+
+    // Mark that the loader has been seen
+    sessionStorage.setItem("hasSeenLoader", "true");
+
     // Quick branded reveal sequence (0.7s)
     const timer1 = setTimeout(() => {
       setLoaded(true);

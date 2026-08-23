@@ -7,60 +7,46 @@ import Reveal from "./Reveal";
 interface Testimonial {
   id: number;
   name: string;
-  role: string;
   quote: string;
   rating: number;
-  avatar: string;
 }
 
 const testimonials: Testimonial[] = [
   {
     id: 1,
     name: "Rohit Sharma",
-    role: "Business Traveler",
     quote: "Clean rooms, friendly staff and great location. Highly recommended!",
     rating: 5,
-    avatar: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=160&h=160&q=80",
   },
   {
     id: 2,
     name: "Priya Mehta",
-    role: "Family Traveler",
     quote: "Great experience! The room was spacious and comfortable.",
     rating: 5,
-    avatar: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=160&h=160&q=80",
   },
   {
     id: 3,
     name: "Amit Verma",
-    role: "Solo Traveler",
     quote: "Value for money and excellent hospitality. Will visit again!",
     rating: 5,
-    avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=160&h=160&q=80",
   },
   {
     id: 4,
     name: "Sneha Reddy",
-    role: "Couple Traveler",
     quote: "The ambiance was wonderful and staff went above and beyond for our stay.",
     rating: 5,
-    avatar: "https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=160&h=160&q=80",
   },
   {
     id: 5,
     name: "Vikram Singh",
-    role: "Business Traveler",
-    quote: "High speed Wi-Fi, super quiet rooms, and central location made my work trip effortless.",
+    quote: "High speed Wi-Fi, super quiet rooms, and central location made my stay effortless.",
     rating: 5,
-    avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=160&h=160&q=80",
   },
   {
     id: 6,
     name: "Ananya Roy",
-    role: "Vacation Traveler",
     quote: "Exceptional service! The reception and housekeeping were always polite and attentive.",
     rating: 5,
-    avatar: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=160&h=160&q=80",
   },
 ];
 
@@ -174,26 +160,16 @@ export default function Testimonials() {
                       </div>
 
                       {/* Quote */}
-                      <p className="text-gray-700 text-[13px] sm:text-[14px] leading-relaxed mb-4 font-normal">
+                      <p className="text-gray-700 text-[13px] sm:text-[14px] leading-relaxed mb-6 font-normal">
                         &ldquo;{item.quote}&rdquo;
                       </p>
                     </div>
 
-                    {/* User Avatar & Info */}
-                    <div className="flex items-center gap-3 pt-3 border-t border-gray-100">
-                      <img
-                        src={item.avatar}
-                        alt={item.name}
-                        className="w-9 h-9 sm:w-10 sm:h-10 rounded-full object-cover border border-gray-100 transition-transform duration-300 group-hover:scale-105"
-                      />
-                      <div className="flex flex-col">
-                        <span className="text-[14px] font-bold text-gray-900 leading-tight">
-                          {item.name}
-                        </span>
-                        <span className="text-[11px] text-gray-500 font-normal mt-0.5">
-                          {item.role}
-                        </span>
-                      </div>
+                    {/* User Info */}
+                    <div className="pt-3 border-t border-gray-100">
+                      <span className="text-[14px] font-bold text-gray-900 leading-tight">
+                        - {item.name}
+                      </span>
                     </div>
                   </div>
                 </div>

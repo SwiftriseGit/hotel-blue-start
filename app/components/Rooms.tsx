@@ -83,43 +83,35 @@ export default function Rooms() {
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent pointer-events-none" />
                   
-                  {/* Price Tag Badge */}
-                  <div className="absolute top-4 right-4 bg-black/85 backdrop-blur-md text-white px-3.5 py-1.5 rounded-full border border-white/15 text-xs sm:text-sm font-bold shadow-md">
-                    <span className="text-[#bfa76a] font-extrabold">{room.price}</span>
-                    <span className="text-xs text-gray-300 font-normal"> / night</span>
-                  </div>
+                  {/* Removed absolute Price Tag Badge from image */}
                 </div>
 
                 {/* Card Content */}
                 <div className="p-6 sm:p-8 flex flex-col flex-1 justify-between">
                   <div>
-                    <h3 className="font-serif text-2xl sm:text-[1.75rem] font-bold text-gray-900 mb-2.5">
+                    <h3 className="font-serif text-2xl sm:text-[1.75rem] font-bold text-[#800020] mb-1">
                       {room.title}
                     </h3>
+
+                    {/* Price in Bold */}
+                    <div className="mb-4">
+                      <span className="text-2xl sm:text-3xl font-extrabold text-[#800020]">{room.price}</span>
+                      <span className="text-sm font-medium text-gray-500"> / night</span>
+                    </div>
+
                     <p className="text-gray-600 text-[14px] sm:text-[15px] leading-relaxed mb-5">
                       {room.description}
                     </p>
 
                     {/* Features checklist */}
-                    <div className="grid grid-cols-2 gap-2.5 mb-6 pt-4 border-t border-gray-100">
+                    <div className="grid grid-cols-2 gap-2.5 mb-2 pt-4 border-t border-gray-100">
                       {room.features.map((feat) => (
-                        <div key={feat} className="flex items-center gap-2 text-xs sm:text-sm text-gray-700 font-medium">
+                        <div key={feat} className="flex items-center gap-2 text-xs sm:text-sm text-gray-900 font-bold">
                           <Check className="w-4 h-4 text-[#bfa76a] shrink-0" />
                           <span>{feat}</span>
                         </div>
                       ))}
                     </div>
-                  </div>
-
-                  {/* Actions: Book Now */}
-                  <div className="pt-2">
-                    <Link
-                      href="/contact"
-                      className="w-full inline-flex items-center justify-center gap-2 bg-[#bfa76a] hover:bg-[#a69055] text-white px-7 sm:px-9 py-3.5 rounded-xl font-bold text-xs sm:text-sm tracking-[0.14em] uppercase transition-all duration-300 shadow-[0_4px_16px_rgba(191,167,106,0.35)] hover:shadow-[#bfa76a]/50 hover:-translate-y-0.5 active:translate-y-0 min-h-[46px] cursor-pointer"
-                    >
-                      <span>BOOK THIS ROOM</span>
-                      <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
-                    </Link>
                   </div>
                 </div>
 

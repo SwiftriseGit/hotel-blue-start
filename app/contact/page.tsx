@@ -240,7 +240,7 @@ export default function ContactPage() {
           <div className="w-full h-[400px] sm:h-[480px] rounded-3xl overflow-hidden shadow-xl border border-gray-200">
             <iframe
               title="Hotel Silver Star Location Map"
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d118228.8475225139!2d84.77884784783387!3d22.253303649646876!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a201c1c73a69145%3A0xe54d90e88383cfbb!2sRourkela%2C%20Odisha!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin"
+              src="https://maps.google.com/maps?q=20.27789878845215,85.79593658447266&t=&z=17&ie=UTF8&iwloc=&output=embed"
               width="100%"
               height="100%"
               style={{ border: 0 }}

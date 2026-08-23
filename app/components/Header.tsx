@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { usePathname } from "next/navigation";
 import { Menu, X } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
@@ -14,15 +15,15 @@ const navLinks = [
 ];
 
 export default function Header() {
+  const pathname = usePathname();
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
-  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
-    setMounted(true);
     const handleScroll = () => {
       setScrolled(window.scrollY > 30);
     };
+    handleScroll();
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
@@ -39,20 +40,28 @@ export default function Header() {
     };
   }, [mobileOpen]);
 
-  return (
-    <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ease-out ${scrolled
-          ? "bg-black/95 backdrop-blur-md py-3 sm:py-3.5 shadow-2xl"
-          : "bg-gradient-to-b from-black/80 via-black/40 to-transparent py-4 sm:py-6"
-        }`}
-    >
-      <div className="w-full max-w-[1440px] mx-auto px-4 sm:px-6 md:px-8 lg:px-10 flex items-center justify-between">
+  // Close mobile drawer on route change
+  useEffect(() => {
+    setMobileOpen(false);
+  }, [pathname]);
 
-        {/* Prominent Big Logo */}
+  return (
+    <>
+      <header
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ease-out ${
+          scrolled
+            ? "bg-black/95 backdrop-blur-md py-3 sm:py-3.5 shadow-2xl"
+            : "bg-gradient-to-b from-black/85 via-black/45 to-transparent py-4 sm:py-6"
+        }`}
+      >
+      <div className="w-full max-w-[1440px] mx-auto px-4 sm:px-6 md:px-8 lg:px-10 relative flex items-center justify-between">
+        
+        {/* Left: Prominent Big Logo */}
         <Link
           href="/"
-          className={`block transition-all duration-500 origin-left ${mounted ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-2"
-            } ${scrolled ? "scale-95" : "scale-100"}`}
+          className={`block shrink-0 z-10 transition-transform duration-300 origin-left ${
+            scrolled ? "scale-95" : "scale-100"
+          }`}
         >
           <Image
             src="/logo.png"
@@ -64,25 +73,32 @@ export default function Header() {
           />
         </Link>
 
-        {/* Desktop Nav Links */}
-        <nav className="hidden lg:flex items-center gap-8 xl:gap-12">
-          {navLinks.map((link, idx) => (
-            <Link
-              key={link.label}
-              href={link.href}
-              className={`text-[14px] xl:text-[16px] font-semibold text-white/95 hover:text-[#bfa76a] tracking-wider transition-all duration-300 nav-link-hover ${mounted ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-2"
+        {/* Center: Absolute Middle Navigation Links with Active Underline Indicator */}
+        <nav className="hidden lg:flex items-center gap-8 xl:gap-11 absolute left-1/2 -translate-x-1/2">
+          {navLinks.map((link) => {
+            const isActive = pathname === link.href;
+            return (
+              <Link
+                key={link.label}
+                href={link.href}
+                className={`group relative text-[14px] xl:text-[15px] font-semibold tracking-wider py-1.5 transition-colors duration-200 ${
+                  isActive ? "text-[#bfa76a]" : "text-white/90 hover:text-white"
                 }`}
-              style={{
-                transitionDelay: `${150 + idx * 80}ms`,
-              }}
-            >
-              {link.label}
-            </Link>
-          ))}
+              >
+                <span>{link.label}</span>
+                {/* Active & Hover Gold Underline */}
+                <span
+                  className={`absolute -bottom-0.5 left-0 h-[2px] bg-[#bfa76a] transition-all duration-300 ${
+                    isActive ? "w-full" : "w-0 group-hover:w-full"
+                  }`}
+                />
+              </Link>
+            );
+          })}
         </nav>
 
-        {/* Mobile Hamburger Button */}
-        <div className="flex items-center lg:hidden">
+        {/* Right: Mobile Hamburger */}
+        <div className="flex items-center lg:hidden z-10">
           <button
             onClick={() => setMobileOpen(!mobileOpen)}
             className="text-white p-2 min-w-[44px] min-h-[44px] flex items-center justify-center rounded-lg hover:bg-white/10 active:scale-95 transition-all focus:outline-none"
@@ -91,26 +107,35 @@ export default function Header() {
             {mobileOpen ? <X className="w-7 h-7 text-[#bfa76a]" /> : <Menu className="w-7 h-7" />}
           </button>
         </div>
+
       </div>
 
-      {/* Mobile Drawer Overlay & Menu */}
+      </header>
+
+      {/* Mobile Drawer Overlay & Menu (Outside header to prevent containing block issues) */}
       {mobileOpen && (
-        <div className="fixed inset-0 top-[70px] sm:top-[85px] z-40 lg:hidden bg-black/95 backdrop-blur-2xl px-6 py-8 flex flex-col justify-start overflow-y-auto animate-in fade-in slide-in-from-top-4 duration-300">
+        <div className="fixed inset-0 top-[70px] sm:top-[85px] z-[100] lg:hidden bg-black/95 backdrop-blur-2xl px-6 py-8 flex flex-col justify-start overflow-y-auto animate-in fade-in slide-in-from-top-4 duration-300">
           <nav className="flex flex-col gap-2">
-            {navLinks.map((link, idx) => (
-              <Link
-                key={link.label}
-                href={link.href}
-                onClick={() => setMobileOpen(false)}
-                className="text-[18px] font-semibold text-white/90 hover:text-[#bfa76a] transition-colors py-4 border-b border-white/5 flex items-center justify-between min-h-[48px]"
-                style={{ animationDelay: `${idx * 40}ms` }}
-              >
-                <span>{link.label}</span>
-              </Link>
-            ))}
+            {navLinks.map((link, idx) => {
+              const isActive = pathname === link.href;
+              return (
+                <Link
+                  key={link.label}
+                  href={link.href}
+                  onClick={() => setMobileOpen(false)}
+                  className={`text-[18px] font-semibold py-4 border-b border-white/5 flex items-center justify-between min-h-[48px] transition-colors ${
+                    isActive ? "text-[#bfa76a]" : "text-white/90 hover:text-[#bfa76a]"
+                  }`}
+                  style={{ animationDelay: `${idx * 40}ms` }}
+                >
+                  <span>{link.label}</span>
+                  {isActive && <span className="w-2 h-2 rounded-full bg-[#bfa76a]" />}
+                </Link>
+              );
+            })}
           </nav>
         </div>
       )}
-    </header>
+    </>
   );
 }
