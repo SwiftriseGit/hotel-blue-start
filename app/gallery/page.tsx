@@ -14,7 +14,7 @@ const galleryPhotos = [
   { id: 1, title: "Deluxe Bedroom", category: "Rooms", src: "/image copy.png" },
   { id: 2, title: "Reception & Lounge", category: "Lobby", src: "/about.png" },
   { id: 3, title: "Luxury Suite", category: "Rooms", src: "/image copy 2.png" },
-  { id: 4, title: "Grand Entrance", category: "Lobby", src: "/image.png" },
+  { id: 4, title: "Grand Entrance", category: "Lobby", src: "/hotel.png" },
   { id: 5, title: "Executive Room", category: "Rooms", src: "/image copy 3.png" },
   { id: 6, title: "Comfort Bedding", category: "Rooms", src: "/image copy 4.png" },
   { id: 7, title: "Premium Interior", category: "Living", src: "/image copy 5.png" },
@@ -43,7 +43,7 @@ export default function GalleryPage() {
       {/* Page Hero Banner */}
       <section className="relative w-full h-[360px] sm:h-[420px] bg-black flex items-center justify-center overflow-hidden">
         <Image
-          src="/image.png"
+          src="/hotel.png"
           alt="Hotel Silver Star Gallery"
           fill
           className="object-cover opacity-35"

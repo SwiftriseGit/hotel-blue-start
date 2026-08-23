@@ -319,7 +319,7 @@ export default function Home() {
                   className="group relative rounded-2xl md:rounded-3xl overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.12)] aspect-[4/3] sm:aspect-[16/11] lg:aspect-[4/3] w-full min-h-[300px] sm:min-h-[380px] bg-neutral-900 cursor-pointer"
                 >
                   <Image
-                    src="/image.png"
+                    src="/hotel.png"
                     alt="Hotel Silver Star Grand Entrance"
                     fill
                     className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"

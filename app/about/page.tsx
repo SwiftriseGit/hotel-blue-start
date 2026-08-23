@@ -60,7 +60,7 @@ export default function AboutPage() {
             </div>
             <div className="relative rounded-2xl overflow-hidden aspect-[4/5] shadow-lg mt-8">
               <Image
-                src="/image.png"
+                src="/hotel.png"
                 alt="Hotel Entrance"
                 fill
                 className="object-cover"

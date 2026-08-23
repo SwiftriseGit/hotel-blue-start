@@ -16,7 +16,7 @@ const galleryItems: GalleryItem[] = [
   { id: 1, title: "Deluxe Bedroom", src: "/image copy.png" },
   { id: 2, title: "Reception & Lounge", src: "/about.png" },
   { id: 3, title: "Luxury Suite", src: "/image copy 2.png" },
-  { id: 4, title: "Grand Entrance", src: "/image.png" },
+  { id: 4, title: "Grand Entrance", src: "/hotel.png" },
   { id: 5, title: "Executive Room", src: "/image copy 3.png" },
   { id: 6, title: "Comfort Bedding", src: "/image copy 4.png" },
   { id: 7, title: "Premium Interior", src: "/image copy 5.png" },
