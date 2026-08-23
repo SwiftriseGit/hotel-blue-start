@@ -143,7 +143,7 @@ export default function Footer() {
                 {/* QR Code */}
                 <div className="relative w-24 h-24 sm:w-28 sm:h-28 shrink-0 bg-white p-2 rounded-xl shadow-md sm:mb-3.5 border border-amber-200/40">
                   <Image
-                    src="/image copy 12.png"
+                    src="/qrcode.png"
                     alt="Scan QR Code to Book"
                     fill
                     className="object-contain p-1"
@@ -177,13 +177,8 @@ export default function Footer() {
         </Reveal>
 
         {/* Footer Bottom Bar */}
-        <div className="border-t border-white/10 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-gray-500">
+        <div className="border-t border-white/10 pt-8 flex flex-col sm:flex-row items-center sm:items-start justify-start gap-4 text-xs text-gray-500 text-left">
           <p>© {new Date().getFullYear()} <a href="https://swiftrise.in" target="_blank" rel="noopener noreferrer" className="hover:text-[#bfa76a] transition-colors underline underline-offset-4 decoration-gray-600 hover:decoration-[#bfa76a]">Swiftrise Solution Pvt Ltd</a>. ALL RIGHTS RESERVED.</p>
-
-          <div className="flex items-center gap-6">
-            <span className="hover:text-gray-400 transition-colors">Privacy Policy</span>
-            <span className="hover:text-gray-400 transition-colors">Terms of Service</span>
-          </div>
         </div>
 
       </div>
