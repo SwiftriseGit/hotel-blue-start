@@ -47,7 +47,7 @@ export default function PageLoader() {
         {/* Expanding Gold Line */}
         <div className="w-24 h-[2px] bg-white/10 rounded-full overflow-hidden">
           <div
-            className={`h-full bg-[#c5a047] transition-all duration-700 ease-out ${
+            className={`h-full bg-[#bfa76a] transition-all duration-700 ease-out ${
               loaded ? "w-full" : "w-1/3"
             }`}
           />

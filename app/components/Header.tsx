@@ -7,7 +7,6 @@ import Image from "next/image";
 const navLinks = [
   { label: "HOME", href: "#" },
   { label: "ROOMS", href: "#rooms" },
-  { label: "GALLERY", href: "#gallery" },
   { label: "ABOUT", href: "#about" },
   {
     label: "CONTACT",
@@ -103,7 +102,7 @@ export default function Header() {
             href={bookUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="group bg-[#c5a047] hover:bg-[#b08930] text-white px-6 xl:px-8 py-3 xl:py-3.5 rounded-lg font-bold text-xs xl:text-[13px] uppercase flex items-center gap-2.5 transition-all duration-300 shadow-[0_4px_14px_rgba(197,160,71,0.35)] hover:shadow-[0_6px_20px_rgba(197,160,71,0.5)] hover:-translate-y-0.5 active:translate-y-0"
+            className="group bg-[#bfa76a] hover:bg-[#732824] text-white px-6 xl:px-8 py-3 xl:py-3.5 rounded-lg font-bold text-xs xl:text-[13px] uppercase flex items-center gap-2.5 transition-all duration-300 shadow-[0_4px_14px_rgba(191,167,106,0.35)] hover:shadow-[0_6px_20px_rgba(191,167,106,0.5)] hover:-translate-y-0.5 active:translate-y-0"
           >
             <span>BOOK NOW</span>
             <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1.5" />
@@ -116,7 +115,7 @@ export default function Header() {
             href={bookUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="bg-[#c5a047] text-white px-3.5 py-2 rounded-md font-bold text-[11px] uppercase tracking-wider flex items-center gap-1.5 active:scale-95 transition-transform shadow-md"
+            className="bg-[#bfa76a] text-white px-3.5 py-2 rounded-md font-bold text-[11px] uppercase tracking-wider flex items-center gap-1.5 active:scale-95 transition-transform shadow-md"
           >
             <span>BOOK</span>
             <ArrowRight className="w-3 h-3" />
@@ -142,7 +141,7 @@ export default function Header() {
                 target={link.external ? "_blank" : undefined}
                 rel={link.external ? "noopener noreferrer" : undefined}
                 onClick={() => setMobileOpen(false)}
-                className="text-[17px] font-semibold text-white/90 hover:text-[#c5a047] transition-colors py-3 border-b border-white/5 flex items-center justify-between min-h-[44px]"
+                className="text-[17px] font-semibold text-white/90 hover:text-[#bfa76a] transition-colors py-3 border-b border-white/5 flex items-center justify-between min-h-[44px]"
                 style={{ animationDelay: `${idx * 40}ms` }}
               >
                 <span>{link.label}</span>
@@ -157,7 +156,7 @@ export default function Header() {
               target="_blank"
               rel="noopener noreferrer"
               onClick={() => setMobileOpen(false)}
-              className="w-full flex items-center justify-center gap-2.5 bg-[#c5a047] active:bg-[#b08930] text-white px-6 py-4 rounded-xl font-bold text-[14px] uppercase tracking-wider shadow-lg shadow-[#c5a047]/30 min-h-[48px]"
+              className="w-full flex items-center justify-center gap-2.5 bg-[#bfa76a] active:bg-[#732824] text-white px-6 py-4 rounded-xl font-bold text-[14px] uppercase tracking-wider shadow-lg shadow-[#bfa76a]/30 min-h-[48px]"
             >
               <span>BOOK NOW</span>
               <ArrowRight className="w-4.5 h-4.5" />

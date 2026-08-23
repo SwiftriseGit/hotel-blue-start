@@ -110,7 +110,7 @@ export default function Gallery() {
           <div className="lg:col-span-4 flex flex-col items-start">
             <Reveal type="left" delay={50}>
               <div className="flex items-center gap-2.5 mb-2">
-                <span className="w-1 h-3.5 bg-[#c5a047] rounded-full inline-block" />
+                <span className="w-1 h-3.5 bg-[#bfa76a] rounded-full inline-block" />
                 <span className="text-[12px] font-bold tracking-[0.2em] text-gray-400 uppercase">
                   GALLERY
                 </span>

@@ -121,7 +121,7 @@ export default function Footer() {
                 href={bookWhatsAppUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center bg-[#d4af5a] hover:bg-[#c5a047] text-white px-8 sm:px-9 py-3.5 rounded-xl font-bold text-xs sm:text-[13px] tracking-[0.14em] uppercase transition-all duration-300 shadow-md hover:shadow-[#c5a047]/40 hover:-translate-y-0.5 active:translate-y-0 min-h-[44px]"
+                className="inline-flex items-center justify-center bg-[#bfa76a] hover:bg-[#bfa76a] text-white px-8 sm:px-9 py-3.5 rounded-xl font-bold text-xs sm:text-[13px] tracking-[0.14em] uppercase transition-all duration-300 shadow-md hover:shadow-[#bfa76a]/40 hover:-translate-y-0.5 active:translate-y-0 min-h-[44px]"
               >
                 BOOK NOW
               </a>

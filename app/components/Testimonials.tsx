@@ -119,7 +119,7 @@ export default function Testimonials() {
         <div className="flex flex-col items-center text-center mb-6 sm:mb-8">
           <Reveal type="up" delay={50}>
             <div className="flex items-center gap-2.5 mb-2">
-              <span className="w-5 h-[2px] bg-[#c5a047]" />
+              <span className="w-5 h-[2px] bg-[#bfa76a]" />
               <span className="text-[12px] font-bold tracking-[0.2em] text-gray-700 uppercase">
                 GUESTS LOVE US
               </span>
@@ -167,7 +167,7 @@ export default function Testimonials() {
                         {Array.from({ length: item.rating }).map((_, i) => (
                           <Star
                             key={i}
-                            className="w-3.5 h-3.5 fill-[#c5a047] text-[#c5a047] transition-transform duration-300 group-hover:scale-110"
+                            className="w-3.5 h-3.5 fill-[#bfa76a] text-[#bfa76a] transition-transform duration-300 group-hover:scale-110"
                             style={{ transitionDelay: `${i * 40}ms` }}
                           />
                         ))}
@@ -243,7 +243,7 @@ export default function Testimonials() {
                 <span
                   className={`block h-1.5 rounded-full transition-all duration-500 ${
                     currentIndex === index
-                      ? "w-6 bg-[#c5a047] shadow-sm shadow-[#c5a047]/30"
+                      ? "w-6 bg-[#bfa76a] shadow-sm shadow-[#bfa76a]/30"
                       : "w-1.5 bg-gray-300 hover:bg-gray-400"
                   }`}
                 />

@@ -10,13 +10,13 @@ export default function CtaBanner() {
   return (
     <div className="w-full max-w-[1440px] mx-auto px-4 sm:px-6 md:px-8 lg:px-10 relative z-20 -mb-14 sm:-mb-16">
       <Reveal type="up" delay={50}>
-        <div className="group bg-gradient-to-r from-[#d4af5a] via-[#e60023] to-[#c5a047] rounded-2xl sm:rounded-3xl py-6 sm:py-7 md:py-8 px-6 sm:px-10 md:px-14 shadow-[0_20px_50px_rgba(214,0,28,0.35)] flex flex-col md:flex-row items-center justify-between gap-6 text-white transition-all duration-500 hover:shadow-[0_25px_60px_rgba(214,0,28,0.45)]">
+        <div className="group bg-gradient-to-r from-[#bfa76a] via-[#e60023] to-[#bfa76a] rounded-2xl sm:rounded-3xl py-6 sm:py-7 md:py-8 px-6 sm:px-10 md:px-14 shadow-[0_20px_50px_rgba(214,0,28,0.35)] flex flex-col md:flex-row items-center justify-between gap-6 text-white transition-all duration-500 hover:shadow-[0_25px_60px_rgba(214,0,28,0.45)]">
           
           {/* Left Content (Phone Icon + Text) */}
           <div className="flex flex-col sm:flex-row items-center gap-4 sm:gap-6 text-center sm:text-left">
             {/* White Circular Phone Icon */}
             <div className="w-14 h-14 sm:w-16 sm:h-16 bg-white rounded-full flex items-center justify-center shrink-0 shadow-md transform transition-transform duration-500 group-hover:scale-110 group-hover:rotate-6">
-              <PhoneCall className="w-6 h-6 sm:w-7 sm:h-7 text-[#d4af5a]" />
+              <PhoneCall className="w-6 h-6 sm:w-7 sm:h-7 text-[#bfa76a]" />
             </div>
 
             {/* Text */}

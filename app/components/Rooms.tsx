@@ -38,7 +38,7 @@ export default function Rooms() {
         <div className="flex flex-col items-center text-center mb-6 sm:mb-8">
           <Reveal type="up" delay={50}>
             <div className="flex items-center gap-2.5 mb-2">
-              <span className="w-5 h-[2px] bg-[#c5a047]" />
+              <span className="w-5 h-[2px] bg-[#bfa76a]" />
               <span className="text-[12px] font-bold tracking-[0.2em] text-gray-700 uppercase">
                 OUR ROOMS
               </span>
@@ -81,7 +81,7 @@ export default function Rooms() {
                   {/* Card Body */}
                   <div className="p-5 sm:p-6 flex flex-col justify-between flex-1">
                     <div>
-                      <h3 className="font-bold text-lg sm:text-xl text-gray-900 mb-1.5 group-hover:text-[#c5a047] transition-colors duration-200">
+                      <h3 className="font-bold text-lg sm:text-xl text-gray-900 mb-1.5 group-hover:text-[#bfa76a] transition-colors duration-200">
                         {room.title}
                       </h3>
                       <p className="text-gray-500 text-[13px] sm:text-[14px] leading-relaxed mb-3 sm:mb-4">
@@ -94,7 +94,7 @@ export default function Rooms() {
                       <div className="text-[13px] sm:text-[14px] text-gray-500 font-normal">
                         From <span className="text-gray-900 font-bold text-base sm:text-lg">{room.price}</span> / night
                       </div>
-                      <div className="w-10 h-10 bg-[#c5a047] group-hover:bg-[#b08930] text-white rounded-full flex items-center justify-center transition-all duration-300 group-hover:scale-110 shadow-md group-hover:shadow-[#c5a047]/40 shrink-0">
+                      <div className="w-10 h-10 bg-[#bfa76a] group-hover:bg-[#732824] text-white rounded-full flex items-center justify-center transition-all duration-300 group-hover:scale-110 shadow-md group-hover:shadow-[#bfa76a]/40 shrink-0">
                         <ArrowRight className="w-4.5 h-4.5 transition-transform duration-300 group-hover:translate-x-1" />
                       </div>
                     </div>
@@ -112,7 +112,7 @@ export default function Rooms() {
               href="https://wa.me/919876543210?text=Hello%20Hotel%20Silver%20Star%2C%20I%20would%20like%20to%20know%20more%20about%20all%20available%20rooms."
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center bg-[#c5a047] hover:bg-[#b08930] text-white px-7 sm:px-9 py-3 rounded-lg font-bold text-xs tracking-[0.14em] uppercase transition-all duration-300 shadow-[0_4px_14px_rgba(197,160,71,0.35)] hover:shadow-[#c5a047]/40 hover:-translate-y-0.5 active:translate-y-0 min-h-[42px] cursor-pointer"
+              className="inline-flex items-center justify-center bg-[#bfa76a] hover:bg-[#732824] text-white px-7 sm:px-9 py-3 rounded-lg font-bold text-xs tracking-[0.14em] uppercase transition-all duration-300 shadow-[0_4px_14px_rgba(191,167,106,0.35)] hover:shadow-[#bfa76a]/40 hover:-translate-y-0.5 active:translate-y-0 min-h-[42px] cursor-pointer"
             >
               VIEW ALL ROOMS
             </a>
