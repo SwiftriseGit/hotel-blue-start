@@ -50,6 +50,8 @@ export const metadata: Metadata = {
   },
 };
 
+import BackToTop from "./components/BackToTop";
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -59,6 +61,7 @@ export default function RootLayout({
     <html lang="en" className={`${playfair.variable} ${montserrat.variable} ${caveat.variable} h-full antialiased`}>
       <body className="min-h-full flex flex-col font-sans bg-black text-white">
         {children}
+        <BackToTop />
       </body>
     </html>
   );
