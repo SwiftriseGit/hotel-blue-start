@@ -15,12 +15,12 @@ export default function Footer() {
     <footer className="relative w-full bg-[#121214] text-white pt-28 sm:pt-32 pb-12 overflow-hidden border-t border-white/5">
       <div className="max-w-[1440px] mx-auto px-4 sm:px-6 md:px-8 lg:px-10">
         
-        {/* Main Footer Content Grid 4 Columns with Viewport Reveal */}
+        {/* Main Footer Content Grid with Viewport Reveal */}
         <Reveal type="up" delay={100}>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-12 pb-14">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-8 lg:gap-10 pb-14">
             
-            {/* Col 1: Logo & About & Socials */}
-            <div className="flex flex-col items-start">
+            {/* Col 1: Logo & About & Socials (lg:col-span-4) */}
+            <div className="lg:col-span-4 flex flex-col items-start">
               {/* Big Prominent Logo Image */}
               <Link href="/" className="block mb-4">
                 <Image
@@ -32,8 +32,8 @@ export default function Footer() {
                 />
               </Link>
 
-              <p className="text-gray-400 text-[14px] sm:text-[15px] leading-relaxed max-w-xs mb-7">
-                Comfortable stays, warm hospitality and unforgettable experiences in the heart of the city.
+              <p className="text-gray-400 text-[14px] sm:text-[15px] leading-relaxed max-w-sm mb-6">
+                Comfortable stays, warm hospitality and unforgettable experiences in the heart of Rourkela, Odisha.
               </p>
 
               {/* Official Social Media Icons */}
@@ -56,12 +56,12 @@ export default function Footer() {
               </div>
             </div>
 
-            {/* Col 2: Quick Links */}
-            <div className="flex flex-col items-start sm:pl-4">
+            {/* Col 2: Quick Links (lg:col-span-2) */}
+            <div className="lg:col-span-2 flex flex-col items-start sm:pl-2">
               <span className="text-[12px] sm:text-[13px] font-bold tracking-[0.2em] text-[#bfa76a] uppercase mb-5 block">
                 QUICK LINKS
               </span>
-              <ul className="flex flex-col gap-3 text-gray-400 text-[14px] sm:text-[15px]">
+              <ul className="flex flex-col gap-3 text-gray-400 text-[14px]">
                 <li>
                   <Link href="/" className="hover:text-white transition-colors duration-200 footer-link-hover">
                     Home
@@ -90,29 +90,15 @@ export default function Footer() {
               </ul>
             </div>
 
-            {/* Col 3: Amenities */}
-            <div className="flex flex-col items-start">
-              <span className="text-[12px] sm:text-[13px] font-bold tracking-[0.2em] text-[#bfa76a] uppercase mb-5 block">
-                AMENITIES
-              </span>
-              <ul className="flex flex-col gap-3 text-gray-400 text-[14px] sm:text-[15px]">
-                <li>Free High-Speed Wi-Fi</li>
-                <li>24/7 Power Backup</li>
-                <li>Daily Housekeeping</li>
-                <li>24x7 Front Desk &amp; Support</li>
-                <li>Attached Modern Bathrooms</li>
-              </ul>
-            </div>
-
-            {/* Col 4: Contact Information */}
-            <div className="flex flex-col items-start">
+            {/* Col 3: Contact Details & Amenities (lg:col-span-3) */}
+            <div className="lg:col-span-3 flex flex-col items-start">
               <span className="text-[12px] sm:text-[13px] font-bold tracking-[0.2em] text-[#bfa76a] uppercase mb-5 block">
                 CONTACT US
               </span>
-              <div className="flex flex-col gap-3.5 text-gray-400 text-[14px] sm:text-[15px]">
+              <div className="flex flex-col gap-3.5 text-gray-400 text-[14px]">
                 <div className="flex items-start gap-2.5">
                   <MapPin className="w-4.5 h-4.5 text-[#bfa76a] shrink-0 mt-1" />
-                  <span>Near City Center, Main Road, Rourkela, Odisha</span>
+                  <span>Near City Center, Main Road, Rourkela, Odisha - 769001</span>
                 </div>
                 <div className="flex items-center gap-2.5">
                   <Phone className="w-4.5 h-4.5 text-[#bfa76a] shrink-0" />
@@ -126,6 +112,54 @@ export default function Footer() {
                     info@hotelsilverstar.com
                   </a>
                 </div>
+              </div>
+            </div>
+
+            {/* Col 4: Exclusive Website Offer & QR Code (lg:col-span-3) */}
+            <div className="lg:col-span-3 flex flex-col items-start bg-white/[0.04] border border-white/10 p-5 rounded-2xl shadow-xl">
+              <div className="flex items-center gap-2 mb-1.5">
+                <span className="w-2 h-2 rounded-full bg-[#bfa76a] animate-pulse" />
+                <span className="text-[11px] font-bold tracking-[0.2em] text-[#bfa76a] uppercase">
+                  SPECIAL PROMOTION
+                </span>
+              </div>
+              
+              <h4 className="font-serif text-lg font-bold text-white mb-0.5">
+                Up to 25% OFF
+              </h4>
+              <p className="text-xs text-gray-300 mb-3.5">
+                On booking through our website
+              </p>
+
+              {/* QR Code */}
+              <div className="relative w-28 h-28 bg-white p-2 rounded-xl shadow-md mb-3.5 border border-amber-200/40">
+                <Image
+                  src="/image copy 12.png"
+                  alt="Scan QR Code to Book"
+                  fill
+                  className="object-contain p-1"
+                />
+              </div>
+
+              {/* Conditions Apply Details */}
+              <div className="border-t border-white/10 pt-2.5 w-full">
+                <span className="text-[11px] font-bold text-amber-200/90 uppercase tracking-wider block mb-1">
+                  Conditions Apply:
+                </span>
+                <ul className="text-[11px] text-gray-400 space-y-1">
+                  <li className="flex items-start gap-1.5">
+                    <span className="text-[#bfa76a] font-bold">•</span>
+                    <span>Minimum 7 days prior advance booking</span>
+                  </li>
+                  <li className="flex items-start gap-1.5">
+                    <span className="text-[#bfa76a] font-bold">•</span>
+                    <span>Long stay booking (7 nights)</span>
+                  </li>
+                  <li className="flex items-start gap-1.5">
+                    <span className="text-[#bfa76a] font-bold">•</span>
+                    <span>Monthly stay discount</span>
+                  </li>
+                </ul>
               </div>
             </div>
 
