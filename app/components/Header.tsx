@@ -1,7 +1,8 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { Star, ArrowRight, Menu, X } from "lucide-react";
+import { ArrowRight, Menu, X } from "lucide-react";
+import Image from "next/image";
 
 const navLinks = [
   { label: "HOME", href: "#" },
@@ -54,22 +55,21 @@ export default function Header() {
     >
       <div className="w-full max-w-[1440px] mx-auto px-4 sm:px-6 md:px-8 lg:px-10 flex items-center justify-between">
         
-        {/* Logo with responsive fluid sizing */}
+        {/* Logo Image */}
         <a
           href="#"
-          className={`flex items-center gap-2.5 sm:gap-3.5 group transition-all duration-500 origin-left ${
+          className={`block transition-all duration-500 origin-left ${
             mounted ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-2"
-          } ${scrolled ? "scale-[0.92]" : "scale-100"}`}
+          } ${scrolled ? "scale-[0.88]" : "scale-100"}`}
         >
-          <Star className="w-7 h-7 sm:w-8 sm:h-8 fill-[#b30018] text-[#b30018] shrink-0 transition-transform duration-300 group-hover:rotate-12" />
-          <div className="flex flex-col leading-tight">
-            <span className="text-[11px] sm:text-[13px] font-bold text-white tracking-wider">
-              HOTEL
-            </span>
-            <span className="text-[15px] sm:text-[18px] font-bold text-white tracking-wide">
-              SILVER STAR
-            </span>
-          </div>
+          <Image
+            src="/logo.png"
+            alt="Hotel Silver Star"
+            width={180}
+            height={60}
+            className="h-10 sm:h-12 w-auto object-contain drop-shadow-md"
+            priority
+          />
         </a>
 
         {/* Desktop Nav Links */}
@@ -103,7 +103,7 @@ export default function Header() {
             href={bookUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="group bg-[#b30018] hover:bg-[#990012] text-white px-6 xl:px-8 py-3 xl:py-3.5 rounded-lg font-bold text-xs xl:text-[13px] uppercase flex items-center gap-2.5 transition-all duration-300 shadow-[0_4px_14px_rgba(179,0,24,0.35)] hover:shadow-red-800/40 hover:-translate-y-0.5 active:translate-y-0"
+            className="group bg-[#c5a047] hover:bg-[#b08930] text-white px-6 xl:px-8 py-3 xl:py-3.5 rounded-lg font-bold text-xs xl:text-[13px] uppercase flex items-center gap-2.5 transition-all duration-300 shadow-[0_4px_14px_rgba(197,160,71,0.35)] hover:shadow-[0_6px_20px_rgba(197,160,71,0.5)] hover:-translate-y-0.5 active:translate-y-0"
           >
             <span>BOOK NOW</span>
             <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1.5" />
@@ -116,7 +116,7 @@ export default function Header() {
             href={bookUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="bg-[#b30018] text-white px-3.5 py-2 rounded-md font-bold text-[11px] uppercase tracking-wider flex items-center gap-1.5 active:scale-95 transition-transform shadow-md"
+            className="bg-[#c5a047] text-white px-3.5 py-2 rounded-md font-bold text-[11px] uppercase tracking-wider flex items-center gap-1.5 active:scale-95 transition-transform shadow-md"
           >
             <span>BOOK</span>
             <ArrowRight className="w-3 h-3" />
@@ -142,7 +142,7 @@ export default function Header() {
                 target={link.external ? "_blank" : undefined}
                 rel={link.external ? "noopener noreferrer" : undefined}
                 onClick={() => setMobileOpen(false)}
-                className="text-[17px] font-semibold text-white/90 hover:text-[#b30018] transition-colors py-3 border-b border-white/5 flex items-center justify-between min-h-[44px]"
+                className="text-[17px] font-semibold text-white/90 hover:text-[#c5a047] transition-colors py-3 border-b border-white/5 flex items-center justify-between min-h-[44px]"
                 style={{ animationDelay: `${idx * 40}ms` }}
               >
                 <span>{link.label}</span>
@@ -157,7 +157,7 @@ export default function Header() {
               target="_blank"
               rel="noopener noreferrer"
               onClick={() => setMobileOpen(false)}
-              className="w-full flex items-center justify-center gap-2.5 bg-[#b30018] active:bg-[#990012] text-white px-6 py-4 rounded-xl font-bold text-[14px] uppercase tracking-wider shadow-lg shadow-red-900/40 min-h-[48px]"
+              className="w-full flex items-center justify-center gap-2.5 bg-[#c5a047] active:bg-[#b08930] text-white px-6 py-4 rounded-xl font-bold text-[14px] uppercase tracking-wider shadow-lg shadow-[#c5a047]/30 min-h-[48px]"
             >
               <span>BOOK NOW</span>
               <ArrowRight className="w-4.5 h-4.5" />

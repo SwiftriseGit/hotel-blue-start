@@ -28,7 +28,7 @@ export default function Home() {
   }, []);
 
   return (
-    <div className="min-h-screen flex flex-col font-sans bg-[#faf8f5] selection:bg-[#b30018] selection:text-white overflow-x-hidden">
+    <div className="min-h-screen flex flex-col font-sans bg-[#faf8f5] selection:bg-[#c5a047] selection:text-white overflow-x-hidden">
       {/* Branded Splash Loader (short ~0.7s) */}
       <PageLoader />
 
@@ -105,7 +105,7 @@ export default function Home() {
                   style={{ transitionDelay: "340ms" }}
                 >
                   Our{" "}
-                  <span className="text-[#c4001a] inline-block font-medium">Promise.</span>
+                  <span className="text-[#c5a047] inline-block font-medium">Promise.</span>
                 </span>
               </span>
             </h1>
@@ -127,14 +127,14 @@ export default function Home() {
             >
               <a
                 href="#rooms"
-                className="inline-flex items-center justify-center group bg-[#b30018] hover:bg-[#990012] text-white px-6 sm:px-8 py-3 sm:py-3.5 rounded-lg font-bold text-xs sm:text-[13px] tracking-wider uppercase transition-all duration-300 shadow-[0_4px_16px_rgba(179,0,24,0.35)] hover:shadow-red-800/50 hover:-translate-y-0.5 active:translate-y-0 min-h-[44px]"
+                className="inline-flex items-center justify-center group bg-[#c5a047] hover:bg-[#b08930] text-white px-6 sm:px-8 py-3 sm:py-3.5 rounded-lg font-bold text-xs sm:text-[13px] tracking-wider uppercase transition-all duration-300 shadow-[0_4px_16px_rgba(197,160,71,0.35)] hover:shadow-[#c5a047]/40 hover:-translate-y-0.5 active:translate-y-0 min-h-[44px]"
               >
                 <span>DISCOVER ROOMS</span>
               </a>
               <button
-                className="flex items-center gap-3 text-white hover:text-[#c4001a] transition-colors duration-200 uppercase tracking-wider font-semibold text-xs min-h-[44px] group cursor-pointer"
+                className="flex items-center gap-3 text-white hover:text-[#c5a047] transition-colors duration-200 uppercase tracking-wider font-semibold text-xs min-h-[44px] group cursor-pointer"
               >
-                <div className="w-10 h-10 rounded-full border border-white/60 group-hover:border-[#c4001a] flex items-center justify-center transition-all duration-300 group-hover:scale-110 group-hover:rotate-12">
+                <div className="w-10 h-10 rounded-full border border-white/60 group-hover:border-[#c5a047] flex items-center justify-center transition-all duration-300 group-hover:scale-110 group-hover:rotate-12">
                   <Play className="w-3.5 h-3.5 fill-current ml-0.5" />
                 </div>
                 <span className="transition-transform duration-300 group-hover:translate-x-1">
@@ -158,7 +158,7 @@ export default function Home() {
             <Reveal type="up" delay={50} className="h-full">
               <div className="flex flex-col items-center px-4 py-3 lg:border-r border-gray-200/80 group hover:-translate-y-1.5 transition-transform duration-300">
                 <div className="mb-3 sm:mb-4 transform transition-transform duration-300 group-hover:scale-110">
-                  <BedDouble className="w-9 h-9 sm:w-10 sm:h-10 text-[#b30018]" strokeWidth={1.6} />
+                  <BedDouble className="w-9 h-9 sm:w-10 sm:h-10 text-[#c5a047]" strokeWidth={1.6} />
                 </div>
                 <h3 className="font-bold text-[16px] sm:text-[18px] text-gray-900 mb-1.5">Comfortable Rooms</h3>
                 <p className="text-[13px] sm:text-[14px] text-gray-500 leading-relaxed max-w-[240px]">
@@ -171,7 +171,7 @@ export default function Home() {
             <Reveal type="up" delay={150} className="h-full">
               <div className="flex flex-col items-center px-4 py-3 lg:border-r border-gray-200/80 group hover:-translate-y-1.5 transition-transform duration-300">
                 <div className="mb-3 sm:mb-4 transform transition-transform duration-300 group-hover:scale-110">
-                  <Zap className="w-9 h-9 sm:w-10 sm:h-10 text-[#b30018]" strokeWidth={1.6} />
+                  <Zap className="w-9 h-9 sm:w-10 sm:h-10 text-[#c5a047]" strokeWidth={1.6} />
                 </div>
                 <h3 className="font-bold text-[16px] sm:text-[18px] text-gray-900 mb-1.5">Power Backup</h3>
                 <p className="text-[13px] sm:text-[14px] text-gray-500 leading-relaxed max-w-[240px]">
@@ -184,7 +184,7 @@ export default function Home() {
             <Reveal type="up" delay={250} className="h-full">
               <div className="flex flex-col items-center px-4 py-3 lg:border-r border-gray-200/80 group hover:-translate-y-1.5 transition-transform duration-300">
                 <div className="mb-3 sm:mb-4 transform transition-transform duration-300 group-hover:scale-110">
-                  <Wifi className="w-9 h-9 sm:w-10 sm:h-10 text-[#b30018]" strokeWidth={1.6} />
+                  <Wifi className="w-9 h-9 sm:w-10 sm:h-10 text-[#c5a047]" strokeWidth={1.6} />
                 </div>
                 <h3 className="font-bold text-[16px] sm:text-[18px] text-gray-900 mb-1.5">Free Wi-Fi</h3>
                 <p className="text-[13px] sm:text-[14px] text-gray-500 leading-relaxed max-w-[240px]">
@@ -197,7 +197,7 @@ export default function Home() {
             <Reveal type="up" delay={350} className="h-full">
               <div className="flex flex-col items-center px-4 py-3 group hover:-translate-y-1.5 transition-transform duration-300">
                 <div className="mb-3 sm:mb-4 transform transition-transform duration-300 group-hover:scale-110">
-                  <MapPin className="w-9 h-9 sm:w-10 sm:h-10 text-[#b30018]" strokeWidth={1.6} />
+                  <MapPin className="w-9 h-9 sm:w-10 sm:h-10 text-[#c5a047]" strokeWidth={1.6} />
                 </div>
                 <h3 className="font-bold text-[16px] sm:text-[18px] text-gray-900 mb-1.5">Prime Location</h3>
                 <p className="text-[13px] sm:text-[14px] text-gray-500 leading-relaxed max-w-[240px]">
@@ -219,7 +219,7 @@ export default function Home() {
               {/* Welcome Badge */}
               <Reveal type="left" delay={50}>
                 <div className="flex items-center gap-3 mb-3 sm:mb-4">
-                  <span className="w-6 h-[2px] bg-[#b30018]" />
+                  <span className="w-6 h-[2px] bg-[#c5a047]" />
                   <span className="text-[12px] sm:text-[13px] font-bold tracking-[0.2em] text-gray-700 uppercase">
                     WELCOME TO
                   </span>
@@ -245,7 +245,7 @@ export default function Home() {
               <div className="flex flex-col gap-3.5 sm:gap-4 mb-6 sm:mb-8 w-full">
                 <Reveal type="up" delay={280}>
                   <div className="flex items-center gap-3.5 group">
-                    <Check className="w-5 h-5 text-[#b30018] shrink-0 transition-transform duration-200 group-hover:scale-125" strokeWidth={2.5} />
+                    <Check className="w-5 h-5 text-[#c5a047] shrink-0 transition-transform duration-200 group-hover:scale-125" strokeWidth={2.5} />
                     <span className="text-[14px] sm:text-[16px] font-semibold text-gray-800">
                       Clean &amp; Comfortable Rooms
                     </span>
@@ -253,7 +253,7 @@ export default function Home() {
                 </Reveal>
                 <Reveal type="up" delay={340}>
                   <div className="flex items-center gap-3.5 group">
-                    <Check className="w-5 h-5 text-[#b30018] shrink-0 transition-transform duration-200 group-hover:scale-125" strokeWidth={2.5} />
+                    <Check className="w-5 h-5 text-[#c5a047] shrink-0 transition-transform duration-200 group-hover:scale-125" strokeWidth={2.5} />
                     <span className="text-[14px] sm:text-[16px] font-semibold text-gray-800">
                       Friendly &amp; Dedicated Staff
                     </span>
@@ -261,7 +261,7 @@ export default function Home() {
                 </Reveal>
                 <Reveal type="up" delay={400}>
                   <div className="flex items-center gap-3.5 group">
-                    <Check className="w-5 h-5 text-[#b30018] shrink-0 transition-transform duration-200 group-hover:scale-125" strokeWidth={2.5} />
+                    <Check className="w-5 h-5 text-[#c5a047] shrink-0 transition-transform duration-200 group-hover:scale-125" strokeWidth={2.5} />
                     <span className="text-[14px] sm:text-[16px] font-semibold text-gray-800">
                       Best Value for Your Stay
                     </span>
@@ -284,7 +284,7 @@ export default function Home() {
                   href="https://wa.me/919876543210?text=Hello%20Hotel%20Silver%20Star%2C%20I%20would%20like%20to%20know%20more%20about%20your%20hotel."
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center bg-[#b30018] hover:bg-[#990012] text-white px-8 py-3.5 rounded-lg font-bold text-xs tracking-[0.14em] uppercase transition-all duration-300 shadow-[0_4px_14px_rgba(179,0,24,0.35)] hover:shadow-red-800/40 hover:-translate-y-0.5 active:translate-y-0 min-h-[44px]"
+                  className="inline-flex items-center justify-center bg-[#c5a047] hover:bg-[#b08930] text-white px-8 py-3.5 rounded-lg font-bold text-xs tracking-[0.14em] uppercase transition-all duration-300 shadow-[0_4px_14px_rgba(197,160,71,0.35)] hover:shadow-[#c5a047]/40 hover:-translate-y-0.5 active:translate-y-0 min-h-[44px]"
                 >
                   ABOUT US
                 </a>
@@ -305,7 +305,7 @@ export default function Home() {
                         r="2.5"
                         className={
                           row >= 4 && col >= 3
-                            ? "fill-[#b30018]/80"
+                            ? "fill-[#c5a047]/80"
                             : "fill-gray-300/80"
                         }
                       />

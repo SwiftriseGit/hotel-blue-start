@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { Star } from "lucide-react";
+import Image from "next/image";
 
 export default function PageLoader() {
   const [loaded, setLoaded] = useState(false);
@@ -32,25 +32,22 @@ export default function PageLoader() {
       }`}
     >
       <div className="flex flex-col items-center">
-        {/* Star Icon */}
-        <div className="w-12 h-12 flex items-center justify-center animate-pulse mb-3">
-          <Star className="w-10 h-10 fill-[#b30018] text-[#b30018]" />
+        {/* Logo Image */}
+        <div className="w-44 h-auto flex items-center justify-center mb-5 animate-pulse">
+          <Image
+            src="/logo.png"
+            alt="Hotel Silver Star"
+            width={180}
+            height={60}
+            className="w-full h-auto object-contain drop-shadow-lg"
+            priority
+          />
         </div>
 
-        {/* Title */}
-        <div className="text-center leading-tight mb-4">
-          <span className="text-[11px] font-bold tracking-[0.24em] text-white/80 block">
-            HOTEL
-          </span>
-          <span className="text-[16px] font-bold tracking-[0.18em] text-white block">
-            SILVER STAR
-          </span>
-        </div>
-
-        {/* Expanding Red Line */}
+        {/* Expanding Gold Line */}
         <div className="w-24 h-[2px] bg-white/10 rounded-full overflow-hidden">
           <div
-            className={`h-full bg-[#b30018] transition-all duration-700 ease-out ${
+            className={`h-full bg-[#c5a047] transition-all duration-700 ease-out ${
               loaded ? "w-full" : "w-1/3"
             }`}
           />

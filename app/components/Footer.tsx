@@ -1,7 +1,8 @@
 "use client";
 
-import { Star, Phone, Mail } from "lucide-react";
+import { Phone, Mail } from "lucide-react";
 import { FaFacebookF, FaInstagram } from "react-icons/fa6";
+import Image from "next/image";
 import Reveal from "./Reveal";
 
 export default function Footer() {
@@ -24,17 +25,15 @@ export default function Footer() {
             
             {/* Col 1: Logo & About & Socials */}
             <div className="flex flex-col items-start">
-              {/* Logo */}
-              <a href="#" className="flex items-center gap-3.5 mb-4 group">
-                <Star className="w-8 h-8 sm:w-9 sm:h-9 fill-[#d6001c] text-[#d6001c] shrink-0 transition-transform duration-300 group-hover:rotate-12" />
-                <div className="flex flex-col leading-tight">
-                  <span className="text-[13px] font-bold tracking-[0.2em] text-white">
-                    HOTEL
-                  </span>
-                  <span className="text-[18px] sm:text-[20px] font-bold tracking-[0.15em] text-white">
-                    SILVER STAR
-                  </span>
-                </div>
+              {/* Logo Image */}
+              <a href="#" className="block mb-4">
+                <Image
+                  src="/logo.png"
+                  alt="Hotel Silver Star"
+                  width={160}
+                  height={54}
+                  className="h-12 sm:h-14 w-auto object-contain brightness-110"
+                />
               </a>
 
               <p className="text-gray-400 text-[14px] sm:text-[15px] leading-relaxed max-w-xs mb-7">
@@ -122,7 +121,7 @@ export default function Footer() {
                 href={bookWhatsAppUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center bg-[#d6001c] hover:bg-[#b30018] text-white px-8 sm:px-9 py-3.5 rounded-xl font-bold text-xs sm:text-[13px] tracking-[0.14em] uppercase transition-all duration-300 shadow-md hover:shadow-red-600/40 hover:-translate-y-0.5 active:translate-y-0 min-h-[44px]"
+                className="inline-flex items-center justify-center bg-[#d4af5a] hover:bg-[#c5a047] text-white px-8 sm:px-9 py-3.5 rounded-xl font-bold text-xs sm:text-[13px] tracking-[0.14em] uppercase transition-all duration-300 shadow-md hover:shadow-[#c5a047]/40 hover:-translate-y-0.5 active:translate-y-0 min-h-[44px]"
               >
                 BOOK NOW
               </a>
