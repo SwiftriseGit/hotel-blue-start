@@ -152,7 +152,7 @@ export default function Home() {
         </div>
 
         {/* Bottom Curved Wave Divider transitioning into white section */}
-        <div className="absolute bottom-0 left-0 w-full z-20 pointer-events-none overflow-hidden leading-none">
+        <div className="absolute bottom-[-1px] left-0 w-full z-20 pointer-events-none overflow-hidden leading-none">
           <svg
             viewBox="0 0 1440 60"
             fill="none"
