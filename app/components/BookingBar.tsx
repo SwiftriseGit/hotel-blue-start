@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useRef } from "react";
-import { Calendar, Users, ChevronDown } from "lucide-react";
+import { CalendarCheck, CalendarClock, Users, ChevronDown, Sparkles } from "lucide-react";
 
 // Format YYYY-MM-DD to "24 May 2025"
 function formatDateDisplay(dateStr: string): string {
@@ -53,7 +53,7 @@ export default function BookingBar({ heroMounted }: { heroMounted: boolean }) {
       }`}
       style={{ transitionDelay: "700ms" }}
     >
-      <div className="bg-white rounded-2xl shadow-[0_15px_40px_rgba(0,0,0,0.08)] border border-gray-100/80 p-5 sm:p-7 flex flex-col lg:flex-row items-stretch lg:items-center justify-between gap-4 lg:gap-0 transition-shadow duration-300 hover:shadow-[0_20px_50px_rgba(0,0,0,0.12)]">
+      <div className="bg-white rounded-2xl sm:rounded-3xl shadow-[0_15px_40px_rgba(0,0,0,0.12)] border border-amber-100/60 p-5 sm:p-7 flex flex-col lg:flex-row items-stretch lg:items-center justify-between gap-4 lg:gap-0 transition-shadow duration-300 hover:shadow-[0_20px_50px_rgba(191,167,106,0.2)]">
         
         {/* Grid for Inputs on Mobile / Tablet */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:flex lg:flex-1 lg:items-center gap-4 lg:gap-0">
@@ -71,14 +71,14 @@ export default function BookingBar({ heroMounted }: { heroMounted: boolean }) {
             }}
             className="relative lg:flex-1 lg:pr-6 xl:pr-8 lg:border-r border-gray-200/70 flex flex-col justify-center group hover:bg-neutral-50/80 p-3 sm:p-2.5 rounded-xl transition-colors duration-200 cursor-pointer min-h-[44px]"
           >
-            <span className="text-[11px] font-bold text-gray-400 uppercase tracking-wider block mb-1 group-hover:text-[#bfa76a] transition-colors">
+            <span className="text-[11px] font-bold text-gray-500 uppercase tracking-wider block mb-1 group-hover:text-[#bfa76a] transition-colors">
               CHECK IN
             </span>
             <div className="flex items-center justify-between">
               <span className="text-[14px] sm:text-[15px] font-bold text-gray-900">
                 {formatDateDisplay(checkIn)}
               </span>
-              <Calendar className="w-4.5 h-4.5 text-gray-400 group-hover:text-[#bfa76a] transition-colors shrink-0" />
+              <CalendarCheck className="w-5 h-5 text-[#bfa76a] group-hover:scale-110 transition-transform shrink-0" />
             </div>
             {/* Native Date Input overlaid seamlessly */}
             <input
@@ -114,14 +114,14 @@ export default function BookingBar({ heroMounted }: { heroMounted: boolean }) {
             }}
             className="relative lg:flex-1 lg:px-6 xl:px-8 lg:border-r border-gray-200/70 flex flex-col justify-center group hover:bg-neutral-50/80 p-3 sm:p-2.5 rounded-xl transition-colors duration-200 cursor-pointer min-h-[44px]"
           >
-            <span className="text-[11px] font-bold text-gray-400 uppercase tracking-wider block mb-1 group-hover:text-[#bfa76a] transition-colors">
+            <span className="text-[11px] font-bold text-gray-500 uppercase tracking-wider block mb-1 group-hover:text-[#bfa76a] transition-colors">
               CHECK OUT
             </span>
             <div className="flex items-center justify-between">
               <span className="text-[14px] sm:text-[15px] font-bold text-gray-900">
                 {formatDateDisplay(checkOut)}
               </span>
-              <Calendar className="w-4.5 h-4.5 text-gray-400 group-hover:text-[#bfa76a] transition-colors shrink-0" />
+              <CalendarClock className="w-5 h-5 text-[#bfa76a] group-hover:scale-110 transition-transform shrink-0" />
             </div>
             {/* Native Date Input overlaid */}
             <input
@@ -140,14 +140,14 @@ export default function BookingBar({ heroMounted }: { heroMounted: boolean }) {
             onClick={() => guestsRef.current?.focus()}
             className="relative lg:flex-1 lg:px-6 xl:px-8 lg:border-r border-gray-200/70 flex flex-col justify-center group hover:bg-neutral-50/80 p-3 sm:p-2.5 rounded-xl transition-colors duration-200 cursor-pointer min-h-[44px]"
           >
-            <span className="text-[11px] font-bold text-gray-400 uppercase tracking-wider block mb-1 group-hover:text-[#bfa76a] transition-colors">
+            <span className="text-[11px] font-bold text-gray-500 uppercase tracking-wider block mb-1 group-hover:text-[#bfa76a] transition-colors">
               GUESTS
             </span>
             <div className="flex items-center justify-between">
               <span className="text-[14px] sm:text-[15px] font-bold text-gray-900">
                 {guests}
               </span>
-              <Users className="w-4.5 h-4.5 text-gray-400 group-hover:text-[#bfa76a] transition-colors shrink-0" />
+              <Users className="w-5 h-5 text-[#bfa76a] group-hover:scale-110 transition-transform shrink-0" />
             </div>
             {/* Native Select Overlay */}
             <select
@@ -170,7 +170,7 @@ export default function BookingBar({ heroMounted }: { heroMounted: boolean }) {
             onClick={() => roomTypeRef.current?.focus()}
             className="relative lg:flex-1 lg:px-6 xl:px-8 flex flex-col justify-center group hover:bg-neutral-50/80 p-3 sm:p-2.5 rounded-xl transition-colors duration-200 cursor-pointer min-h-[44px]"
           >
-            <span className="text-[11px] font-bold text-gray-400 uppercase tracking-wider block mb-1 group-hover:text-[#bfa76a] transition-colors">
+            <span className="text-[11px] font-bold text-gray-500 uppercase tracking-wider block mb-1 group-hover:text-[#bfa76a] transition-colors">
               ROOM TYPE
             </span>
             <div className="flex items-center justify-between">
@@ -187,8 +187,8 @@ export default function BookingBar({ heroMounted }: { heroMounted: boolean }) {
               style={{ colorScheme: "light" }}
               className="absolute inset-0 opacity-0 cursor-pointer w-full h-full text-base bg-white text-gray-900"
             >
-              <option value="Any" className="bg-white text-gray-900">Any</option>
-              <option value="AC Rooms" className="bg-white text-gray-900">AC Rooms</option>
+              <option value="Any" className="bg-white text-gray-900">Any (All Rooms)</option>
+              <option value="AC Rooms" className="bg-white text-gray-900">AC Luxury Rooms</option>
               <option value="Non AC Rooms" className="bg-white text-gray-900">Non AC Rooms</option>
             </select>
           </div>
@@ -199,7 +199,7 @@ export default function BookingBar({ heroMounted }: { heroMounted: boolean }) {
         <div className="lg:pl-6 xl:pl-8 flex items-center pt-2 lg:pt-0">
           <button
             onClick={handleCheckAvailability}
-            className="bg-[#bfa76a] hover:bg-[#732824] text-white px-8 xl:px-10 py-3.5 sm:py-4 rounded-xl font-bold text-xs sm:text-[13px] tracking-wider uppercase transition-all duration-300 shadow-[0_4px_16px_rgba(191,167,106,0.35)] hover:shadow-[#bfa76a]/40 hover:-translate-y-0.5 active:translate-y-0 whitespace-nowrap w-full lg:w-auto min-h-[48px] cursor-pointer"
+            className="bg-[#bfa76a] hover:bg-[#a69055] text-white px-8 xl:px-10 py-3.5 sm:py-4 rounded-xl font-bold text-xs sm:text-[13px] tracking-wider uppercase transition-all duration-300 shadow-[0_4px_16px_rgba(191,167,106,0.35)] hover:shadow-[#bfa76a]/50 hover:-translate-y-0.5 active:translate-y-0 whitespace-nowrap w-full lg:w-auto min-h-[48px] cursor-pointer"
           >
             CHECK AVAILABILITY
           </button>

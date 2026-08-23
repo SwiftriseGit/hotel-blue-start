@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { Check, ArrowRight, Wifi, Zap, BedDouble, ShieldCheck, Sparkles } from "lucide-react";
+import { Check, ArrowRight, ShieldCheck, Sparkles, Zap, BedDouble } from "lucide-react";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import CtaBanner from "../components/CtaBanner";
@@ -16,16 +16,16 @@ const allRooms = [
     type: "Air Conditioned",
     price: "₹1,499",
     image: "/image copy.png",
-    description: "Immerse yourself in complete luxury. Features high-performance climate control, plush king-size bedding, attached designer bathroom, high-speed Wi-Fi, and 24/7 dedicated room assistance.",
+    description: "Immerse yourself in complete luxury. Features high-performance climate control, plush king-size bedding, attached bathroom, and 24/7 dedicated room assistance.",
     amenities: [
-      "Individual Climate Control AC",
+      "Climate Control Split AC",
       "King Size Luxury Mattress",
-      "Complimentary High-Speed Wi-Fi",
-      "Hot & Cold Water 24/7",
+      "Complimentary Fast Wi-Fi",
+      "24/7 Hot & Cold Water",
       "24/7 Power Backup",
       "Daily Housekeeping",
       "Direct Dial Room Service",
-      "Smart Flat Screen TV",
+      "Attached Western Bathroom",
     ],
   },
   {
@@ -34,14 +34,16 @@ const allRooms = [
     type: "Air Conditioned",
     price: "₹1,299",
     image: "/image copy 3.png",
-    description: "A cozy and elegant room designed for corporate travelers and vacationers seeking pure relaxation and modern comfort.",
+    description: "A cozy and elegant room designed for corporate travelers and vacationers seeking pure relaxation, spotless cleanliness, and modern comfort.",
     amenities: [
       "Modern Split AC",
       "Queen Size Comfort Bed",
-      "Free High-Speed Wi-Fi",
-      "Attached Western Bathroom",
+      "Complimentary Fast Wi-Fi",
+      "24/7 Hot & Cold Water",
       "24/7 Power Backup",
-      "Clean Linens & Toiletries",
+      "Daily Housekeeping",
+      "Clean Fresh Linens & Towels",
+      "Attached Western Bathroom",
     ],
   },
   {
@@ -50,14 +52,16 @@ const allRooms = [
     type: "Non Air Conditioned",
     price: "₹999",
     image: "/image copy 2.png",
-    description: "Budget-friendly, ultra-clean, and well-ventilated room providing all essentials for a peaceful night's rest.",
+    description: "Budget-friendly, ultra-clean, and well-ventilated room providing all essential amenities for a peaceful and recharging night's rest.",
     amenities: [
       "High-Speed Ceiling Fan",
       "Comfortable Double Bed",
-      "Attached Bathroom with Shower",
-      "Free Wi-Fi Access",
+      "Complimentary Fast Wi-Fi",
+      "24/7 Running Water",
       "24/7 Power Backup",
-      "Daily Room Cleaning",
+      "Daily Housekeeping",
+      "Clean Fresh Linens & Towels",
+      "Attached Bathroom with Shower",
     ],
   },
   {
@@ -66,13 +70,16 @@ const allRooms = [
     type: "Non Air Conditioned",
     price: "₹799",
     image: "/image copy 4.png",
-    description: "Ideal for solo travelers and short transit stays. Clean, secure, and affordable accommodation.",
+    description: "Ideal for solo travelers and short transit stays. Clean, secure, and pocket-friendly accommodation with hospitable service.",
     amenities: [
-      "Cozy Bedding",
-      "Fresh Linens & Towels",
-      "Free Wi-Fi",
-      "24/7 Water Supply",
+      "High-Speed Ceiling Fan",
+      "Cozy Single / Double Bed",
+      "Complimentary Fast Wi-Fi",
+      "24/7 Running Water",
+      "24/7 Power Backup",
+      "Daily Housekeeping",
       "24-Hour Front Desk Support",
+      "Attached Private Bathroom",
     ],
   },
 ];
@@ -112,15 +119,15 @@ export default function RoomsPage() {
         </div>
       </section>
 
-      {/* Room Listing Grid */}
+      {/* Room Listing Grid with Perfect Equal Heights */}
       <section className="w-full max-w-[1440px] mx-auto px-4 sm:px-6 md:px-8 lg:px-10 py-16 sm:py-20">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-10 items-stretch">
           {allRooms.map((room, idx) => (
-            <Reveal key={room.id} type="up" delay={idx * 100}>
-              <div className="bg-white rounded-2xl sm:rounded-3xl overflow-hidden shadow-lg border border-gray-100 flex flex-col justify-between hover:shadow-2xl hover:shadow-[#bfa76a]/15 transition-all duration-500 hover:-translate-y-1 group">
+            <Reveal key={room.id} type="up" delay={idx * 100} className="h-full flex">
+              <div className="w-full h-full bg-white rounded-2xl sm:rounded-3xl overflow-hidden shadow-lg border border-gray-100 flex flex-col justify-between hover:shadow-2xl hover:shadow-[#bfa76a]/15 transition-all duration-500 hover:-translate-y-1 group">
                 
                 {/* Image */}
-                <div className="relative aspect-[16/10] w-full bg-neutral-900 overflow-hidden">
+                <div className="relative aspect-[16/10] w-full bg-neutral-900 overflow-hidden shrink-0">
                   <Image
                     src={room.image}
                     alt={room.title}
@@ -136,18 +143,18 @@ export default function RoomsPage() {
                   </div>
                 </div>
 
-                {/* Details */}
+                {/* Details Body (Stretches equally and aligns bottom button) */}
                 <div className="p-6 sm:p-8 flex flex-col flex-1 justify-between">
-                  <div>
-                    <h2 className="font-serif text-2xl sm:text-3xl font-bold text-gray-900 mb-3">
+                  <div className="flex flex-col flex-1">
+                    <h2 className="font-serif text-2xl sm:text-[1.75rem] font-bold text-gray-900 mb-2.5 min-h-[2rem]">
                       {room.title}
                     </h2>
-                    <p className="text-gray-600 text-sm sm:text-base leading-relaxed mb-6">
+                    <p className="text-gray-600 text-sm sm:text-[15px] leading-relaxed mb-6 min-h-[3.5rem]">
                       {room.description}
                     </p>
 
-                    {/* Amenities Checklist */}
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-8 pt-4 border-t border-gray-100">
+                    {/* Standardized 8-Item Amenities Grid */}
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-8 pt-4 border-t border-gray-100 flex-1">
                       {room.amenities.map((amenity) => (
                         <div key={amenity} className="flex items-center gap-2.5 text-xs sm:text-sm text-gray-700">
                           <Check className="w-4 h-4 text-[#bfa76a] shrink-0" />
@@ -157,18 +164,20 @@ export default function RoomsPage() {
                     </div>
                   </div>
 
-                  {/* Booking Button */}
-                  <a
-                    href={`https://wa.me/919876543210?text=${encodeURIComponent(
-                      `Hello Hotel Silver Star, I want to book the ${room.title} (${room.price}/night).`
-                    )}`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="w-full inline-flex items-center justify-center gap-2 bg-[#bfa76a] hover:bg-[#a69055] text-white py-4 rounded-xl font-bold text-xs sm:text-sm tracking-wider uppercase transition-all duration-300 shadow-md shadow-[#bfa76a]/30 hover:shadow-lg hover:-translate-y-0.5 active:translate-y-0"
-                  >
-                    <span>RESERVE ON WHATSAPP</span>
-                    <ArrowRight className="w-4 h-4" />
-                  </a>
+                  {/* WhatsApp Booking Button Pinned at Bottom */}
+                  <div className="pt-2 mt-auto">
+                    <a
+                      href={`https://wa.me/919876543210?text=${encodeURIComponent(
+                        `Hello Hotel Silver Star, I want to book the ${room.title} (${room.price}/night).`
+                      )}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="w-full inline-flex items-center justify-center gap-2 bg-[#bfa76a] hover:bg-[#a69055] text-white py-3.5 sm:py-4 rounded-xl font-bold text-xs sm:text-sm tracking-wider uppercase transition-all duration-300 shadow-md shadow-[#bfa76a]/30 hover:shadow-lg hover:-translate-y-0.5 active:translate-y-0 min-h-[48px]"
+                    >
+                      <span>RESERVE ON WHATSAPP</span>
+                      <ArrowRight className="w-4 h-4" />
+                    </a>
+                  </div>
                 </div>
 
               </div>
