@@ -68,7 +68,7 @@ export default function ContactPage() {
                   REACH OUT TO US
                 </span>
               </div>
-              <h2 className="font-serif text-3xl sm:text-4xl font-bold text-gray-900 mb-6">
+              <h2 className="font-serif text-[22px] min-[375px]:text-[26px] sm:text-4xl font-bold text-gray-900 mb-6 whitespace-nowrap tracking-tight sm:tracking-normal">
                 We Are Always Here For You
               </h2>
               <p className="text-gray-600 text-sm sm:text-base leading-relaxed mb-8">

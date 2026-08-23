@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { Check, ArrowRight, ShieldCheck, Sparkles, Zap, BedDouble } from "lucide-react";
+import { Check, ArrowRight, ShieldCheck, Clock, Zap, BedDouble } from "lucide-react";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import CtaBanner from "../components/CtaBanner";
@@ -182,33 +182,33 @@ export default function RoomsPage() {
       {/* Policies Bar */}
       <section className="w-full bg-white border-y border-gray-100 py-12">
         <div className="max-w-[1440px] mx-auto px-4 sm:px-6 md:px-8 lg:px-10">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            <div className="flex items-start gap-4 p-4 rounded-xl bg-[#faf8f5] border border-gray-100">
-              <Sparkles className="w-6 h-6 text-[#bfa76a] shrink-0 mt-0.5" />
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-6">
+            <div className="flex flex-col sm:flex-row items-center sm:items-start text-center sm:text-left gap-2 sm:gap-4 p-3 sm:p-4 rounded-xl bg-[#faf8f5] border border-gray-100">
+              <Clock className="w-6 h-6 text-[#bfa76a] shrink-0 sm:mt-0.5" />
               <div>
-                <h4 className="font-bold text-gray-900 text-sm mb-1">Check-in / Out</h4>
-                <p className="text-xs text-gray-600">Check-in: 12:00 PM<br />Check-out: 11:00 AM</p>
+                <h4 className="font-bold text-gray-900 text-[11px] sm:text-sm mb-0.5 sm:mb-1">Check-in / Out</h4>
+                <p className="text-[10px] sm:text-xs text-gray-600 leading-tight">Check-in: 12:00 PM<br className="hidden sm:block"/>Check-out: 11:00 AM</p>
               </div>
             </div>
-            <div className="flex items-start gap-4 p-4 rounded-xl bg-[#faf8f5] border border-gray-100">
-              <ShieldCheck className="w-6 h-6 text-[#bfa76a] shrink-0 mt-0.5" />
+            <div className="flex flex-col sm:flex-row items-center sm:items-start text-center sm:text-left gap-2 sm:gap-4 p-3 sm:p-4 rounded-xl bg-[#faf8f5] border border-gray-100">
+              <ShieldCheck className="w-6 h-6 text-[#bfa76a] shrink-0 sm:mt-0.5" />
               <div>
                 <h4 className="font-bold text-gray-900 text-sm mb-1">ID Verification</h4>
                 <p className="text-xs text-gray-600">Valid government photo ID required at check-in.</p>
               </div>
             </div>
-            <div className="flex items-start gap-4 p-4 rounded-xl bg-[#faf8f5] border border-gray-100">
-              <Zap className="w-6 h-6 text-[#bfa76a] shrink-0 mt-0.5" />
+            <div className="flex flex-col sm:flex-row items-center sm:items-start text-center sm:text-left gap-2 sm:gap-4 p-3 sm:p-4 rounded-xl bg-[#faf8f5] border border-gray-100">
+              <Zap className="w-6 h-6 text-[#bfa76a] shrink-0 sm:mt-0.5" />
               <div>
-                <h4 className="font-bold text-gray-900 text-sm mb-1">Power Backup</h4>
-                <p className="text-xs text-gray-600">Full 24/7 electricity backup guarantee.</p>
+                <h4 className="font-bold text-gray-900 text-[11px] sm:text-sm mb-0.5 sm:mb-1">Power Backup</h4>
+                <p className="text-[10px] sm:text-xs text-gray-600 leading-tight">Full 24/7 electricity backup guarantee.</p>
               </div>
             </div>
-            <div className="flex items-start gap-4 p-4 rounded-xl bg-[#faf8f5] border border-gray-100">
-              <BedDouble className="w-6 h-6 text-[#bfa76a] shrink-0 mt-0.5" />
+            <div className="flex flex-col sm:flex-row items-center sm:items-start text-center sm:text-left gap-2 sm:gap-4 p-3 sm:p-4 rounded-xl bg-[#faf8f5] border border-gray-100">
+              <BedDouble className="w-6 h-6 text-[#bfa76a] shrink-0 sm:mt-0.5" />
               <div>
-                <h4 className="font-bold text-gray-900 text-sm mb-1">Room Service</h4>
-                <p className="text-xs text-gray-600">Hot meals and beverages on call.</p>
+                <h4 className="font-bold text-gray-900 text-[11px] sm:text-sm mb-0.5 sm:mb-1">Room Service</h4>
+                <p className="text-[10px] sm:text-xs text-gray-600 leading-tight">Hot meals and beverages on call.</p>
               </div>
             </div>
           </div>

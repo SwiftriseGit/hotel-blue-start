@@ -73,12 +73,12 @@ export default function GalleryPage() {
       {/* Gallery Grid with Category Filters */}
       <section className="w-full max-w-[1440px] mx-auto px-4 sm:px-6 md:px-8 lg:px-10 py-16 sm:py-20">
         {/* Category Pills */}
-        <div className="flex items-center justify-center flex-wrap gap-3 mb-12">
+        <div className="flex items-center justify-start sm:justify-center overflow-x-auto no-scrollbar gap-3 mb-12 pb-4 px-2 sm:px-0 scroll-smooth">
           {categories.map((cat) => (
             <button
               key={cat}
               onClick={() => setActiveCategory(cat)}
-              className={`px-6 py-2.5 rounded-full font-bold text-xs sm:text-sm tracking-wider uppercase transition-all duration-300 cursor-pointer ${
+              className={`shrink-0 px-6 py-2.5 rounded-full font-bold text-xs sm:text-sm tracking-wider uppercase transition-all duration-300 cursor-pointer ${
                 activeCategory === cat
                   ? "bg-[#bfa76a] text-white shadow-lg shadow-[#bfa76a]/30 scale-105"
                   : "bg-white text-gray-700 hover:bg-gray-100 border border-gray-200"
