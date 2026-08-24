@@ -3,7 +3,8 @@
 import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { Phone, Mail, MapPin, Send, CheckCircle2, Clock, MessageCircle } from "lucide-react";
+import { Phone, Mail, MapPin, Send, CheckCircle2, Clock } from "lucide-react";
+import { FaWhatsapp } from "react-icons/fa";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import ScrollProgress from "../components/ScrollProgress";
@@ -142,7 +143,7 @@ export default function ContactPage() {
                 rel="noopener noreferrer"
                 className="flex-1 inline-flex items-center justify-center gap-2.5 w-full bg-[#25D366] hover:bg-[#20b858] text-white py-4 rounded-xl font-bold text-sm tracking-wider uppercase transition-all shadow-md shadow-[#25D366]/30"
               >
-                <MessageCircle className="w-4.5 h-4.5" />
+                <FaWhatsapp className="w-5 h-5" />
                 <span>WhatsApp Us</span>
               </a>
             </div>

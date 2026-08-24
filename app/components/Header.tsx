@@ -2,7 +2,8 @@
 
 import { useState, useEffect } from "react";
 import { usePathname } from "next/navigation";
-import { Menu, X, MessageCircle } from "lucide-react";
+import { Menu, X } from "lucide-react";
+import { FaWhatsapp } from "react-icons/fa";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -106,7 +107,7 @@ export default function Header() {
             rel="noopener noreferrer"
             className="hidden sm:inline-flex items-center gap-2 bg-[#bfa76a] hover:bg-[#a69055] text-white px-4.5 py-2.5 rounded-full font-bold text-xs tracking-wider uppercase transition-all duration-300 shadow-[0_4px_16px_rgba(191,167,106,0.35)] hover:shadow-[#bfa76a]/50 hover:scale-105 active:scale-95"
           >
-            <MessageCircle className="w-4 h-4" />
+            <FaWhatsapp className="w-4.5 h-4.5 text-white" />
             <span>BOOK NOW</span>
           </a>
 
@@ -118,7 +119,7 @@ export default function Header() {
             className="sm:hidden flex items-center justify-center w-10 h-10 rounded-full bg-[#25D366] text-white shadow-md shadow-[#25D366]/30 active:scale-95 transition-all"
             aria-label="Book on WhatsApp"
           >
-            <MessageCircle className="w-5 h-5" />
+            <FaWhatsapp className="w-5 h-5" />
           </a>
 
           {/* Mobile Hamburger */}
@@ -174,7 +175,7 @@ export default function Header() {
             onClick={() => setMobileOpen(false)}
             className="w-full flex items-center justify-center gap-2.5 bg-[#bfa76a] hover:bg-[#a69055] text-white py-3.5 rounded-xl font-bold text-sm tracking-wider uppercase transition-all shadow-lg shadow-[#bfa76a]/30 active:scale-95"
           >
-            <MessageCircle className="w-5 h-5" />
+            <FaWhatsapp className="w-5 h-5" />
             <span>Book via WhatsApp</span>
           </a>
         </div>
