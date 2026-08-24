@@ -33,7 +33,7 @@ export default function Footer() {
               </Link>
 
               <p className="text-gray-400 text-[14px] sm:text-[15px] leading-relaxed max-w-sm mb-6">
-                Comfortable stays, warm hospitality and unforgettable experiences in Bhubaneswar, Odisha.
+                Comfortable stays, warm hospitality, and unforgettable experiences tailored for your perfect stay.
               </p>
 
               {/* Official Social Media Icons - Commented out as requested

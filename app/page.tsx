@@ -120,7 +120,7 @@ export default function Home() {
               }`}
               style={{ transitionDelay: "480ms" }}
             >
-              Experience the perfect blend of luxury and value. Hotel Silver Star offers comfortable rooms, affordable prices, and wide open spaces tailored for both business and leisure stays in the heart of Rourkela, Odisha.
+              Experience the perfect blend of luxury, comfort, and value. Hotel Silver Star offers elegantly furnished rooms, warm hospitality, and open spaces designed for relaxing leisure stays and productive business trips.
             </p>
 
             {/* CTA Buttons */}

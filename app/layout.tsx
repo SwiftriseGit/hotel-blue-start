@@ -20,19 +20,19 @@ const caveat = Caveat({
 export const metadata: Metadata = {
   metadataBase: new URL("https://hotelsilverstar.in"),
   title: {
-    default: "Hotel Silver Star | Best Hotel in Rourkela",
+    default: "Hotel Silver Star | Premium Luxury Hotel & Stays",
     template: "%s | Hotel Silver Star",
   },
-  description: "Experience the perfect blend of luxury and value at Hotel Silver Star. Comfortable rooms, affordable prices, and spacious banquet halls for business and leisure stays in Rourkela, Odisha.",
-  keywords: ["Hotel Silver Star", "best hotel in Rourkela", "comfortable room", "affordable price", "business model hotel", "open space hotel", "luxury stay Rourkela", "Rourkela accommodation"],
+  description: "Experience the perfect blend of luxury and value at Hotel Silver Star. Comfortable AC & Non-AC rooms, affordable prices, and dedicated hospitality for business and leisure stays.",
+  keywords: ["Hotel Silver Star", "luxury hotel", "comfortable hotel room", "affordable hotel stay", "business hotel", "banquet hall", "luxury accommodation"],
   authors: [{ name: "Hotel Silver Star" }],
   openGraph: {
     type: "website",
     locale: "en_IN",
     url: "https://hotelsilverstar.in",
     siteName: "Hotel Silver Star",
-    title: "Hotel Silver Star | Best Hotel in Rourkela",
-    description: "Experience the perfect blend of luxury and value at Hotel Silver Star. Comfortable rooms and affordable prices in Rourkela.",
+    title: "Hotel Silver Star | Premium Luxury Hotel & Stays",
+    description: "Experience the perfect blend of luxury and value at Hotel Silver Star. Comfortable rooms, affordable prices, and warm hospitality.",
     images: [
       {
         url: "/image copy.png",
@@ -44,8 +44,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Hotel Silver Star | Best Hotel in Rourkela",
-    description: "Comfortable rooms, affordable prices, and luxury stays in Rourkela, Odisha.",
+    title: "Hotel Silver Star | Premium Luxury Hotel & Stays",
+    description: "Comfortable rooms, affordable prices, and luxury stays with exceptional hospitality.",
     images: ["/image copy.png"],
   },
 };

@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { usePathname } from "next/navigation";
-import { Menu, X } from "lucide-react";
+import { Menu, X, MessageCircle } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -97,15 +97,40 @@ export default function Header() {
           })}
         </nav>
 
-        {/* Right: Mobile Hamburger */}
-        <div className="flex items-center lg:hidden z-10">
-          <button
-            onClick={() => setMobileOpen(!mobileOpen)}
-            className="text-white p-2 min-w-[44px] min-h-[44px] flex items-center justify-center rounded-lg hover:bg-white/10 active:scale-95 transition-all focus:outline-none"
-            aria-label="Toggle Menu"
+        {/* Right: Desktop Book / WhatsApp CTA & Mobile Controls */}
+        <div className="flex items-center gap-3 sm:gap-4 z-10">
+          {/* Desktop WhatsApp Book Now Button */}
+          <a
+            href="https://wa.me/916370157311?text=Hello%2C%20I%20would%20like%20to%20inquire%20about%20booking%20a%20room%20at%20Hotel%20Silver%20Star."
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hidden sm:inline-flex items-center gap-2 bg-[#bfa76a] hover:bg-[#a69055] text-white px-4.5 py-2.5 rounded-full font-bold text-xs tracking-wider uppercase transition-all duration-300 shadow-[0_4px_16px_rgba(191,167,106,0.35)] hover:shadow-[#bfa76a]/50 hover:scale-105 active:scale-95"
           >
-            {mobileOpen ? <X className="w-7 h-7 text-[#bfa76a]" /> : <Menu className="w-7 h-7" />}
-          </button>
+            <MessageCircle className="w-4 h-4" />
+            <span>BOOK NOW</span>
+          </a>
+
+          {/* Mobile WhatsApp Quick Action Button */}
+          <a
+            href="https://wa.me/916370157311?text=Hello%2C%20I%20would%20like%20to%20inquire%20about%20booking%20a%20room%20at%20Hotel%20Silver%20Star."
+            target="_blank"
+            rel="noopener noreferrer"
+            className="sm:hidden flex items-center justify-center w-10 h-10 rounded-full bg-[#25D366] text-white shadow-md shadow-[#25D366]/30 active:scale-95 transition-all"
+            aria-label="Book on WhatsApp"
+          >
+            <MessageCircle className="w-5 h-5" />
+          </a>
+
+          {/* Mobile Hamburger */}
+          <div className="flex items-center lg:hidden">
+            <button
+              onClick={() => setMobileOpen(!mobileOpen)}
+              className="text-white p-2 min-w-[44px] min-h-[44px] flex items-center justify-center rounded-lg hover:bg-white/10 active:scale-95 transition-all focus:outline-none"
+              aria-label="Toggle Menu"
+            >
+              {mobileOpen ? <X className="w-7 h-7 text-[#bfa76a]" /> : <Menu className="w-7 h-7" />}
+            </button>
+          </div>
         </div>
 
       </div>
@@ -139,6 +164,20 @@ export default function Header() {
             );
           })}
         </nav>
+
+        {/* Mobile Drawer WhatsApp CTA Button */}
+        <div className="pt-6 mt-4 border-t border-white/10">
+          <a
+            href="https://wa.me/916370157311?text=Hello%2C%20I%20would%20like%20to%20inquire%20about%20booking%20a%20room%20at%20Hotel%20Silver%20Star."
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={() => setMobileOpen(false)}
+            className="w-full flex items-center justify-center gap-2.5 bg-[#bfa76a] hover:bg-[#a69055] text-white py-3.5 rounded-xl font-bold text-sm tracking-wider uppercase transition-all shadow-lg shadow-[#bfa76a]/30 active:scale-95"
+          >
+            <MessageCircle className="w-5 h-5" />
+            <span>Book via WhatsApp</span>
+          </a>
+        </div>
       </div>
     </>
   );
