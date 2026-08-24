@@ -179,7 +179,7 @@ export default function Footer() {
 
         {/* Footer Bottom Bar */}
         <div className="border-t border-white/10 pt-8 flex flex-col sm:flex-row items-center sm:items-start justify-start gap-4 text-xs text-gray-500 text-left">
-          <p>© {new Date().getFullYear()} <a href="https://swiftrise.in" target="_blank" rel="noopener noreferrer" className="hover:text-[#bfa76a] transition-colors underline underline-offset-4 decoration-gray-600 hover:decoration-[#bfa76a]">Swiftrise Solution Pvt Ltd</a>. ALL RIGHTS RESERVED.</p>
+          <p>© {new Date().getFullYear()} Built by <a href="https://swiftrise.in" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-[#bfa76a] transition-colors underline underline-offset-4 decoration-gray-600 hover:decoration-[#bfa76a] font-medium">Swiftrise Solution Pvt Ltd</a>.</p>
         </div>
 
       </div>
